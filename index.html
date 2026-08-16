@@ -392,6 +392,46 @@
       .toast.show { opacity: 1; transform: translateY(0); }
       .toast i { width: 17px; height: 17px; color: #e28944; }
 
+      .hero { animation: page-rise 560ms ease-out both; }
+      .bear { animation: bear-float 3.2s ease-in-out infinite; }
+      .cloud.one { animation: cloud-one 5s ease-in-out infinite; }
+      .cloud.two { animation: cloud-two 6s ease-in-out infinite; }
+      .sparkle { animation: twinkle 1.8s ease-in-out infinite alternate; }
+      .plans .plan { animation: page-rise 520ms ease-out both; }
+      .plans .plan:nth-child(1) { animation-delay: 100ms; }
+      .plans .plan:nth-child(2) { animation-delay: 170ms; }
+      .plans .plan:nth-child(3) { animation-delay: 240ms; }
+      .journal, .now-card { animation: page-rise 520ms ease-out 300ms both; }
+
+      @keyframes page-rise {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes bear-float {
+        0%, 100% { transform: translateY(0) rotate(-1deg); }
+        50% { transform: translateY(-9px) rotate(1deg); }
+      }
+
+      @keyframes cloud-one {
+        0%, 100% { transform: scale(.6) translateX(0); }
+        50% { transform: scale(.6) translateX(-20px); }
+      }
+
+      @keyframes cloud-two {
+        0%, 100% { transform: scale(.8) translateX(0); }
+        50% { transform: scale(.8) translateX(18px); }
+      }
+
+      @keyframes twinkle {
+        from { opacity: .55; }
+        to { opacity: 1; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      }
+
       @media (max-width: 900px) {
         .app-shell { grid-template-columns: minmax(0, 1fr); }
         .sidebar { position: relative; height: auto; padding: 17px 20px; border-right: 0; border-bottom: 1px dashed var(--line); }
@@ -430,17 +470,17 @@
   <body>
     <div class="app-shell">
       <aside class="sidebar">
-        <a class="brand" href="#home" aria-label="Astudyber 首页">
+        <a class="brand" href="index.html" aria-label="Astudyber 首页">
           <span class="brand-mark"><i data-lucide="sparkles"></i></span>
           <span>Astudyber</span>
         </a>
 
         <p class="side-label">MY LITTLE SPACE</p>
         <nav class="nav-list" aria-label="主导航">
-          <a class="nav-link active" href="#home"><i data-lucide="house"></i>小小宇宙</a>
-          <a class="nav-link" href="#plans"><i data-lucide="rocket"></i>星球计划</a>
-          <a class="nav-link" href="#journal"><i data-lucide="notebook-pen"></i>日常手账</a>
-          <a class="nav-link" href="#now"><i data-lucide="calendar-heart"></i>此刻清单</a>
+          <a class="nav-link active" href="index.html"><i data-lucide="house"></i>小小宇宙</a>
+          <a class="nav-link" href="plans.html"><i data-lucide="rocket"></i>星球计划</a>
+          <a class="nav-link" href="journal.html"><i data-lucide="notebook-pen"></i>日常手账</a>
+          <a class="nav-link" href="now.html"><i data-lucide="calendar-heart"></i>此刻清单</a>
         </nav>
 
         <div class="side-card">
@@ -481,9 +521,9 @@
         <section id="plans" aria-labelledby="plansTitle">
           <div class="section-heading"><div><h2 id="plansTitle">正在探索的星球</h2><p>把好奇心装进行囊。</p></div><i data-lucide="orbit" style="width:25px;height:25px;color:var(--rose)"></i></div>
           <div class="plans">
-            <a class="plan" href="#journal"><div class="plan-icon"><i data-lucide="pen-tool"></i></div><h3>创造计划</h3><p>写写画画，把脑袋里的小宇宙搬出来。</p><span class="plan-arrow"><i data-lucide="arrow-up-right"></i></span></a>
-            <a class="plan" href="#now"><div class="plan-icon"><i data-lucide="book-open-check"></i></div><h3>学习冒险</h3><p>每天解锁一点新知识，慢慢成为厉害的人。</p><span class="plan-arrow"><i data-lucide="arrow-up-right"></i></span></a>
-            <a class="plan" href="#home"><div class="plan-icon"><i data-lucide="flower-2"></i></div><h3>生活采集</h3><p>收集阳光、甜点和所有值得开心的小事。</p><span class="plan-arrow"><i data-lucide="arrow-up-right"></i></span></a>
+            <a class="plan" href="journal.html"><div class="plan-icon"><i data-lucide="pen-tool"></i></div><h3>创造计划</h3><p>写写画画，把脑袋里的小宇宙搬出来。</p><span class="plan-arrow"><i data-lucide="arrow-up-right"></i></span></a>
+            <a class="plan" href="plans.html"><div class="plan-icon"><i data-lucide="book-open-check"></i></div><h3>学习冒险</h3><p>每天解锁一点新知识，慢慢成为厉害的人。</p><span class="plan-arrow"><i data-lucide="arrow-up-right"></i></span></a>
+            <a class="plan" href="now.html"><div class="plan-icon"><i data-lucide="flower-2"></i></div><h3>生活采集</h3><p>收集阳光、甜点和所有值得开心的小事。</p><span class="plan-arrow"><i data-lucide="arrow-up-right"></i></span></a>
           </div>
         </section>
 
@@ -519,6 +559,12 @@
       let isPlaying = false;
       let toastTimer;
 
+      if (localStorage.getItem('astudyber-theme') === 'night') {
+        document.body.dataset.theme = 'night';
+        themeToggle.innerHTML = '<i data-lucide="sun-medium"></i>';
+        themeToggle.setAttribute('aria-label', '切换日间主题');
+      }
+
       function updateTime() {
         const now = new Date();
         const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
@@ -538,6 +584,7 @@
       themeToggle.addEventListener('click', () => {
         const isNight = document.body.dataset.theme === 'night';
         document.body.dataset.theme = isNight ? '' : 'night';
+        localStorage.setItem('astudyber-theme', isNight ? 'day' : 'night');
         themeToggle.innerHTML = `<i data-lucide="${isNight ? 'moon-star' : 'sun-medium'}"></i>`;
         themeToggle.setAttribute('aria-label', isNight ? '切换夜间主题' : '切换日间主题');
         lucide.createIcons();

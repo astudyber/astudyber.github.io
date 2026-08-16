@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff6df" />
+    <title>Astudyber | 日常手账</title>
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Noto+Sans+SC:wght@500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="assets/pages.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html" aria-label="Astudyber 首页"><span class="brand-mark"><i data-lucide="sparkles"></i></span><span>Astudyber</span></a>
+        <p class="side-label">MY LITTLE SPACE</p>
+        <nav class="nav-list" aria-label="主导航">
+          <a class="nav-link" href="index.html"><i data-lucide="house"></i>小小宇宙</a>
+          <a class="nav-link" href="plans.html"><i data-lucide="rocket"></i>星球计划</a>
+          <a class="nav-link active" href="journal.html"><i data-lucide="notebook-pen"></i>日常手账</a>
+          <a class="nav-link" href="now.html"><i data-lucide="calendar-heart"></i>此刻清单</a>
+        </nav>
+        <div class="side-card"><p class="tiny">ONE LINE A DAY</p><p class="mood">收集温柔</p><span class="side-badge"><i data-lucide="pen-line"></i> write it down</span></div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div class="today"><i data-lucide="sun-medium"></i><span id="todayText">加载今天中...</span></div>
+          <div class="top-actions"><button class="icon-button" id="themeToggle" type="button" aria-label="切换夜间主题" title="切换主题"><i data-lucide="moon-star"></i></button><div class="avatar" aria-label="个人头像"><i data-lucide="smile"></i></div></div>
+        </header>
+
+        <section class="page-hero hero-peach" aria-labelledby="pageTitle">
+          <div><span class="eyebrow"><i data-lucide="notebook-pen"></i> LITTLE JOURNAL</span><h1 id="pageTitle">日常手账</h1><p>把不想错过的瞬间放在这里。哪怕只是一个天气、一阵风，或一口很好吃的蛋糕。</p></div>
+          <div class="hero-doodle" aria-hidden="true"><i class="doodle-star" data-lucide="heart"></i><i class="doodle-sparkle" data-lucide="sparkle"></i><span class="planet"></span></div>
+        </section>
+
+        <section class="journal-layout" aria-label="写手账">
+          <form class="panel composer" id="journalForm">
+            <div class="composer-top"><h3>写下这一刻</h3><span class="hint">会保存在这台设备</span></div>
+            <textarea id="journalInput" maxlength="160" placeholder="今天有什么值得留住的小事？"></textarea>
+            <div class="composer-footer"><span class="character-count"><span id="entryLength">0</span> / 160</span><button class="button primary" type="submit"><i data-lucide="send"></i>贴进手账</button></div>
+          </form>
+          <aside class="prompt-card"><p>TODAY'S PROMPT</p><h3>今天，有什么让你偷偷开心了一下？</h3><p class="mini">不用完整，也不用漂亮。记录就已经很了不起。</p></aside>
+        </section>
+
+        <section aria-labelledby="entriesTitle">
+          <div class="section-heading"><div><h2 id="entriesTitle">翻开这一页</h2><p>新写的内容会出现在最上面。</p></div><i data-lucide="book-heart"></i></div>
+          <div class="entry-list" id="entryList">
+            <article class="entry" data-entry-id="sunlight"><div class="entry-sticker"><i data-lucide="sun"></i></div><div><h3>窗边的光</h3><p>下午四点的阳光刚好落在桌角，什么都没有发生，但心里很安静。</p></div><button class="like-button" type="button" data-like="sunlight" aria-label="喜欢这篇手账"><i data-lucide="heart"></i></button></article>
+            <article class="entry" data-entry-id="coffee"><div class="entry-sticker"><i data-lucide="coffee"></i></div><div><h3>新发现的小店</h3><p>点了一杯带着柚子香气的冰美式，店里的歌也很好听。</p></div><button class="like-button" type="button" data-like="coffee" aria-label="喜欢这篇手账"><i data-lucide="heart"></i></button></article>
+            <article class="entry" data-entry-id="leaf"><div class="entry-sticker"><i data-lucide="leaf"></i></div><div><h3>慢慢散步</h3><p>没有目的地地走了一会儿，路边的树影比昨天更浓了一点。</p></div><button class="like-button" type="button" data-like="leaf" aria-label="喜欢这篇手账"><i data-lucide="heart"></i></button></article>
+          </div>
+        </section>
+        <footer class="footer"><span>Keep the ordinary, it becomes a treasure.</span><span class="hearts">&#9829; &#9829; &#9829;</span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已经贴进手账啦</span></div>
+    <script src="assets/common.js"></script>
+    <script>
+      const entryStorageKey = 'astudyber-journal-entries';
+      const likeStorageKey = 'astudyber-journal-likes';
+      const journalForm = document.getElementById('journalForm');
+      const journalInput = document.getElementById('journalInput');
+      const entryLength = document.getElementById('entryLength');
+      const entryList = document.getElementById('entryList');
+      const likes = JSON.parse(localStorage.getItem(likeStorageKey) || '{}');
+
+      function createEntry(entry, prepend) {
+        const article = document.createElement('article');
+        article.className = 'entry';
+        article.dataset.entryId = entry.id;
+        const sticker = document.createElement('div');
+        sticker.className = 'entry-sticker';
+        sticker.innerHTML = '<i data-lucide="sticky-note"></i>';
+        const copy = document.createElement('div');
+        const title = document.createElement('h3');
+        const text = document.createElement('p');
+        title.textContent = entry.title;
+        text.textContent = entry.text;
+        copy.append(title, text);
+        const button = document.createElement('button');
+        button.className = 'like-button';
+        button.type = 'button';
+        button.dataset.like = entry.id;
+        button.setAttribute('aria-label', '喜欢这篇手账');
+        button.innerHTML = '<i data-lucide="heart"></i>';
+        article.append(sticker, copy, button);
+        if (prepend) entryList.prepend(article); else entryList.append(article);
+        return article;
+      }
+
+      const savedEntries = JSON.parse(localStorage.getItem(entryStorageKey) || '[]');
+      savedEntries.forEach((entry) => createEntry(entry, true));
+
+      function paintLikes() {
+        document.querySelectorAll('[data-like]').forEach((button) => {
+          const isLiked = Boolean(likes[button.dataset.like]);
+          button.classList.toggle('liked', isLiked);
+          button.setAttribute('aria-pressed', isLiked ? 'true' : 'false');
+          button.innerHTML = `<i data-lucide="heart"${isLiked ? ' fill="currentColor"' : ''}></i>`;
+        });
+        Astudyber.refreshIcons();
+      }
+
+      journalInput.addEventListener('input', () => { entryLength.textContent = journalInput.value.length; });
+      journalForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const text = journalInput.value.trim();
+        if (!text) { Astudyber.showToast('先写下一件小事吧'); return; }
+        const entry = { id: `entry-${Date.now()}`, title: '刚刚写下的片刻', text };
+        savedEntries.unshift(entry);
+        localStorage.setItem(entryStorageKey, JSON.stringify(savedEntries));
+        createEntry(entry, true);
+        journalInput.value = '';
+        entryLength.textContent = '0';
+        Astudyber.refreshIcons();
+        Astudyber.showToast('已经贴进手账啦');
+      });
+
+      entryList.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-like]');
+        if (!button) return;
+        const id = button.dataset.like;
+        likes[id] = !likes[id];
+        localStorage.setItem(likeStorageKey, JSON.stringify(likes));
+        paintLikes();
+        Astudyber.showToast(likes[id] ? '这份喜欢收到了' : '已取消喜欢');
+      });
+
+      paintLikes();
+    </script>
+  </body>
+</html>

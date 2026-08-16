@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff6df" />
+    <title>Astudyber | 此刻清单</title>
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Noto+Sans+SC:wght@500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="assets/pages.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html" aria-label="Astudyber 首页"><span class="brand-mark"><i data-lucide="sparkles"></i></span><span>Astudyber</span></a>
+        <p class="side-label">MY LITTLE SPACE</p>
+        <nav class="nav-list" aria-label="主导航">
+          <a class="nav-link" href="index.html"><i data-lucide="house"></i>小小宇宙</a>
+          <a class="nav-link" href="plans.html"><i data-lucide="rocket"></i>星球计划</a>
+          <a class="nav-link" href="journal.html"><i data-lucide="notebook-pen"></i>日常手账</a>
+          <a class="nav-link active" href="now.html"><i data-lucide="calendar-heart"></i>此刻清单</a>
+        </nav>
+        <div class="side-card"><p class="tiny">RIGHT NOW</p><p class="mood">慢慢专注</p><span class="side-badge"><i data-lucide="timer"></i> one thing first</span></div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div class="today"><i data-lucide="sun-medium"></i><span id="todayText">加载今天中...</span></div>
+          <div class="top-actions"><button class="icon-button" id="themeToggle" type="button" aria-label="切换夜间主题" title="切换主题"><i data-lucide="moon-star"></i></button><div class="avatar" aria-label="个人头像"><i data-lucide="smile"></i></div></div>
+        </header>
+
+        <section class="page-hero hero-mint" aria-labelledby="pageTitle">
+          <div><span class="eyebrow"><i data-lucide="calendar-heart"></i> MAKE IT COUNT</span><h1 id="pageTitle">此刻清单</h1><p>先把注意力放在这一分钟。其余的事，等做完眼前这一件再说。</p></div>
+          <div class="hero-doodle" aria-hidden="true"><i class="doodle-star" data-lucide="clock-3"></i><i class="doodle-sparkle" data-lucide="sparkle"></i><span class="planet"></span></div>
+        </section>
+
+        <section class="now-layout" aria-label="专注和清单">
+          <article class="timer-panel">
+            <p class="timer-kicker">FOCUS SESSION</p><p class="timer" id="timer">25:00</p><p class="timer-copy" id="timerCopy">给自己 25 分钟，只专注在一件真正重要的事上。</p>
+            <div class="timer-actions"><button class="button primary" id="timerToggle" type="button"><i data-lucide="play"></i><span>开始专注</span></button><button class="button" id="timerReset" type="button"><i data-lucide="rotate-ccw"></i>重置</button></div>
+          </article>
+          <aside class="panel today-panel">
+            <h3>今天最重要的事</h3><p>完成它，就已经很棒了。</p>
+            <div class="focus-list">
+              <label class="focus-item"><input type="checkbox" data-focus="focus-1" /><span>整理并完成当前项目</span></label>
+              <label class="focus-item"><input type="checkbox" data-focus="focus-2" /><span>回复一条想了很久的消息</span></label>
+              <label class="focus-item"><input type="checkbox" data-focus="focus-3" /><span>留出一点完全放松的时间</span></label>
+            </div>
+            <div class="focus-footer"><span id="focusProgress">0 / 3 已完成</span><i data-lucide="circle-check-big" style="width:19px;height:19px;color:#d86c7c"></i></div>
+          </aside>
+        </section>
+
+        <section aria-labelledby="moodTitle">
+          <div class="section-heading"><div><h2 id="moodTitle">此刻的心情</h2><p>点一下，留住现在的状态。</p></div><i data-lucide="sparkles"></i></div>
+          <div class="panel" style="padding:18px"><div class="mood-grid" id="moodGrid"><button class="mood-button" type="button" data-mood="sunny"><i data-lucide="sun"></i>元气</button><button class="mood-button" type="button" data-mood="calm"><i data-lucide="cloud-sun"></i>平静</button><button class="mood-button" type="button" data-mood="cozy"><i data-lucide="coffee"></i>松软</button></div></div>
+        </section>
+        <footer class="footer"><span>Do the next kind thing for yourself.</span><span class="hearts">&#9829; &#9829; &#9829;</span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已保存</span></div>
+    <script src="assets/common.js"></script>
+    <script>
+      const timerElement = document.getElementById('timer');
+      const timerButton = document.getElementById('timerToggle');
+      const timerReset = document.getElementById('timerReset');
+      const timerCopy = document.getElementById('timerCopy');
+      const focusInputs = [...document.querySelectorAll('[data-focus]')];
+      const focusKey = 'astudyber-focus-tasks';
+      const focusState = JSON.parse(localStorage.getItem(focusKey) || '{}');
+      let seconds = 25 * 60;
+      let timerId;
+
+      function renderTimer() {
+        const minutes = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const remainingSeconds = (seconds % 60).toString().padStart(2, '0');
+        timerElement.textContent = `${minutes}:${remainingSeconds}`;
+      }
+
+      function setTimerButton(isRunning) {
+        timerButton.innerHTML = `<i data-lucide="${isRunning ? 'pause' : 'play'}"></i><span>${isRunning ? '暂停一下' : '开始专注'}</span>`;
+        Astudyber.refreshIcons();
+      }
+
+      function stopTimer() { clearInterval(timerId); timerId = undefined; setTimerButton(false); }
+      function startTimer() {
+        if (timerId) { stopTimer(); Astudyber.showToast('计时器暂停了'); return; }
+        if (seconds === 0) seconds = 25 * 60;
+        timerCopy.textContent = '正在为你的专注计时，先把其它声音放在一边。';
+        setTimerButton(true);
+        timerId = setInterval(() => {
+          seconds -= 1;
+          renderTimer();
+          if (seconds <= 0) {
+            stopTimer();
+            timerCopy.textContent = '这一轮专注完成了，起来伸个懒腰吧。';
+            Astudyber.showToast('25 分钟完成，做得很好');
+          }
+        }, 1000);
+        Astudyber.showToast('专注开始，慢慢来');
+      }
+
+      timerButton.addEventListener('click', startTimer);
+      timerReset.addEventListener('click', () => { stopTimer(); seconds = 25 * 60; renderTimer(); timerCopy.textContent = '给自己 25 分钟，只专注在一件真正重要的事上。'; Astudyber.showToast('计时器已重置'); });
+
+      function updateFocus() {
+        const done = focusInputs.filter((input) => input.checked).length;
+        document.getElementById('focusProgress').textContent = `${done} / ${focusInputs.length} 已完成`;
+      }
+
+      focusInputs.forEach((input) => {
+        input.checked = Boolean(focusState[input.dataset.focus]);
+        input.addEventListener('change', () => { focusState[input.dataset.focus] = input.checked; localStorage.setItem(focusKey, JSON.stringify(focusState)); updateFocus(); Astudyber.showToast(input.checked ? '完成一件，离目标更近了' : '任务回到了清单里'); });
+      });
+
+      const savedMood = localStorage.getItem('astudyber-mood');
+      document.querySelectorAll('[data-mood]').forEach((button) => {
+        button.classList.toggle('selected', button.dataset.mood === savedMood);
+        button.addEventListener('click', () => { localStorage.setItem('astudyber-mood', button.dataset.mood); document.querySelectorAll('[data-mood]').forEach((item) => item.classList.toggle('selected', item === button)); Astudyber.showToast(`已记下${button.textContent.trim()}的心情`); });
+      });
+
+      renderTimer();
+      updateFocus();
+    </script>
+  </body>
+</html>
