@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#070b18" />
+    <meta name="theme-color" content="#fdf6e3" />
     <title>Astudyber | 研究</title>
     <link rel="stylesheet" href="../assets/pages.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -41,7 +41,7 @@
                 <div class="section-heading">
                     <div>
                         <h2>研究方向 / RESEARCH AREAS</h2>
-                        <p>当前关注的技术领域。</p>
+                        <p>当前关注的技术领域；下方内容来自 <code>home/dox/研究</code> 中的 Markdown 文件。</p>
                     </div><i data-lucide="network"></i>
                 </div>
                 <div class="project-grid">
@@ -71,11 +71,31 @@
                     </article>
                 </div>
             </section>
+            <section aria-labelledby="researchNotesTitle">
+                <div class="section-heading">
+                    <div>
+                        <h2 id="researchNotesTitle">研究笔记 / MARKDOWN NOTES</h2>
+                        <p>从侧边栏目选择一篇笔记，内容会在右侧实时渲染。</p>
+                    </div><i data-lucide="book-open"></i>
+                </div>
+                <div class="research-browser panel" id="researchBrowser">
+                    <aside class="research-browser__sidebar" aria-label="研究笔记目录">
+                        <div class="research-browser__kicker">本地文档</div>
+                        <nav class="research-notes" id="researchNotes" aria-label="研究 Markdown 文件">
+                            <p class="research-status">正在读取目录…</p>
+                        </nav>
+                    </aside>
+                    <article class="markdown-content" id="markdownContent" aria-live="polite">
+                        <div class="markdown-placeholder"><i data-lucide="file-code-2"></i><p>选择左侧栏目开始阅读。</p></div>
+                    </article>
+                </div>
+            </section>
             <footer class="footer"><span>04 / LAB</span><span class="hearts">✦ ✦ ✦</span></footer>
         </main>
     </div>
     <div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已保存</span></div>
     <script src="../assets/common.js"></script>
+    <script src="../assets/research.js"></script>
 </body>
 
 </html>

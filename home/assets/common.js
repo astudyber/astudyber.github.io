@@ -11,6 +11,8 @@
   function setTheme(theme) {
     const isNight = theme === 'night';
     document.body.dataset.theme = isNight ? 'night' : '';
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeMeta) themeMeta.setAttribute('content', isNight ? '#070612' : '#fdf6e3');
     if (themeToggle) {
       themeToggle.innerHTML = `<i data-lucide="${isNight ? 'sun-medium' : 'moon-star'}"></i>`;
       themeToggle.setAttribute('aria-label', isNight ? '切换日间主题' : '切换夜间主题');
@@ -101,7 +103,7 @@
   }
 
   if (localStorage.getItem('astudyber-theme') === 'night') setTheme('night'); else setTheme('day');
-  if (themeToggle) themeToggle.addEventListener('click', () => { const nextTheme = document.body.dataset.theme === 'night' ? 'day' : 'night'; setTheme(nextTheme); showToast(nextTheme === 'night' ? '深空主题已开启' : '科技蓝主题已开启'); });
+  if (themeToggle) themeToggle.addEventListener('click', () => { const nextTheme = document.body.dataset.theme === 'night' ? 'day' : 'night'; setTheme(nextTheme); showToast(nextTheme === 'night' ? '深空主题已开启' : 'Solarized Light 日间主题已开启'); });
   updateDate();
   refreshIcons();
   startAmbientLayer();
