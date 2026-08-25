@@ -36,11 +36,10 @@
 
 ## 📝 更新研究 Markdown
 
-1. 在 `home/dox/研究/` 新建 `.md` 文件；
-2. 在 `home/dox/研究/index.json` 中登记文件名和显示标题；
-3. 提交并部署后，打开[研究页](https://astudyber.github.io/home/pages/research.html)即可查看。
+1. 在 `home/dox/研究/` 新建、修改或删除 `.md` 文件；
+2. 刷新研究页即可查看变化；部署到 GitHub Pages 时提交并推送即可。
 
-GitHub Pages 是静态托管服务，网页可以读取已经部署的文件，但不能直接把修改写回本地 Markdown。也就是说：编辑仓库文件 → 提交部署 → 前端展示更新。
+研究页会自动发现 Markdown：本地 HTTP 静态服务器使用目录索引，GitHub Pages 使用 GitHub Contents API。`index.json` 仍保留为离线回退清单，但不再是新增或删除文件的必填登记步骤。GitHub Pages 是静态托管服务，网页可以读取已经部署的文件，但不能直接把修改写回本地 Markdown。也就是说：编辑仓库文件 → 提交部署 → 前端展示更新。
 
 ## 🧱 新增静态展示页
 

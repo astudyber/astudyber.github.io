@@ -58,13 +58,12 @@
 
 ## 研究页 Markdown
 
-`home/pages/research.html` 是纯静态页面。研究笔记放在 `home/dox/研究/`，由同目录的
-`index.json` 列出文件；浏览器加载研究页时通过 `fetch` 读取 Markdown，并在前端渲染标题、列表、引用、代码块、链接等常用语法。
+`home/pages/research.html` 是纯静态页面。研究笔记放在 `home/dox/研究/`；浏览器加载研究页时会自动发现 Markdown，并通过 `fetch` 读取文件，在前端渲染标题、列表、引用、代码块、链接等常用语法。
 
-新增笔记时：
+新增、修改或删除笔记时：
 
-1. 在 `home/dox/研究/` 新建 `.md` 文件；
-2. 将文件名（以及可选标题）加入 `index.json`；
-3. 提交并部署后刷新研究页。
+1. 直接操作 `home/dox/研究/` 下的 `.md` 文件；
+2. 本地 HTTP 预览时刷新页面即可；
+3. GitHub Pages 部署时提交并推送后刷新页面即可。
 
-GitHub Pages 不提供服务端写入能力，因此网页本身不能直接修改本地文件；修改 Markdown 文件后重新部署即可更新页面。直接双击 HTML 的 `file://` 预览可能被浏览器拦截，请使用本地 HTTP 静态服务器或 GitHub Pages 访问。
+本地 HTTP 静态服务器通过目录索引自动发现文件；部署到 GitHub Pages 后通过 GitHub Contents API 自动发现文件。`index.json` 仅作为 API 或目录索引不可用时的兼容回退，不再需要手工维护。GitHub Pages 不提供服务端写入能力，因此网页本身不能直接修改本地文件。直接双击 HTML 的 `file://` 预览可能被浏览器拦截，请使用本地 HTTP 静态服务器或 GitHub Pages 访问。

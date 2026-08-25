@@ -86,7 +86,7 @@
     notes.querySelectorAll('.research-note').forEach((item) => item.classList.toggle('active', item === button));
     content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="loader-circle"></i><p>正在加载 Markdown…</p></div>';
     if (window.Astudyber) window.Astudyber.refreshIcons();
-    fetch(`../dox/研究/${encodeURIComponent(file)}`)
+    fetch(`../dox/研究/${encodeURIComponent(file)}`, { cache: 'no-store' })
       .then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.text(); })
       .then((markdown) => {
         content.innerHTML = renderMarkdown(markdown);
@@ -98,15 +98,56 @@
       });
   }
 
-  fetch(manifestUrl)
-    .then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); })
-    .then((manifest) => {
-      const files = Array.isArray(manifest) ? manifest : manifest.files;
-      if (!Array.isArray(files) || !files.length) throw new Error('empty manifest');
+  function titleFromFile(file) {
+    return file.replace(/\.md$/i, '').replace(/^\d+[-_ ]*/, '').replace(/[-_]+/g, ' ');
+  }
+
+  function discoverFromDirectoryListing() {
+    return fetch('../dox/研究/', { cache: 'no-store' })
+      .then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.text(); })
+      .then((html) => {
+        const documentFragment = new DOMParser().parseFromString(html, 'text/html');
+        const files = Array.from(documentFragment.querySelectorAll('a[href]')).map((link) => {
+          try { return decodeURIComponent(new URL(link.getAttribute('href'), location.href).pathname.split('/').filter(Boolean).pop()); } catch (error) { return ''; }
+        }).filter((file) => /^.+\.md$/i.test(file));
+        if (!files.length) throw new Error('directory listing unavailable');
+        return Array.from(new Set(files)).sort((a, b) => a.localeCompare(b, 'zh-CN'));
+      });
+  }
+
+  function discoverFromGitHubApi(branch) {
+    const path = ['home', 'dox', '研究'].map((part) => encodeURIComponent(part)).join('/');
+    return fetch(`https://api.github.com/repos/astudyber/astudyber.github.io/contents/${path}?ref=${branch}`, { cache: 'no-store', headers: { Accept: 'application/vnd.github+json' } })
+      .then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); })
+      .then((entries) => {
+        const files = entries.filter((entry) => entry.type === 'file' && /\.md$/i.test(entry.name)).map((entry) => entry.name);
+        if (!files.length) throw new Error('empty GitHub directory');
+        return files.sort((a, b) => a.localeCompare(b, 'zh-CN'));
+      });
+  }
+
+  function discoverFromManifest() {
+    return fetch(manifestUrl, { cache: 'no-store' })
+      .then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); })
+      .then((manifest) => {
+        const entries = Array.isArray(manifest) ? manifest : manifest.files;
+        if (!Array.isArray(entries) || !entries.length) throw new Error('empty manifest');
+        return entries.map((entry) => typeof entry === 'string' ? entry : entry.file).filter((file) => /\.md$/i.test(file));
+      });
+  }
+
+  function discoverFiles() {
+    return discoverFromDirectoryListing()
+      .catch(() => discoverFromGitHubApi('main'))
+      .catch(() => discoverFromGitHubApi('master'))
+      .catch(() => discoverFromManifest());
+  }
+
+  discoverFiles()
+    .then((files) => {
       notes.innerHTML = '';
-      files.forEach((entry, index) => {
-        const file = typeof entry === 'string' ? entry : entry.file;
-        const title = typeof entry === 'string' ? entry.replace(/\.md$/i, '') : (entry.title || file.replace(/\.md$/i, ''));
+      files.forEach((file, index) => {
+        const title = titleFromFile(file);
         const button = document.createElement('button');
         button.type = 'button'; button.className = 'research-note';
         button.innerHTML = `<span class="research-note__index">${String(index + 1).padStart(2, '0')}</span><span><strong>${escapeHtml(title)}</strong><small>${escapeHtml(file)}</small></span>`;
@@ -115,5 +156,5 @@
         if (index === 0) selectNote(button, file);
       });
     })
-    .catch(() => setStatus('未找到 Markdown 目录，请检查 home/dox/研究/index.json。', true));
+    .catch(() => setStatus('未找到 Markdown 文件。请使用 HTTP 静态服务器，或确认文件已提交到 GitHub。', true));
 })();
