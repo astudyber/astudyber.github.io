@@ -4,6 +4,7 @@
   if (!notes || !content) return;
 
   const manifestUrl = '../dox/研究/index.json';
+  const documentsBaseUrl = new URL('../dox/研究/', window.location.href);
 
   function escapeHtml(value) {
     return value.replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
@@ -82,19 +83,46 @@
     notes.innerHTML = `<p class="research-status${isError ? ' is-error' : ''}">${escapeHtml(message)}</p>`;
   }
 
+  function fileUrl(file) {
+    const url = new URL(encodeURIComponent(file), documentsBaseUrl);
+    url.searchParams.set('_refresh', Date.now().toString());
+    return url.href;
+  }
+
+  function renderNotes(files, selectFirst) {
+    notes.innerHTML = '';
+    files.forEach((file, index) => {
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'research-note';
+      button.innerHTML = `<span class="research-note__index">${String(index + 1).padStart(2, '0')}</span><span><strong>${escapeHtml(titleFromFile(file))}</strong><small>${escapeHtml(file)}</small></span>`;
+      button.addEventListener('click', () => selectNote(button, file));
+      notes.appendChild(button);
+      if (selectFirst && index === 0) selectNote(button, file);
+    });
+  }
+
   function selectNote(button, file) {
     notes.querySelectorAll('.research-note').forEach((item) => item.classList.toggle('active', item === button));
     content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="loader-circle"></i><p>正在加载 Markdown…</p></div>';
     if (window.Astudyber) window.Astudyber.refreshIcons();
-    fetch(`../dox/研究/${encodeURIComponent(file)}`, { cache: 'no-store' })
+    fetch(fileUrl(file), { cache: 'no-store' })
       .then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.text(); })
       .then((markdown) => {
         content.innerHTML = renderMarkdown(markdown);
         content.scrollTop = 0;
       })
       .catch(() => {
-        content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="triangle-alert"></i><p>暂时无法读取这篇 Markdown，请确认文件路径和本地 HTTP 服务。</p></div>';
+        content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="loader-circle"></i><p>文件路径可能刚刚发生变化，正在重新扫描…</p></div>';
         if (window.Astudyber) window.Astudyber.refreshIcons();
+        discoverFiles().then((files) => {
+          if (files.includes(file)) throw new Error('file still unavailable');
+          renderNotes(files, false);
+          content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="refresh-cw"></i><p>目录已更新，请从左侧选择重命名后的文件。</p></div>';
+          if (window.Astudyber) window.Astudyber.refreshIcons();
+        }).catch(() => {
+          content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="triangle-alert"></i><p>暂时无法读取这篇 Markdown，请确认文件路径和本地 HTTP 服务。</p></div>';
+          if (window.Astudyber) window.Astudyber.refreshIcons();
+        });
       });
   }
 
@@ -145,16 +173,7 @@
 
   discoverFiles()
     .then((files) => {
-      notes.innerHTML = '';
-      files.forEach((file, index) => {
-        const title = titleFromFile(file);
-        const button = document.createElement('button');
-        button.type = 'button'; button.className = 'research-note';
-        button.innerHTML = `<span class="research-note__index">${String(index + 1).padStart(2, '0')}</span><span><strong>${escapeHtml(title)}</strong><small>${escapeHtml(file)}</small></span>`;
-        button.addEventListener('click', () => selectNote(button, file));
-        notes.appendChild(button);
-        if (index === 0) selectNote(button, file);
-      });
+      renderNotes(files, true);
     })
     .catch(() => setStatus('未找到 Markdown 文件。请使用 HTTP 静态服务器，或确认文件已提交到 GitHub。', true));
 })();
