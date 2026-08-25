@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17152e" />
+    <title>Astudyber | Dreamy Demo</title>
+    <style>
+      :root { --ink: #fff7ff; --muted: #c9c2e8; --pink: #ff8fd4; --blue: #8ad9ff; --violet: #a88cff; --yellow: #ffe38b; --night: #17152e; --glass: rgba(35, 29, 67, .64); }
+      * { box-sizing: border-box; }
+      html { min-width: 320px; background: var(--night); }
+      body { min-height: 100vh; margin: 0; overflow-x: hidden; color: var(--ink); background: radial-gradient(circle at 20% 12%, #3f2d69 0, transparent 34%), radial-gradient(circle at 86% 15%, #153b60 0, transparent 31%), var(--night); font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+      #stars { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+      .aurora { position: fixed; z-index: 0; width: 42vw; height: 42vw; border-radius: 50%; opacity: .28; filter: blur(14px); pointer-events: none; animation: drift 15s ease-in-out infinite alternate; }
+      .aurora.one { top: -18vw; left: -11vw; background: #ff75c8; }
+      .aurora.two { right: -14vw; bottom: -19vw; background: #6ebcff; animation-delay: -6s; }
+      .shell { position: relative; z-index: 1; display: grid; min-height: 100vh; place-items: center; padding: 30px 18px; }
+      .board { width: min(1080px, 100%); overflow: hidden; border: 1px solid rgba(255,255,255,.2); border-radius: 32px; background: linear-gradient(135deg, rgba(35,29,67,.84), rgba(21,40,71,.64)); box-shadow: 0 30px 100px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.13); backdrop-filter: blur(20px); }
+      .topline { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 23px 28px; border-bottom: 1px solid rgba(255,255,255,.12); }
+      .logo { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-size: 15px; font-weight: 850; letter-spacing: .06em; }
+      .logo-mark { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid rgba(255,255,255,.34); border-radius: 12px; background: linear-gradient(135deg, var(--pink), var(--violet)); box-shadow: 0 0 25px rgba(255,143,212,.38); }
+      .topline small { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+      .hero { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 34px; padding: clamp(34px, 7vw, 82px) clamp(26px, 7vw, 80px) 52px; }
+      .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 11px; border: 1px solid rgba(255,227,139,.42); border-radius: 999px; color: var(--yellow); background: rgba(255,227,139,.08); font-size: 11px; font-weight: 850; letter-spacing: .1em; }
+      h1 { max-width: 600px; margin: 18px 0 14px; font-size: clamp(38px, 7vw, 76px); line-height: .98; letter-spacing: -.06em; }
+      h1 span { display: inline-block; background: linear-gradient(100deg, #fff, var(--pink) 48%, var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .intro { max-width: 520px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.85; }
+      .actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 25px; }
+      button, .back-link { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 10px 15px; border: 1px solid rgba(255,255,255,.2); border-radius: 13px; color: var(--ink); background: rgba(255,255,255,.09); font: inherit; font-size: 12px; font-weight: 800; text-decoration: none; cursor: pointer; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+      button:hover, .back-link:hover { border-color: var(--pink); background: rgba(255,143,212,.14); transform: translateY(-2px); }
+      button.primary { border-color: transparent; color: #2b1a43; background: linear-gradient(100deg, var(--yellow), var(--pink)); box-shadow: 0 8px 25px rgba(255,143,212,.24); }
+      .scene { position: relative; display: grid; min-height: 330px; place-items: center; }
+      .halo { position: absolute; width: 260px; height: 260px; border: 1px solid rgba(138,217,255,.42); border-radius: 50%; box-shadow: 0 0 50px rgba(138,217,255,.16), inset 0 0 40px rgba(168,140,255,.12); animation: spin 19s linear infinite; }
+      .halo::before, .halo::after { position: absolute; width: 11px; height: 11px; border: 2px solid var(--yellow); border-radius: 50%; background: var(--pink); box-shadow: 0 0 16px var(--pink); content: ""; }
+      .halo::before { top: 20px; left: 35px; }
+      .halo::after { right: 14px; bottom: 56px; background: var(--blue); }
+      .planet { position: relative; z-index: 1; display: grid; width: 178px; height: 178px; place-items: center; border-radius: 50%; background: radial-gradient(circle at 32% 26%, #fff5c7 0 5%, transparent 6%), radial-gradient(circle at 63% 42%, #ffb2df 0 7%, transparent 8%), linear-gradient(145deg, #ff9cd7, #9d8fff 58%, #55c9f0); box-shadow: inset -20px -23px 35px rgba(49,31,102,.36), inset 14px 14px 24px rgba(255,255,255,.37), 0 0 55px rgba(255,143,212,.34); animation: bob 4.2s ease-in-out infinite; }
+      .planet::before { position: absolute; top: 26px; left: 27px; width: 24px; height: 14px; border-radius: 50%; background: rgba(255,255,255,.24); content: ""; transform: rotate(-24deg); }
+      .face { position: relative; width: 88px; height: 56px; margin-top: 24px; }
+      .eye { position: absolute; top: 11px; width: 8px; height: 14px; border-radius: 50%; background: #563b75; transform: rotate(8deg); }
+      .eye.left { left: 18px; } .eye.right { right: 18px; }
+      .mouth { position: absolute; left: 38px; top: 30px; width: 13px; height: 8px; border-bottom: 3px solid #563b75; border-radius: 0 0 50% 50%; }
+      .blush { position: absolute; top: 27px; width: 17px; height: 8px; border-radius: 50%; background: rgba(255,111,174,.58); filter: blur(2px); }
+      .blush.left { left: 3px; } .blush.right { right: 3px; }
+      .orbit-heart { position: absolute; z-index: 2; top: 28px; right: 36px; font-size: 26px; filter: drop-shadow(0 0 10px rgba(255,143,212,.8)); animation: heart 3.2s ease-in-out infinite; }
+      .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 clamp(26px, 7vw, 80px) 32px; }
+      .stat { padding: 16px 17px; border: 1px solid rgba(255,255,255,.13); border-radius: 17px; background: rgba(255,255,255,.06); }
+      .stat strong { display: block; color: var(--yellow); font-size: 23px; }
+      .stat span { color: var(--muted); font-size: 11px; font-weight: 700; }
+      .ticker { overflow: hidden; border-top: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); color: #eadffb; background: rgba(255,255,255,.05); white-space: nowrap; }
+      .ticker-track { display: inline-block; padding: 13px 0; animation: ticker 22s linear infinite; }
+      .ticker-track span { margin: 0 22px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+      footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 22px 28px 25px; color: var(--muted); font-size: 11px; font-weight: 700; }
+      footer a { color: var(--pink); text-decoration: none; }
+      @keyframes drift { to { transform: translate(12vw, 7vh) scale(1.16); } }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes bob { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-13px) rotate(3deg); } }
+      @keyframes heart { 0%, 100% { transform: translate(0, 0) rotate(-12deg); } 50% { transform: translate(-9px, 15px) rotate(15deg) scale(1.14); } }
+      @keyframes ticker { to { transform: translateX(-50%); } }
+      @media (max-width: 760px) { .hero { grid-template-columns: 1fr; padding-top: 45px; } .scene { min-height: 285px; order: -1; } .halo { width: 220px; height: 220px; } .planet { width: 148px; height: 148px; } .stats { grid-template-columns: 1fr; } footer { align-items: flex-start; flex-direction: column; } }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-play-state: paused !important; animation-duration: .01ms !important; } }
+    </style>
+  </head>
+  <body>
+    <canvas id="stars" aria-hidden="true"></canvas>
+    <div class="aurora one" aria-hidden="true"></div><div class="aurora two" aria-hidden="true"></div>
+    <div class="shell">
+      <main class="board">
+        <header class="topline"><div class="logo"><span class="logo-mark">✦</span> DREAMY LAB</div><small id="clock">LOADING COSMIC TIME…</small></header>
+        <section class="hero">
+          <div>
+            <span class="eyebrow">✿ STATIC FRONTEND PLAYGROUND</span>
+            <h1>让想法<br /><span>闪闪发光。</span> ✨</h1>
+            <p class="intro">一个纯 HTML、CSS 与 JavaScript 的可爱动态 Demo。没有后端，没有构建依赖，打开页面，就能看见一颗正在做梦的小星球。</p>
+            <div class="actions"><button class="primary" id="sparkleButton" type="button">给星球一点魔法 ✨</button><a class="back-link" href="../home/">返回个人主页 →</a></div>
+          </div>
+          <div class="scene" aria-label="一颗带表情的梦幻星球">
+            <div class="halo"></div><div class="orbit-heart">♥</div>
+            <div class="planet"><div class="face"><i class="eye left"></i><i class="eye right"></i><i class="blush left"></i><i class="blush right"></i><i class="mouth"></i></div></div>
+          </div>
+        </section>
+        <section class="stats" aria-label="Demo 特点"><div class="stat"><strong>100%</strong><span>纯静态，无外部依赖</span></div><div class="stat"><strong>∞</strong><span>可扩展的展示空间</span></div><div class="stat"><strong>24/7</strong><span>在 GitHub Pages 发光</span></div></section>
+        <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>✦ CREATE</span><span>♡ EXPLORE</span><span>☁ DREAM</span><span>✧ SHIP</span><span>✦ CREATE</span><span>♡ EXPLORE</span><span>☁ DREAM</span><span>✧ SHIP</span></div></div>
+        <footer><span>Built with curiosity · astudyber.github.io</span><a href="https://github.com/astudyber" target="_blank" rel="noreferrer">visit github ↗</a></footer>
+      </main>
+    </div>
+    <script>
+      (() => {
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        const stars = [];
+        let width = 0; let height = 0; let ratio = 1;
+        const pointer = { x: -100, y: -100 };
+        function resize() {
+          ratio = Math.min(window.devicePixelRatio || 1, 2); width = window.innerWidth; height = window.innerHeight;
+          canvas.width = width * ratio; canvas.height = height * ratio; ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+          stars.length = 0;
+          for (let i = 0; i < Math.min(150, Math.max(55, width / 8)); i += 1) stars.push({ x: Math.random() * width, y: Math.random() * height, r: Math.random() * 1.7 + .3, a: Math.random() * .65 + .15, v: Math.random() * .012 + .003 });
+        }
+        function draw() {
+          ctx.clearRect(0, 0, width, height);
+          stars.forEach((star) => { star.a += star.v * (Math.random() > .5 ? 1 : -1); star.a = Math.max(.12, Math.min(.88, star.a)); const distance = Math.hypot(star.x - pointer.x, star.y - pointer.y); const glow = distance < 150 ? (1 - distance / 150) * 1.4 : 0; ctx.globalAlpha = star.a + glow; ctx.fillStyle = glow ? '#ffe38b' : '#b6e9ff'; ctx.beginPath(); ctx.arc(star.x, star.y, star.r + glow, 0, Math.PI * 2); ctx.fill(); });
+          ctx.globalAlpha = 1; requestAnimationFrame(draw);
+        }
+        window.addEventListener('resize', resize); window.addEventListener('pointermove', (event) => { pointer.x = event.clientX; pointer.y = event.clientY; }); resize(); draw();
+        const clock = document.getElementById('clock');
+        function updateClock() { clock.textContent = `${new Intl.DateTimeFormat('zh-CN', { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date())} · DREAMING ONLINE`; }
+        updateClock(); setInterval(updateClock, 1000);
+        document.getElementById('sparkleButton').addEventListener('click', (event) => { const button = event.currentTarget; button.textContent = '魔法已注入 · 再来一次 ✨'; document.querySelector('.planet').animate([{ transform: 'scale(1)' }, { transform: 'scale(1.12) rotate(5deg)' }, { transform: 'scale(1)' }], { duration: 650, easing: 'ease-out' }); });
+      })();
+    </script>
+  </body>
+</html>
