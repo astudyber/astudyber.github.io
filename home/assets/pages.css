@@ -340,7 +340,17 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .internship-panel#panel-blockchain .tool-row > span:not(:first-child) { color: var(--pink); background: rgba(255,124,207,.06); }
 .project-figure { margin: 0 0 25px; }
 .project-figure img { display: block; width: 100%; max-height: 300px; object-fit: cover; border: 1px solid var(--line); border-radius: 8px; opacity: .9; }
+.project-pdf { display: block; width: 100%; height: 360px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
 .project-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; font-weight: 700; }
+.project-figure figcaption a { display: inline-flex; align-items: center; gap: 4px; margin-left: 9px; color: var(--cyan); text-decoration: none; }
+.project-figure figcaption a svg { width: 14px; height: 14px; }
+.resume-thumb { display: block; width: 100%; height: 112px; object-fit: cover; margin-top: 16px; border: 1px solid var(--line); border-radius: 7px; opacity: .92; }
+.resume-thumb-campus { object-position: center; }
+.resume-thumb-wide { height: 128px; }
+.resume-thumb-honor { grid-column: 1 / -1; height: 120px; margin: 0 19px 18px; width: calc(100% - 38px); }
+.resume-image-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.resume-image-row .resume-thumb { height: 170px; margin-top: 0; }
+.resume-pdf-home { display: block; width: 100%; height: 190px; margin-top: 14px; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); }
 
 /* Improve legibility across the home section. */
 body { font-size: 16px; }
@@ -364,6 +374,14 @@ body { font-size: 16px; }
 .stack-panel p, .today-panel > p, .focus-item span { font-size: 14px; }
 .button, .mood-button { font-size: 14px; }
 .side-label, .tiny, .side-badge, .eyebrow, .research-browser__kicker, .research-note__index, .research-note small, .prompt-card p, .timer-kicker, .composer .hint, .character-count, .focus-footer, .project-count, .paper-index { font-size: 12px; }
+.profile-summary, .info-card p, .paper-card p, .experience-card p, .honors-panel span { font-size: 16px; }
+.timeline-item strong, .paper-card h3, .experience-card h3 { font-size: 17px; }
+.contact-row a, .paper-card a, .experience-card a { font-size: 14px; }
+.detail-block > p, .detail-block li { font-size: 16px; }
+.internship-heading p, .switcher-intro p { font-size: 16px; }
+.company-tab strong { font-size: 16px; }
+.company-tab small, .metric-strip span, .visual-node span, .project-figure figcaption { font-size: 13px; }
+.honors-panel strong { font-size: 14px; }
 
 @keyframes page-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-8px) rotate(2deg); } }
@@ -374,17 +392,17 @@ body { font-size: 16px; }
   .sidebar { position: relative; height: auto; min-width: 0; padding: 17px 20px; border-right: 0; border-bottom: 1px solid var(--line); }
   .side-label, .side-card { display: none; }
   .nav-list { display: flex; gap: 5px; margin-top: 18px; overflow-x: auto; scrollbar-width: none; }
-  .nav-link { flex: 0 0 auto; padding: 8px 10px; font-size: 13px; }
+  .nav-link { flex: 0 0 auto; padding: 8px 10px; font-size: 15px; }
   .nav-link svg { width: 16px; height: 16px; }
   main { width: 100%; min-width: 0; padding-top: 22px; }
 }
 @media (max-width: 760px) {
   main { padding: 18px 16px 35px; }
   .topbar { margin-bottom: 18px; }
-  .today { font-size: 12px; }
+  .today { font-size: 14px; }
   .page-hero { min-height: 218px; align-items: flex-start; padding: 28px 25px; }
   .page-hero h1 { font-size: 34px; }
-  .page-hero p { font-size: 14px; }
+  .page-hero p { font-size: 16px; }
   .hero-doodle { position: absolute; right: 9px; bottom: -19px; transform: scale(.72); transform-origin: bottom right; }
   .progress-summary, .journal-layout, .now-layout { grid-template-columns: 1fr; }
   .progress-summary { gap: 19px; }
@@ -400,7 +418,7 @@ body { font-size: 16px; }
   .footer { align-items: flex-start; flex-direction: column; }
   .profile-intro { grid-template-columns: 1fr; justify-items: start; gap: 17px; padding: 23px 20px; }
   .profile-avatar { width: 108px; height: 108px; }
-  .profile-summary { font-size: 13px; }
+  .profile-summary { font-size: 15px; }
   .profile-grid-education, .profile-grid-papers { grid-template-columns: 1fr; }
   .experience-card { grid-template-columns: 1fr; gap: 10px; }
   .experience-label { flex-direction: row; align-items: baseline; justify-content: space-between; gap: 12px; }
@@ -421,6 +439,11 @@ body { font-size: 16px; }
   .internship-columns { grid-template-columns: 1fr; }
   .detail-block { padding: 17px; }
   .project-figure img { max-height: 190px; }
+  .project-pdf { height: 260px; }
+  .resume-image-row { grid-template-columns: 1fr; }
+  .resume-image-row .resume-thumb { height: 145px; }
+  .resume-pdf-home { height: 180px; }
+  .resume-thumb-honor { grid-column: 1 / -1; margin-left: 14px; margin-right: 14px; width: calc(100% - 28px); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
