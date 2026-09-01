@@ -70,10 +70,12 @@ button { color: inherit; }
 .brand { display: flex; align-items: center; gap: 11px; padding: 0 8px; color: var(--ink); font-family: "Nunito", sans-serif; font-size: 21px; font-weight: 900; letter-spacing: .02em; text-decoration: none; }
 .brand-mark { display: grid; width: 35px; height: 35px; place-items: center; border: 1px solid var(--cyan); border-radius: 10px; color: var(--cyan); background: rgba(69,217,255,.1); box-shadow: 0 0 22px rgba(69,217,255,.25); }
 .brand-mark svg { width: 18px; height: 18px; }
-.sidebar-profile { display: grid; gap: 4px; margin: 25px 10px 0; padding: 12px 11px; border: 1px solid var(--line); border-radius: 8px; background: transparent; }
-.sidebar-profile strong { color: var(--ink); font-family: "Nunito", sans-serif; font-size: 21px; font-weight: 900; }
-.sidebar-profile span, .sidebar-profile a { overflow: hidden; color: var(--muted); font-size: 13px; font-weight: 700; line-height: 1.35; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-profile { display: grid; gap: 6px; margin: 25px 10px 0; padding: 14px 13px 13px; border: 1px solid var(--cyan); border-radius: 9px; background: var(--panel); box-shadow: inset 0 0 0 1px rgba(42,161,152,.12), 0 8px 20px rgba(0,0,0,.08); }
+.sidebar-profile strong { display: block; padding-bottom: 9px; border-bottom: 1px dashed var(--line); color: var(--ink); font-family: "Nunito", sans-serif; font-size: 23px; font-weight: 900; letter-spacing: .03em; }
+.sidebar-profile span, .sidebar-profile a { overflow: hidden; color: var(--muted); font-size: 13px; font-weight: 700; line-height: 1.45; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-profile span:first-of-type { margin-top: 2px; color: var(--ink); font-family: "Nunito", sans-serif; font-size: 14px; letter-spacing: .04em; }
 .sidebar-profile a { color: var(--cyan); text-decoration: none; }
+.sidebar-profile span:nth-of-type(2) { margin-top: 2px; padding-top: 7px; border-top: 1px dashed var(--line); }
 .sidebar-profile a:hover { color: var(--pink); }
 .side-label { margin: 45px 10px 13px; color: var(--cyan); font-size: 10px; font-weight: 900; letter-spacing: .18em; }
 .nav-list { display: grid; gap: 7px; }
@@ -259,6 +261,11 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .timeline-item + .timeline-item { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); }
 .timeline-item strong { display: block; font-size: 13px; line-height: 1.45; }
 .timeline-item span { display: block; margin-top: 3px; color: var(--cyan); font-family: "Nunito", sans-serif; font-size: 11px; font-weight: 900; }
+.course-list { display: grid; gap: 0; margin-top: 2px; border-top: 1px dashed var(--line); }
+.course-list > div { display: grid; grid-template-columns: minmax(0, 1fr) 3.2em; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+.course-list span { min-width: 0; color: var(--muted); font-size: 16px; font-weight: 750; line-height: 1.45; }
+.course-list strong { color: var(--cyan); font-family: "Nunito", sans-serif; font-size: 16px; font-weight: 900; text-align: right; }
+.course-note { margin: 13px 0 0 !important; color: var(--muted); font-size: 14px !important; line-height: 1.65 !important; }
 .info-card p, .paper-card p, .experience-card p { margin: 8px 0 0; color: var(--muted); font-size: 12px; font-weight: 700; line-height: 1.7; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
 .skill-tags span { padding: 4px 7px; border: 1px solid var(--line); border-radius: 5px; color: var(--cyan); background: rgba(69,217,255,.07); font-family: "Nunito", sans-serif; font-size: 10px; font-weight: 900; }
@@ -280,6 +287,12 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .honors-panel > div + div { border-left: 1px dashed var(--line); }
 .honors-panel strong { display: block; color: var(--amber); font-size: 12px; }
 .honors-panel span { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; font-weight: 700; line-height: 1.6; }
+
+/* Inline technical highlights on the homepage follow each research track color. */
+.home-page mark { padding: 0 2px; color: inherit; background: transparent; font-weight: 900; }
+.home-page .tone-vlm { color: var(--cyan); }
+.home-page .tone-vla { color: var(--lime); }
+.home-page .tone-agent { color: var(--pink); }
 
 /* Internship showcase */
 .internship-switcher { display: grid; grid-template-columns: .72fr 1.28fr; gap: 18px; align-items: stretch; margin-top: 35px; }
@@ -467,18 +480,21 @@ body { font-size: 16px; }
 }
 
 /* Homepage reading scale: keep every meaningful text comfortably readable. */
-.home-page { font-size: 17px; }
+.home-page { font-size: 16px; }
 .home-page .nav-link { font-size: 17px; }
 .home-page .today { font-size: 15px; }
 .home-page .profile-role { font-size: 17px; }
-.home-page .profile-summary { font-size: 17px; line-height: 1.8; }
+.home-page .profile-summary { font-size: 16px; line-height: 1.8; }
 .home-page .contact-row a { font-size: 15px; }
 .home-page .section-heading h2 { font-size: 25px; }
 .home-page .section-heading p { font-size: 15px; }
-.home-page .info-card p, .home-page .paper-card p, .home-page .experience-card p, .home-page .honors-panel span { font-size: 17px; line-height: 1.85; }
+.home-page .info-card p, .home-page .paper-card p, .home-page .experience-card p, .home-page .honors-panel span { font-size: 16px; line-height: 1.85; }
 .home-page .timeline-item strong, .home-page .paper-card h3, .home-page .experience-card h3 { font-size: 19px; }
-.home-page .timeline-item span, .home-page .paper-index { font-size: 14px; }
-.home-page .experience-label small { font-size: 14px; }
+.home-page .timeline-item span, .home-page .paper-index { font-size: 16px; }
+.home-page .skill-tags span { font-size: 14px; }
+.home-page .course-list span, .home-page .course-list strong { font-size: 16px; }
+.home-page .course-note { font-size: 14px !important; }
+.home-page .experience-label small { font-size: 16px; }
 .home-page .experience-label span { font-size: 25px; }
 .home-page .honors-panel strong { font-size: 15px; }
 .home-page .footer { font-size: 14px; }
