@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fdf6e3" />
-    <title>Astudyber | Home</title>
+    <title>程惠泽 | Home</title>
     <link rel="preconnect" href="https://unpkg.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Sans+SC:wght@500;600;700;800&display=swap" />
     <link rel="stylesheet" href="assets/pages.css" />
@@ -12,11 +12,84 @@
   </head>
   <body>
     <div class="app-shell">
-      <aside class="sidebar"><a class="brand" href="index.html" aria-label="Astudyber 首页"><span class="brand-mark"><i data-lucide="orbit"></i></span><span>Astudyber</span></a><p class="side-label">PROFILE INDEX / 06</p><nav class="nav-list" aria-label="展示页导航"><a class="nav-link active" href="index.html"><i data-lucide="layout-dashboard"></i>入口</a><a class="nav-link" href="pages/profile.html"><i data-lucide="user-round"></i>主页</a><a class="nav-link" href="pages/internships.html"><i data-lucide="briefcase-business"></i>实习</a><a class="nav-link" href="pages/papers.html"><i data-lucide="file-text"></i>论文</a><a class="nav-link" href="pages/research.html"><i data-lucide="flask-conical"></i>研究</a><a class="nav-link" href="pages/coding.html"><i data-lucide="code-2"></i>编程</a><a class="nav-link" href="pages/awards.html"><i data-lucide="award"></i>获奖</a></nav><div class="side-card"><p class="tiny">SYSTEM STATUS</p><p class="mood">探索模式在线</p><span class="side-badge"><i data-lucide="radio"></i> open to ideas</span></div></aside>
-      <main><header class="topbar"><div class="today"><i data-lucide="sun-medium"></i><span id="todayText">加载今天中...</span></div><div class="top-actions"><button class="icon-button" id="themeToggle" type="button" aria-label="切换夜间主题" title="切换主题"><i data-lucide="moon-star"></i></button><div class="avatar" aria-label="个人头像"><i data-lucide="smile"></i></div></div></header>
-        <section class="page-hero" aria-labelledby="heroTitle"><div><span class="eyebrow"><i data-lucide="terminal"></i> ASTUDYBER / HOME</span><h1 id="heroTitle">个人展示页<br />导航入口</h1><p>六个独立页面，分别记录个人信息、实习、论文、研究、编程与获奖经历。</p></div><div class="hero-doodle" aria-hidden="true"><i class="doodle-star" data-lucide="sparkle"></i><i class="doodle-sparkle" data-lucide="radio-tower"></i><span class="planet"></span></div></section>
-        <section aria-labelledby="modulesTitle"><div class="section-heading"><div><h2 id="modulesTitle">选择展示页 / SELECT PAGE</h2><p>进入一个独立章节，查看对应内容。</p></div><i data-lucide="boxes"></i></div><div class="project-grid"><a class="project" href="pages/profile.html" style="text-decoration:none;color:inherit"><div class="project-top"><div class="project-icon"><i data-lucide="user-round"></i></div><span class="project-count">01 / HOME</span></div><h3>主页 · 个人信息</h3><p>姓名、联系方式、编程语言与研究领域。</p></a><a class="project" href="pages/internships.html" style="text-decoration:none;color:inherit"><div class="project-top"><div class="project-icon"><i data-lucide="briefcase-business"></i></div><span class="project-count">02 / WORK</span></div><h3>实习</h3><p>实习经历与实践项目。</p></a><a class="project" href="pages/papers.html" style="text-decoration:none;color:inherit"><div class="project-top"><div class="project-icon"><i data-lucide="file-text"></i></div><span class="project-count">03 / PAPER</span></div><h3>论文</h3><p>论文、发表与研究成果。</p></a><a class="project" href="pages/research.html" style="text-decoration:none;color:inherit"><div class="project-top"><div class="project-icon"><i data-lucide="flask-conical"></i></div><span class="project-count">04 / LAB</span></div><h3>研究</h3><p>人工智能及相关研究方向。</p></a><a class="project" href="pages/coding.html" style="text-decoration:none;color:inherit"><div class="project-top"><div class="project-icon"><i data-lucide="code-2"></i></div><span class="project-count">05 / CODE</span></div><h3>编程</h3><p>工具、框架与开发实践。</p></a><a class="project" href="pages/awards.html" style="text-decoration:none;color:inherit"><div class="project-top"><div class="project-icon"><i data-lucide="award"></i></div><span class="project-count">06 / HONOR</span></div><h3>获奖</h3><p>奖项与荣誉信息。</p></a></div></section>
-        <footer class="footer"><span>Built with curiosity · astudyber.github.io</span><span class="hearts">✦ ✦ ✦</span></footer></main>
-    </div><div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已保存</span></div><script src="assets/common.js"></script>
+      <aside class="sidebar">
+        <a class="brand" href="index.html" aria-label="程惠泽主页"><span class="brand-mark"><i data-lucide="orbit"></i></span><span>Astudyber</span></a>
+        <p class="side-label">PROFILE / HOME</p>
+        <nav class="nav-list" aria-label="主页分区导航">
+          <a class="nav-link active" href="index.html"><i data-lucide="user-round"></i>主页</a>
+          <a class="nav-link" href="#education"><i data-lucide="graduation-cap"></i>教育</a>
+          <a class="nav-link" href="#papers"><i data-lucide="file-text"></i>论文</a>
+          <a class="nav-link" href="#experience"><i data-lucide="briefcase-business"></i>经历</a>
+          <a class="nav-link" href="#awards"><i data-lucide="award"></i>荣誉</a>
+          <a class="nav-link" href="pages/research.html"><i data-lucide="flask-conical"></i>研究笔记</a>
+        </nav>
+        <div class="side-card">
+          <p class="tiny">CURRENT FOCUS</p>
+          <p class="mood">VLM · VLA · Agent</p>
+          <span class="side-badge"><i data-lucide="radio"></i> open to ideas</span>
+        </div>
+      </aside>
+      <main>
+        <header class="topbar">
+          <div class="today"><i data-lucide="sun-medium"></i><span id="todayText">加载今天中...</span></div>
+          <div class="top-actions">
+            <button class="icon-button" id="themeToggle" type="button" aria-label="切换主题" title="切换主题"><i data-lucide="moon-star"></i></button>
+            <img class="avatar profile-avatar-mini" src="assets/avatar.jpg" alt="程惠泽头像" />
+          </div>
+        </header>
+
+        <section class="profile-intro panel" aria-labelledby="profileTitle">
+          <img class="profile-avatar" src="assets/avatar.jpg" alt="程惠泽头像" />
+          <div class="profile-intro-copy">
+            <span class="eyebrow"><i data-lucide="terminal"></i> ASTUDYBER / HOME</span>
+            <h1 id="profileTitle">程惠泽</h1>
+            <p class="profile-role">长安大学 · 计算机科学与技术硕士研究生</p>
+            <p class="profile-summary">专注多模态大模型与强化学习，研究和实践覆盖视觉语言模型（VLM）、视觉语言动作模型（VLA）及多智能体系统（Agent），关注从数据、训练到真实应用的完整落地。</p>
+            <div class="contact-row" aria-label="联系方式">
+              <a href="mailto:hzcheng@chd.edu.cn"><i data-lucide="mail"></i>hzcheng@chd.edu.cn</a>
+              <a href="tel:+8615829789503"><i data-lucide="phone"></i>158 2978 9503</a>
+              <a href="https://github.com/astudyber" target="_blank" rel="noreferrer"><i data-lucide="github"></i>GitHub</a>
+              <a href="https://blog.csdn.net/m0_57354496" target="_blank" rel="noreferrer"><i data-lucide="book-open"></i>CSDN</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="education" aria-labelledby="educationTitle">
+          <div class="section-heading"><div><h2 id="educationTitle">教育与能力 / FOUNDATION</h2><p>学术背景、课程表现与工程工具</p></div><i data-lucide="layers-3"></i></div>
+          <div class="profile-grid profile-grid-education">
+            <article class="panel info-card"><div class="info-card-title"><i data-lucide="graduation-cap"></i><h3>学历经历</h3></div><div class="timeline-item"><strong>长安大学 · 计算机科学与技术（硕士）</strong><span>2024.09 — 至今</span><p>信息工程学院；研究方向：多模态大模型、强化学习、具身智能。</p></div><div class="timeline-item"><strong>长安大学 · 人工智能（本科）</strong><span>2020.09 — 2024.06</span><p>专业排名前 10%，GPA 89.8，CET-6。</p></div></article>
+            <article class="panel info-card"><div class="info-card-title"><i data-lucide="bar-chart-3"></i><h3>课程与编程</h3></div><p>算法设计与分析 93 · 最优化方法 96 · 数据结构与算法 95 · 程序设计基础 98 · NLP 93 · 计算机数学 98</p><div class="skill-tags"><span>Python</span><span>C++</span><span>PyTorch</span><span>NumPy</span><span>Linux</span><span>CCF-CSP 230</span></div></article>
+            <article class="panel info-card"><div class="info-card-title"><i data-lucide="wrench"></i><h3>软件技能</h3></div><p>熟悉 VS Code、PyCharm、Jupyter、Gradio、FastAPI、LlamaIndex、Docker；具备 MATLAB、SPSS、StataSE、Blender 与 Vibe Coding 实践经验。</p></article>
+          </div>
+        </section>
+
+        <section id="papers" aria-labelledby="papersTitle">
+          <div class="section-heading"><div><h2 id="papersTitle">论文成果 / PUBLICATIONS</h2><p>围绕视觉理解、生成与强化学习的研究输出</p></div><i data-lucide="scroll-text"></i></div>
+          <div class="profile-grid profile-grid-papers">
+            <article class="panel paper-card"><span class="paper-index">01 · TMM / CCF-A / 中科院一区</span><h3>TAR-R1: Video Understanding of Traffic Accidents Moving Towards Reasoning</h3><p>共同一作，构建 4000+ 交通视频数据集，以多智能体完成 CoT/QA 标注，并通过 SFT 与广义奖励偏好优化提升事故推理能力。</p></article>
+            <article class="panel paper-card"><span class="paper-index">02 · ICASSP / CCF-B</span><h3>AURA: YCbCr-Based Universal Raw-Reconstruction for Inverse ISP</h3><p>第一作者，提出无需相机元数据的通用逆 ISP 架构，在 YCbCr 空间解耦亮度与色度，恢复非线性映射中的细节。</p><a href="https://github.com/astudyber/AURA-Framework" target="_blank" rel="noreferrer">GitHub 仓库 <i data-lucide="arrow-up-right"></i></a></article>
+            <article class="panel paper-card"><span class="paper-index">03 · 在投 / VLM &amp; RL</span><h3>视觉幻觉与视觉强化学习</h3><p>在研方向包括 Type-Aware Visual Verification、Attention-Guided Process Rewards，以及面向脑部图像描述的视觉后验匹配强化学习。</p></article>
+          </div>
+        </section>
+
+        <section id="experience" aria-labelledby="experienceTitle">
+          <div class="section-heading"><div><h2 id="experienceTitle">研究与实践 / VLM · VLA · AGENT</h2><p>从模型后训练到真实系统部署</p></div><i data-lucide="workflow"></i></div>
+          <div class="experience-list">
+            <article class="panel experience-card experience-vlm"><div class="experience-label"><span>VLM</span><small>VLP 实验室 · 2025.07 — 2025.12</small></div><div><h3>多模态大模型微调与强化学习</h3><p>基于 Qwen3-VL-8B 与 Llama-Factory 完成 LoRA 美学感知微调；数据集由 8,400 扩充至 26,880 个 QA，核心指标提升 2%—9%。同时完成交通事故 VQA 的 CoT 数据构建、GRPO 训练与 7 种开源模型评测。</p><a href="https://github.com/astudyber/Beauty-LoRA" target="_blank" rel="noreferrer">Beauty-LoRA <i data-lucide="arrow-up-right"></i></a></div></article>
+            <article class="panel experience-card experience-vla"><div class="experience-label"><span>VLA</span><small>吉利研究院 · 2026.03 — 2026.08</small></div><div><h3>机械臂 VLA 算法研发</h3><p>覆盖数据采集清洗、Libero 仿真、SFT 与 RL 后训练；以 PI05 + QDMD 将长程任务成功率由 92.6% 提升至 96%，推理由 150ms 降至 40ms；EXPO-FT + IQL/QGF 使真机插花成功率由 50% 提升至 70%。</p></div></article>
+            <article class="panel experience-card experience-agent"><div class="experience-label"><span>AGENT</span><small>吉利研究院 / 区块链产业研究会</small></div><div><h3>车载主动交互与 RAG 智能体</h3><p>设计 VLM、LLM 与多 Agent 协作的车控决策系统，结合视觉 Caption、车辆信号与用户意图完成主动介入；通过量化、关键帧筛选和并行 Agent 将准确率提升约 9%，并以 FastAPI 服务化。另负责 Lepton + LlamaIndex 私有知识库 RAG 项目。</p><a href="https://gitee.com/enenzainitoushang/search-ai" target="_blank" rel="noreferrer">RAG 项目 <i data-lucide="arrow-up-right"></i></a></div></article>
+          </div>
+        </section>
+
+        <section id="awards" aria-labelledby="awardsTitle">
+          <div class="section-heading"><div><h2 id="awardsTitle">获奖与其他 / HONORS</h2><p>竞赛、学术与开源实践</p></div><i data-lucide="medal"></i></div>
+          <div class="panel honors-panel"><div><strong>国家级</strong><span>2022、2023 美国大学生数学建模竞赛二等奖</span></div><div><strong>校省级</strong><span>大学生创新创业训练计划省级立项结题；校级奖项 6 项；学业奖学金 3 次</span></div><div><strong>成果</strong><span>本科优秀毕业设计 Top 2%；软件著作权 1 项；CPCI 论文录用</span></div><div><strong>开源</strong><span>CSDN 博客访问量 14W+、收藏 1800+，代码片段分享 1W+ 次</span></div></div>
+        </section>
+
+        <footer class="footer"><span>程惠泽 · 长安大学 · AI Research &amp; Engineering</span><span class="hearts">✦ ✦ ✦</span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已更新主题</span></div>
+    <script src="assets/common.js"></script>
   </body>
 </html>
