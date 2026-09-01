@@ -70,6 +70,11 @@ button { color: inherit; }
 .brand { display: flex; align-items: center; gap: 11px; padding: 0 8px; color: var(--ink); font-family: "Nunito", sans-serif; font-size: 21px; font-weight: 900; letter-spacing: .02em; text-decoration: none; }
 .brand-mark { display: grid; width: 35px; height: 35px; place-items: center; border: 1px solid var(--cyan); border-radius: 10px; color: var(--cyan); background: rgba(69,217,255,.1); box-shadow: 0 0 22px rgba(69,217,255,.25); }
 .brand-mark svg { width: 18px; height: 18px; }
+.sidebar-profile { display: grid; gap: 4px; margin: 25px 10px 0; padding: 12px 11px; border: 1px solid var(--line); border-radius: 8px; background: transparent; }
+.sidebar-profile strong { color: var(--ink); font-family: "Nunito", sans-serif; font-size: 21px; font-weight: 900; }
+.sidebar-profile span, .sidebar-profile a { overflow: hidden; color: var(--muted); font-size: 13px; font-weight: 700; line-height: 1.35; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-profile a { color: var(--cyan); text-decoration: none; }
+.sidebar-profile a:hover { color: var(--pink); }
 .side-label { margin: 45px 10px 13px; color: var(--cyan); font-size: 10px; font-weight: 900; letter-spacing: .18em; }
 .nav-list { display: grid; gap: 7px; }
 .nav-link { display: flex; align-items: center; gap: 12px; padding: 11px 12px; border: 1px solid transparent; border-radius: 8px; color: var(--muted); font-size: 14px; font-weight: 800; text-decoration: none; transition: 180ms ease; }
@@ -338,6 +343,16 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .tool-row > span:first-child { margin-right: 3px; color: var(--ink); }
 .tool-row > span:not(:first-child) { padding: 5px 8px; border: 1px solid var(--line); border-radius: 5px; color: var(--cyan); background: rgba(69,217,255,.06); font-family: "Nunito", sans-serif; font-size: 11px; font-weight: 900; }
 .internship-panel#panel-blockchain .tool-row > span:not(:first-child) { color: var(--pink); background: rgba(255,124,207,.06); }
+.internship-switcher { display: block; margin-top: 28px; }
+.company-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 12px; }
+.company-tab { min-height: 58px; padding: 10px 14px; background: var(--panel); }
+.company-tab:hover, .company-tab.is-active, .company-tab:nth-child(2).is-active { background: var(--panel); }
+.internship-panel { background: var(--panel); }
+.metric-strip > div, .metric-strip-three > div { background: var(--panel); }
+.experience-visual, .detail-block { background: transparent; }
+.tool-row > span:not(:first-child) { background: transparent; }
+.internship-panel#panel-blockchain .tool-row > span:not(:first-child) { background: transparent; }
+.project-pdf { background: var(--panel); }
 .project-figure { margin: 0 0 25px; }
 .project-figure img { display: block; width: 100%; max-height: 300px; object-fit: cover; border: 1px solid var(--line); border-radius: 8px; opacity: .9; }
 .project-pdf { display: block; width: 100%; height: 360px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
@@ -391,6 +406,8 @@ body { font-size: 16px; }
   .app-shell { grid-template-columns: minmax(0, 1fr); }
   .sidebar { position: relative; height: auto; min-width: 0; padding: 17px 20px; border-right: 0; border-bottom: 1px solid var(--line); }
   .side-label, .side-card { display: none; }
+  .sidebar-profile { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 15px 0 0; padding: 10px 11px; }
+  .sidebar-profile strong, .sidebar-profile a { grid-column: 1 / -1; }
   .nav-list { display: flex; gap: 5px; margin-top: 18px; overflow-x: auto; scrollbar-width: none; }
   .nav-link { flex: 0 0 auto; padding: 8px 10px; font-size: 15px; }
   .nav-link svg { width: 16px; height: 16px; }
@@ -448,3 +465,21 @@ body { font-size: 16px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Homepage reading scale: keep every meaningful text comfortably readable. */
+.home-page { font-size: 17px; }
+.home-page .nav-link { font-size: 17px; }
+.home-page .today { font-size: 15px; }
+.home-page .profile-role { font-size: 17px; }
+.home-page .profile-summary { font-size: 17px; line-height: 1.8; }
+.home-page .contact-row a { font-size: 15px; }
+.home-page .section-heading h2 { font-size: 25px; }
+.home-page .section-heading p { font-size: 15px; }
+.home-page .info-card p, .home-page .paper-card p, .home-page .experience-card p, .home-page .honors-panel span { font-size: 17px; line-height: 1.85; }
+.home-page .timeline-item strong, .home-page .paper-card h3, .home-page .experience-card h3 { font-size: 19px; }
+.home-page .timeline-item span, .home-page .paper-index { font-size: 14px; }
+.home-page .experience-label small { font-size: 14px; }
+.home-page .experience-label span { font-size: 25px; }
+.home-page .honors-panel strong { font-size: 15px; }
+.home-page .footer { font-size: 14px; }
+.home-page .side-label, .home-page .tiny, .home-page .side-badge { font-size: 14px; }
