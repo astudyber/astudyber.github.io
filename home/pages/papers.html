@@ -1,57 +1,99 @@
 <!doctype html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#fdf6e3" />
-    <title>Astudyber | 论文</title>
-    <link rel="stylesheet" href="../assets/pages.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fdf6e3" />
+  <title>程惠泽 | 论文成果</title>
+  <link rel="stylesheet" href="../assets/pages.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+<body class="papers-page">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../index.html" aria-label="程惠泽主页"><span class="brand-mark"><i data-lucide="orbit"></i></span><span>Astudyber</span></a>
+      <div class="sidebar-profile" aria-label="个人关键信息"><strong>程惠泽</strong><span>158 2978 9503</span><a href="mailto:hzcheng@chd.edu.cn">hzcheng@chd.edu.cn</a><span>人工智能 · 本科</span><span>计算机科学与技术 · 硕士</span></div>
+      <p class="side-label">PROFILE INDEX / 06</p>
+      <nav class="nav-list" aria-label="页面导航"><a class="nav-link" href="../index.html"><i data-lucide="user-round"></i>主页</a><a class="nav-link" href="internships.html"><i data-lucide="briefcase-business"></i>实习</a><a class="nav-link active" href="papers.html"><i data-lucide="file-text"></i>论文</a><a class="nav-link" href="research.html"><i data-lucide="flask-conical"></i>研究</a><a class="nav-link" href="coding.html"><i data-lucide="code-2"></i>编程</a><a class="nav-link" href="awards.html"><i data-lucide="award"></i>获奖</a></nav>
+    </aside>
+    <main>
+      <header class="topbar"><div class="today"><i data-lucide="sun-medium"></i><span id="todayText">加载今天中...</span></div><div class="top-actions"><button class="icon-button" id="themeToggle" type="button" aria-label="切换主题" title="切换主题"><i data-lucide="moon-star"></i></button><img class="avatar profile-avatar-mini" src="../assets/avatar.jpg" alt="程惠泽头像" /></div></header>
+      <section class="page-hero hero-peach" aria-labelledby="papersTitle"><div><span class="eyebrow"><i data-lucide="file-text"></i> 03 / PAPER</span><h1 id="papersTitle">论文成果</h1><p>聚焦交通视频推理、逆 ISP、视觉语言模型幻觉抑制与脑图像描述的研究工作。</p></div><div class="hero-doodle" aria-hidden="true"><i class="doodle-star" data-lucide="sparkle"></i><span class="planet"></span></div></section>
 
-<body>
-    <div class="app-shell">
-        <aside class="sidebar"><a class="brand" href="../index.html"><span class="brand-mark"><i
-                        data-lucide="orbit"></i></span><span>Astudyber</span></a>
-            <div class="sidebar-profile" aria-label="个人关键信息"><strong>程惠泽</strong><span>158 2978 9503</span><a href="mailto:hzcheng@chd.edu.cn">hzcheng@chd.edu.cn</a><span>人工智能 · 本科</span><span>计算机科学与技术 · 硕士</span></div>
-            <p class="side-label">PROFILE INDEX / 06</p>
-            <nav class="nav-list"><a class="nav-link" href="../index.html"><i data-lucide="user-round"></i>主页</a><a
-                    class="nav-link" href="internships.html"><i data-lucide="briefcase-business"></i>实习</a><a
-                    class="nav-link active" href="papers.html"><i data-lucide="file-text"></i>论文</a><a class="nav-link"
-                    href="research.html"><i data-lucide="flask-conical"></i>研究</a><a class="nav-link"
-                    href="coding.html"><i data-lucide="code-2"></i>编程</a><a class="nav-link" href="awards.html"><i
-                        data-lucide="award"></i>获奖</a></nav>
-        </aside>
-        <main>
-            <header class="topbar">
-                <div class="today"><i data-lucide="sun-medium"></i><span id="todayText">加载今天中...</span></div>
-                <div class="top-actions"><button class="icon-button" id="themeToggle" type="button" aria-label="切换主题"><i
-                            data-lucide="moon-star"></i></button>
-                    <div class="avatar"><i data-lucide="smile"></i></div>
-                </div>
-            </header>
-            <section class="page-hero hero-peach">
-                <div><span class="eyebrow"><i data-lucide="file-text"></i> 03 / PAPER</span>
-                    <h1>论文</h1>
-                    <p>论文题目、发表信息与研究成果。</p>
-                </div>
-                <div class="hero-doodle" aria-hidden="true"><span class="planet"></span></div>
-            </section>
-            <section>
-                <div class="section-heading">
-                    <div>
-                        <h2>论文档案 / PUBLICATIONS</h2>
-                        <p>内容将在确认后补充。</p>
-                    </div><i data-lucide="clock-3"></i>
-                </div>
-                <div class="panel placeholder-panel"><i data-lucide="clock-3"></i><span>待补充</span></div>
-            </section>
-            <footer class="footer"><span>03 / PAPER</span><span class="hearts">✦ ✦ ✦</span></footer>
-        </main>
-    </div>
-    <div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已保存</span></div>
-    <script src="../assets/common.js"></script>
+      <section class="paper-switcher" aria-label="论文导航"><div class="paper-tabs" role="tablist" aria-label="论文切换">
+        <button class="paper-tab is-active" id="paper-tab-tmm" role="tab" aria-selected="true" aria-controls="paper-tmm"><span>01</span><b>TMM</b><small>交通事故推理</small></button>
+        <button class="paper-tab" id="paper-tab-icassp" role="tab" aria-selected="false" aria-controls="paper-icassp" tabindex="-1"><span>02</span><b>ICASSP</b><small>逆 ISP</small></button>
+        <button class="paper-tab" id="paper-tab-rl" role="tab" aria-selected="false" aria-controls="paper-rl" tabindex="-1"><span>03</span><b>AAAI · RL</b><small>脑图像描述</small></button>
+        <button class="paper-tab" id="paper-tab-vlm1" role="tab" aria-selected="false" aria-controls="paper-vlm1" tabindex="-1"><span>04</span><b>AAAI · VLM 1</b><small>过程奖励</small></button>
+        <button class="paper-tab" id="paper-tab-vlm2" role="tab" aria-selected="false" aria-controls="paper-vlm2" tabindex="-1"><span>05</span><b>AAAI · VLM 2</b><small>视觉验证</small></button>
+      </div></section>
+
+      <section class="paper-detail is-active" id="paper-tmm" role="tabpanel" aria-labelledby="paper-tab-tmm">
+        <div class="paper-detail-head"><div><div class="paper-badges"><span class="paper-badge paper-badge-pink">IEEE TMM</span><span class="paper-badge">中科院一区</span><span class="paper-badge">CCF-A</span><span class="paper-badge">多媒体顶级期刊</span></div><p class="paper-author"><i data-lucide="users-round"></i> 作者次序：共同第一作者</p><p class="paper-kicker">交通事故视频理解 · 多模态推理 · 强化学习</p><h2>TAR-R1：面向过程级交通事故视频理解的推理框架</h2><h3>TAR-R1: A Reasoning-Oriented Framework for Process-Level Traffic Accident Video Understanding</h3></div><span class="paper-number">01</span></div>
+        <div class="paper-abstract"><i data-lucide="quote"></i><div><h3>简化摘要</h3><p>面向自动驾驶安全场景，论文构建 TRAE 交通事故推理数据集，以六类层级任务补足现有数据集在因果、时序和反事实推理上的监督不足。TAR-R1 通过 RA-SFT 建立规范化推理路径，再由 HR-GRPO 使用任务特定奖励优化逻辑一致性与时间定位能力。</p></div></div>
+        <div class="paper-section-title"><span>方法总览</span><h3>数据、推理与训练闭环</h3></div>
+        <figure class="paper-visual paper-visual-wide"><button class="paper-image-button" type="button" data-image="../assets/papers/tmm-overview-crop.png" data-alt="TAR-R1框架总览"><img src="../assets/papers/tmm-overview-crop.png" alt="TAR-R1框架总览" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption><strong>图 1 · TRAE 与 TAR-R1 总览。</strong>上半部分将事故理解拆为事件分类、时序定位、事实重建、事件监测、因果分析和反事实推理六类任务；下半部分以高质量 CoT 数据完成监督微调，并通过规则奖励强化推理过程。</figcaption></figure>
+        <div class="paper-method-card"><div><span class="method-index">01</span><h3>两阶段后训练</h3><p><strong>RA-SFT</strong> 对齐视频输入、结构化思维链与答案格式；<strong>HR-GRPO</strong> 从候选回答中依据选择正确性、时序定位和开放式生成质量计算多维奖励，使模型进一步学习因果链条与帧级证据。</p></div><div class="formula-box"><span>核心目标</span><code>max E[R_choice + R_temporal + R_open] - β D_KL(π || π_ref)</code><p>在保持参考策略稳定性的同时，最大化多任务推理奖励。</p></div></div>
+        <figure class="paper-visual paper-visual-wide"><button class="paper-image-button" type="button" data-image="../assets/papers/tmm-data-pipeline-crop.png" data-alt="TRAE数据构建与任务流程"><img src="../assets/papers/tmm-data-pipeline-crop.png" alt="TRAE数据构建与任务流程" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption><strong>图 2 · TRAE 数据构建流程。</strong>从原始事故视频去重、清洗与人工校验开始，分段生成视频描述，再构造带 CoT 的结构化问答，最终由跨组专家复核，保证答案的事实性与推理可追溯性。</figcaption></figure>
+        <div class="paper-section-title"><span>实验结果</span><h3>六类推理任务上的综合提升</h3></div>
+        <figure class="paper-result"><button class="paper-image-button" type="button" data-image="../assets/papers/tmm-results-crop.png" data-alt="TAR-R1在TRAE基准上的实验结果"><img src="../assets/papers/tmm-results-crop.png" alt="TAR-R1在TRAE基准上的实验结果" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption>TAR-R1-2B 在 TRAE 上取得 <strong>BLEU-2 0.2535、F1 0.2714、选择准确率 0.6187、tIoU@0.5 0.6933</strong>；即使采用 2B 模型，也在开放式、选择式和时序定位任务上显著超过多种 7B 基线。</figcaption></figure>
+      </section>
+
+      <section class="paper-detail" id="paper-icassp" role="tabpanel" aria-labelledby="paper-tab-icassp" hidden>
+        <div class="paper-detail-head"><div><div class="paper-badges"><span class="paper-badge paper-badge-cyan">ICASSP</span><span class="paper-badge">CCF-B</span><span class="paper-badge">信号处理顶级会议</span></div><p class="paper-author"><i data-lucide="users-round"></i> 作者次序：第一作者</p><p class="paper-kicker">低层视觉 · RAW 重建 · 逆 ISP</p><h2>AURA：基于 YCbCr 的通用逆 ISP RAW 重建</h2><h3>AURA: YCbCr-Based Universal RAW-Reconstruction for Inverse ISP</h3></div><span class="paper-number">02</span></div>
+        <div class="paper-abstract"><i data-lucide="quote"></i><div><h3>简化摘要</h3><p>RAW 图像有利于低层视觉任务，但真实场景中通常只有经过 ISP 处理的 sRGB 图像。AURA 不依赖相机元数据，将图像映射到 YCbCr 空间解耦亮度和色度，再结合去噪与残差 CSP 编解码网络恢复高保真 RAW。</p></div></div>
+        <div class="paper-section-title"><span>网络架构</span><h3>颜色解耦与残差重建</h3></div>
+        <figure class="paper-visual paper-visual-wide"><button class="paper-image-button" type="button" data-image="../assets/papers/icassp-architecture-crop.png" data-alt="AURA网络架构图"><img src="../assets/papers/icassp-architecture-crop.png" alt="AURA网络架构图" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption><strong>图 1 · AURA 网络结构。</strong>sRGB 先经 BT.2100 线性变换进入 YCbCr，DnCNN 预测并去除噪声；Res-CSP 编码器提取多层特征，解码端利用通道、空间和位置三类残差结构重建四通道 RAW。</figcaption></figure>
+        <div class="paper-method-card"><div><span class="method-index">02</span><h3>核心原理</h3><p>将亮度 <strong>Y</strong> 与色度 <strong>Cb/Cr</strong> 分离，降低不同 ISP 色彩与曝光变换的耦合；多尺度空间注意力利用平均池化和最大池化捕获镜头阴影等非均匀空间效应，残差路径分别恢复通道、空间与位置细节。</p></div><div class="formula-box"><span>空间均衡注意力</span><code>M_s(F) = σ(f_1×1(Concat(f_3×3, f_5×5, f_7×7)))</code><p>用多尺度卷积生成空间注意力，对输入特征实施自适应均衡。</p></div></div>
+        <div class="paper-section-title"><span>实验结果</span><h3>跨设备 RAW 重建表现</h3></div>
+        <figure class="paper-result"><button class="paper-image-button" type="button" data-image="../assets/papers/icassp-results-crop.png" data-alt="AURA跨数据集实验结果表"><img src="../assets/papers/icassp-results-crop.png" alt="AURA跨数据集实验结果表" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption>在 RGB2RAW、RAW-NOD 和 ETH 三个公开数据集的六种设备上，AURA 在 <strong>PSNR/SSIM</strong> 指标均取得最佳或领先结果，例如 Nikon D750 达到 <strong>42.7570 / 0.97</strong>，验证了无元数据条件下的泛化能力。</figcaption></figure>
+      </section>
+
+      <section class="paper-detail" id="paper-rl" role="tabpanel" aria-labelledby="paper-tab-rl" hidden>
+        <div class="paper-detail-head"><div><div class="paper-badges"><span class="paper-badge paper-badge-lime">AAAI 在投</span><span class="paper-badge">人工智能顶级会议</span><span class="paper-badge">视觉语言 · 强化学习</span></div><p class="paper-author"><i data-lucide="users-round"></i> 作者次序：硕士第一作者</p><p class="paper-kicker">脑机接口 · 视觉后验 · 语言生成</p><h2>通过视觉后验匹配的脑图像描述强化学习</h2><h3>Reinforcement Learning for Brain Image Captioning by Imposing Visual Posterior Matching</h3></div><span class="paper-number">03</span></div>
+        <div class="paper-abstract"><i data-lucide="quote"></i><div><h3>简化摘要</h3><p>脑信号驱动的图像描述容易被视觉语言先验“补全”为自然但不准确的文字。VPM 将描述对应的视觉特征后验作为奖励依据，通过条件扩散/流匹配度量生成描述与真实视觉刺激的一致性，使强化学习优化刺激特异而非仅语言流畅的描述。</p></div></div>
+        <div class="paper-section-title"><span>方法总览</span><h3>从脑信号对齐到后验匹配奖励</h3></div>
+        <figure class="paper-visual paper-visual-medium"><button class="paper-image-button" type="button" data-image="../assets/papers/aaai-rl-method-crop.png" data-alt="VPM方法总览"><img src="../assets/papers/aaai-rl-method-crop.png" alt="VPM方法总览" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption><strong>图 1 · VPM 两阶段训练。</strong>初始化阶段以 MSE 将脑编码映射对齐至冻结视觉编码器的 token，并以交叉熵训练描述策略；优化阶段冻结脑编码器、视觉特征提取器与后验模型，仅更新语言策略。</figcaption></figure>
+        <div class="paper-method-card"><div><span class="method-index">03</span><h3>视觉后验匹配奖励</h3><p>为每个采样描述构造相同噪声锚点，将其预测的清洁视觉特征与参考描述的预测特征比较。两者的加权余弦一致性形成 <strong>R<sub>VPM</sub></strong>，从而让政策偏向能被脑信号真实支持的对象、属性与关系。</p></div><div class="formula-box"><span>条件流匹配</span><code>z_σ = (1 - σ)z_0 + σξ; &nbsp; R_VPM = cos(ẑ<sub>rol</sub>, ẑ<sub>ref</sub>)</code><p>在相同噪声状态下比较两条描述诱导的视觉后验预测。</p></div></div>
+        <div class="paper-section-title"><span>实验结果</span><h3>脑图像描述质量与视觉一致性</h3></div>
+        <figure class="paper-result"><button class="paper-image-button" type="button" data-image="../assets/papers/aaai-rl-results-crop.png" data-alt="VPM脑图像描述实验结果"><img src="../assets/papers/aaai-rl-results-crop.png" alt="VPM脑图像描述实验结果" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption>在 NSD Subject 1 的多项生成指标上，加入 VPM 的策略进一步优于监督初始化模型和既有脑图像描述方法；实验同时报告 BLEU、METEOR、ROUGE-L、CIDEr、SPICE 与语义重建指标，评估语言质量和视觉忠实度。</figcaption></figure>
+      </section>
+
+      <section class="paper-detail" id="paper-vlm1" role="tabpanel" aria-labelledby="paper-tab-vlm1" hidden>
+        <div class="paper-detail-head"><div><div class="paper-badges"><span class="paper-badge paper-badge-lime">AAAI 在投</span><span class="paper-badge">人工智能顶级会议</span><span class="paper-badge">视觉语言模型</span></div><p class="paper-author"><i data-lucide="users-round"></i> 作者次序：硕士第一作者</p><p class="paper-kicker">VLM 幻觉抑制 · 过程奖励 · GRPO</p><h2>视觉 RLVR：面向视觉语言模型幻觉抑制的注意力引导过程奖励</h2><h3>Visual RLVR: Attention-Guided Process Rewards for Hallucination Reduction in Vision-Language Models</h3></div><span class="paper-number">04</span></div>
+        <div class="paper-abstract"><i data-lucide="quote"></i><div><h3>简化摘要</h3><p>视觉语言模型在物体、属性和空间关系上仍会产生幻觉。本文把模型内部交叉注意力视为可用的视觉定位信号，并以专家模型对推理过程中的声明和区域逐步核验，构造分层过程奖励，用 GRPO 在不依赖昂贵人工标注的情况下抑制幻觉。</p></div></div>
+        <div class="paper-section-title"><span>核心逻辑</span><h3>从结果监督到可追溯的视觉推理</h3></div>
+        <figure class="paper-visual paper-visual-medium"><button class="paper-image-button" type="button" data-image="../assets/papers/aaai-vlm1-concept-crop.png" data-alt="Visual RLVR的Chain-of-Sight概念图"><img src="../assets/papers/aaai-vlm1-concept-crop.png" alt="Visual RLVR的Chain-of-Sight概念图" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption><strong>图 1 · Chain-of-Sight 概念。</strong>传统结果级回答难以定位错误来源；CoS 将描述拆为带视觉区域的步骤，令每一步都能被针对性验证，从而暴露计数、细节和事实性错误。</figcaption></figure>
+        <figure class="paper-visual paper-visual-wide"><button class="paper-image-button" type="button" data-image="../assets/papers/aaai-vlm1-architecture-crop.png" data-alt="Visual RLVR训练架构"><img src="../assets/papers/aaai-vlm1-architecture-crop.png" alt="Visual RLVR训练架构" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption><strong>图 2 · Visual RLVR 框架。</strong>模型先生成 CoS 与注意力区域，再由 GroundingDINO、SAM2、PaddleOCR 等专家验证每条声明；专家特征密集对齐、最终回答和中间步骤共同组成层级奖励，驱动 GRPO 更新策略。</figcaption></figure>
+        <div class="paper-method-card"><div><span class="method-index">04</span><h3>分层过程奖励</h3><p>将回答拆成最终答案、步骤声明与注意力区域三个层次。专家核验产生 <strong>r<sub>final</sub></strong>、<strong>r<sub>step</sub></strong> 与 <strong>r<sub>align</sub></strong>，避免模型仅因输出自然流畅而获得高奖励。</p></div><div class="formula-box"><span>GRPO 奖励</span><code>r_total = α₁r_final + α₂r_step + α₃r_align</code><p>三个奖励在同一尺度上加权，以兼顾结果正确、过程可验证和区域对齐。</p></div></div>
+        <div class="paper-section-title"><span>实验结果</span><h3>幻觉显著下降，通用 VQA 基本不损失</h3></div>
+        <figure class="paper-result"><button class="paper-image-button" type="button" data-image="../assets/papers/aaai-vlm1-results-crop.png" data-alt="Visual RLVR实验结果表"><img src="../assets/papers/aaai-vlm1-results-crop.png" alt="Visual RLVR实验结果表" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption>在 Qwen3-VL-8B 上，Visual RLVR 将 <strong>CHAIRs 从 42.3 降至 28.5（下降 32.6%）</strong>，并在 POPE、HallusionBench、MMHAL 等幻觉基准领先；MMBench、MM-Vet、GQA、TextVQA 的变化不超过 0.5%，说明未牺牲通用理解能力。</figcaption></figure>
+      </section>
+
+      <section class="paper-detail" id="paper-vlm2" role="tabpanel" aria-labelledby="paper-tab-vlm2" hidden>
+        <div class="paper-detail-head"><div><div class="paper-badges"><span class="paper-badge paper-badge-lime">AAAI 在投</span><span class="paper-badge">人工智能顶级会议</span><span class="paper-badge">训练免调优</span></div><p class="paper-author"><i data-lucide="users-round"></i> 作者次序：硕士第一作者</p><p class="paper-kicker">感知幻觉 · 类型感知验证 · 工具路由</p><h2>验证你的主张：用于缓解 LVLM 感知幻觉的类型感知视觉验证框架</h2><h3>Verify What You Claim: A Type-Aware Visual Verification Framework for Mitigating Perceptual Hallucinations in LVLMs</h3></div><span class="paper-number">05</span></div>
+        <div class="paper-abstract"><i data-lucide="quote"></i><div><h3>简化摘要</h3><p>小物体、远处文字和细粒度属性在整图表示中容易丢失，造成感知幻觉。VeriClaim 将初始回答分解为存在、属性、计数、OCR 四类主张，按类型调用专用视觉工具；当全图证据不可靠时，仅对相关区域进行原分辨率复核，并基于证据集修正答案。</p></div></div>
+        <div class="paper-section-title"><span>问题与动机</span><h3>让视觉证据决定何时、如何验证</h3></div>
+        <figure class="paper-visual paper-visual-medium"><button class="paper-image-button" type="button" data-image="../assets/papers/aaai-vlm2-problem-crop.png" data-alt="VeriClaim感知幻觉问题图"><img src="../assets/papers/aaai-vlm2-problem-crop.png" alt="VeriClaim感知幻觉问题图" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption><strong>图 1 · 感知幻觉来源。</strong>标准 LVLM 对完整图像编码时会下采样细小或遥远目标，导致“画面中有一人”这类看似合理但忽略局部证据的错误结论。</figcaption></figure>
+        <div class="paper-section-title"><span>方法流程</span><h3>类型化主张、选择性复核与证据驱动修正</h3></div>
+        <figure class="paper-visual paper-visual-wide"><button class="paper-image-button" type="button" data-image="../assets/papers/aaai-vlm2-framework-crop.png" data-alt="VeriClaim类型感知视觉验证流程"><img src="../assets/papers/aaai-vlm2-framework-crop.png" alt="VeriClaim类型感知视觉验证流程" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption><strong>图 2 · VeriClaim 流程。</strong>将问答分解为带实体、谓词、对象、区域、极性与置信度的结构化主张；存在/属性使用 GroundingDINO 或 CLIP，计数使用 GroundingDINO + SAM2 + 计数器，OCR 使用 PaddleOCR。低置信度时触发局部复核，最后保留、修正或保守表达答案。</figcaption></figure>
+        <div class="paper-method-card"><div><span class="method-index">05</span><h3>类型即验证契约</h3><p>不同主张需要不同的证据：计数依赖实例分割，OCR 依赖字符级识别，属性依赖语义匹配。框架以 <strong>τ ∈ {Exist, Attr, Count, OCR}</strong> 决定验证器，并将区域约束仅作为提案排序依据，避免语言描述直接替代视觉定位。</p></div><div class="formula-box"><span>结构化主张</span><code>c = (τ, s, p, o, r, π, h)</code><p>分别表示类型、主体、谓词、对象、区域约束、极性和不确定性状态。</p></div></div>
+        <div class="paper-section-title"><span>实验结果</span><h3>跨骨干模型的感知幻觉抑制</h3></div>
+        <figure class="paper-result"><button class="paper-image-button" type="button" data-image="../assets/papers/aaai-vlm2-results-crop.png" data-alt="VeriClaim跨骨干实验结果表"><img src="../assets/papers/aaai-vlm2-results-crop.png" alt="VeriClaim跨骨干实验结果表" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button><figcaption>VeriClaim 在 Qwen3-VL-8B 上取得 <strong>POPE-A-S64 92.12% / 91.80% F1、CHAIRs/CHAIRi 7.00 / 3.80</strong>；在 InternVL2-8B 上同样领先。尤其针对边长不超过 64 像素的小目标，类型路由与选择性原分辨率复核带来明显提升。</figcaption></figure>
+      </section>
+      <footer class="footer"><span>03 / PAPER · 从方法到证据</span><span class="hearts">✦ ✦ ✦</span></footer>
+    </main>
+  </div>
+  <dialog class="award-lightbox" id="paperLightbox" aria-label="论文图表预览"><button class="lightbox-close" type="button" aria-label="关闭图表预览"><i data-lucide="x"></i></button><img id="paperLightboxImage" src="" alt="" /></dialog>
+  <div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已更新主题</span></div>
+  <script src="../assets/common.js"></script>
+  <script>
+    (() => {
+      const tabs = [...document.querySelectorAll('.paper-tab')]; const panels = [...document.querySelectorAll('.paper-detail')];
+      function selectTab(tab) { tabs.forEach((item) => { const selected = item === tab; item.classList.toggle('is-active', selected); item.setAttribute('aria-selected', selected); item.tabIndex = selected ? 0 : -1; }); panels.forEach((panel) => { const active = panel.id === tab.getAttribute('aria-controls'); panel.classList.toggle('is-active', active); panel.hidden = !active; }); window.scrollTo({ top: 0, behavior: 'smooth' }); if (window.Astudyber) window.Astudyber.refreshIcons(); }
+      tabs.forEach((tab, index) => { tab.addEventListener('click', () => selectTab(tab)); tab.addEventListener('keydown', (event) => { const step = event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1 : event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 0; if (!step) return; event.preventDefault(); const next = tabs[(index + step + tabs.length) % tabs.length]; next.focus(); selectTab(next); }); });
+      const dialog = document.getElementById('paperLightbox'); const preview = document.getElementById('paperLightboxImage'); const close = dialog.querySelector('.lightbox-close'); document.querySelectorAll('.paper-image-button').forEach((button) => button.addEventListener('click', () => { preview.src = button.dataset.image; preview.alt = button.dataset.alt || ''; dialog.showModal(); })); close.addEventListener('click', () => dialog.close()); dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); }); dialog.addEventListener('close', () => { preview.src = ''; });
+    })();
+  </script>
 </body>
-
 </html>

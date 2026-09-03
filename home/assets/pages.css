@@ -325,6 +325,57 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .lightbox-close:hover { border-color: var(--pink); color: var(--pink); }
 .lightbox-close svg { width: 17px; height: 17px; }
 
+/* Publications showcase */
+.paper-switcher { position: sticky; top: 10px; z-index: 5; margin: 24px 0 20px; padding: 6px; border: 1px solid var(--pink); border-radius: 10px; background: color-mix(in srgb, var(--paper) 94%, transparent); box-shadow: 0 8px 24px rgba(0,0,0,.12); backdrop-filter: blur(12px); }
+.paper-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.paper-tab { display: grid; min-width: 0; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 8px; align-items: center; padding: 9px 10px; border: 1px solid transparent; border-radius: 7px; color: var(--muted); background: transparent; text-align: left; cursor: pointer; transition: 180ms ease; }
+.paper-tab > span { grid-row: 1 / 3; color: var(--pink); font-family: "Nunito", sans-serif; font-size: 19px; font-weight: 900; }
+.paper-tab b { overflow: hidden; color: var(--ink); font-family: "Nunito", sans-serif; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.paper-tab small { overflow: hidden; margin-top: 2px; color: var(--muted); font-size: 11px; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
+.paper-tab:hover { border-color: var(--pink); background: rgba(211,54,130,.07); }
+.paper-tab.is-active { border-color: var(--pink); color: var(--paper); background: var(--pink); box-shadow: 0 5px 15px rgba(211,54,130,.22); }
+.paper-tab.is-active > span, .paper-tab.is-active b, .paper-tab.is-active small { color: currentColor; }
+.paper-detail { display: none; animation: page-rise 380ms ease-out both; }
+.paper-detail.is-active { display: block; }
+.paper-detail-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-top: 18px; padding: 25px clamp(20px, 4vw, 38px); border: 1px solid var(--line); border-top: 3px solid var(--pink); border-radius: 11px; background: var(--panel); }
+.paper-detail-head > div { min-width: 0; }
+.paper-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+.paper-badge { display: inline-flex; align-items: center; padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--cyan); background: rgba(42,161,152,.07); font-family: "Nunito", sans-serif; font-size: 11px; font-weight: 900; }
+.paper-badge-pink { border-color: var(--pink); color: var(--pink); background: rgba(211,54,130,.08); }
+.paper-badge-cyan { border-color: var(--cyan); }
+.paper-badge-lime { border-color: var(--lime); color: var(--lime); background: rgba(133,153,0,.08); }
+.paper-author { display: inline-flex; align-items: center; gap: 6px; margin: 15px 0 0; color: var(--ink); font-size: 14px; font-weight: 900; }
+.paper-author svg { width: 16px; height: 16px; color: var(--pink); }
+.paper-kicker { margin: 12px 0 4px; color: var(--pink); font-family: "Nunito", sans-serif; font-size: 12px; font-weight: 900; letter-spacing: .08em; }
+.paper-detail-head h2 { margin: 0; color: var(--ink); font-size: clamp(23px, 3vw, 35px); line-height: 1.3; }
+.paper-detail-head h3 { margin: 7px 0 0; color: var(--muted); font-family: "Nunito", sans-serif; font-size: clamp(14px, 1.7vw, 19px); line-height: 1.45; }
+.paper-number { flex: 0 0 auto; color: var(--pink); font-family: "Nunito", sans-serif; font-size: clamp(38px, 6vw, 72px); font-weight: 900; line-height: .9; opacity: .45; }
+.paper-abstract { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 13px; margin-top: 15px; padding: 18px 20px; border: 1px solid var(--line); border-left: 3px solid var(--cyan); border-radius: 9px; background: rgba(42,161,152,.06); }
+.paper-abstract > svg { width: 21px; height: 21px; color: var(--cyan); }
+.paper-abstract h3 { margin: 0; color: var(--ink); font-size: 18px; }
+.paper-abstract p { margin: 7px 0 0; color: var(--muted); font-size: 16px; font-weight: 700; line-height: 1.85; }
+.paper-section-title { display: flex; align-items: baseline; gap: 11px; margin: 29px 0 13px; }
+.paper-section-title span { color: var(--pink); font-family: "Nunito", sans-serif; font-size: 12px; font-weight: 900; letter-spacing: .1em; }
+.paper-section-title h3 { margin: 0; color: var(--ink); font-size: 22px; }
+.paper-visual, .paper-result { margin: 0 0 18px; padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+.paper-image-button { position: relative; display: block; width: 100%; padding: 0; border: 0; border-radius: 6px; background: var(--paper); cursor: zoom-in; }
+.paper-image-button img { display: block; width: 100%; height: auto; max-height: 620px; object-fit: contain; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); }
+.paper-visual-medium { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(260px, .75fr); align-items: center; gap: 18px; }
+.paper-visual-medium .paper-image-button img { max-width: 900px; margin: 0 auto; }
+.paper-visual-medium figcaption { margin: 0; }
+.paper-image-button .zoom-hint { opacity: 0; }
+.paper-image-button:hover .zoom-hint, .paper-image-button:focus-visible .zoom-hint { opacity: 1; }
+.paper-visual figcaption, .paper-result figcaption { margin: 10px 4px 1px; color: var(--muted); font-size: 14px; font-weight: 700; line-height: 1.75; }
+.paper-visual figcaption strong, .paper-result figcaption strong { color: var(--ink); }
+.paper-method-card { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr); gap: 15px; margin: 15px 0 21px; padding: 19px 20px; border: 1px solid var(--line); border-radius: 9px; background: rgba(211,54,130,.045); }
+.method-index { display: inline-grid; width: 28px; height: 28px; place-items: center; margin-bottom: 8px; border: 1px solid var(--pink); border-radius: 50%; color: var(--pink); font-family: "Nunito", sans-serif; font-size: 13px; font-weight: 900; }
+.paper-method-card h3 { margin: 0; color: var(--ink); font-size: 19px; }
+.paper-method-card p { margin: 8px 0 0; color: var(--muted); font-size: 15px; font-weight: 700; line-height: 1.8; }
+.formula-box { align-self: center; padding: 14px 15px; border: 1px dashed var(--pink); border-radius: 8px; background: var(--paper); }
+.formula-box > span { color: var(--pink); font-size: 12px; font-weight: 900; }
+.formula-box code { display: block; margin-top: 8px; color: var(--ink); font-family: Consolas, monospace; font-size: 14px; line-height: 1.6; white-space: normal; overflow-wrap: anywhere; }
+.formula-box p { margin-top: 7px; font-size: 13px; line-height: 1.6; }
+
 /* Inline technical highlights on the homepage follow each research track color. */
 .home-page mark { padding: 0 2px; color: inherit; background: transparent; font-weight: 900; }
 .home-page .tone-vlm { color: var(--cyan); }
@@ -469,6 +520,7 @@ body { font-size: 16px; }
 }
 @media (max-width: 1100px) {
   .award-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .paper-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
   main { padding: 18px 16px 35px; }
@@ -523,6 +575,22 @@ body { font-size: 16px; }
   .award-thumb-wrap { aspect-ratio: 16 / 10; }
   .academic-thumb-wrap { aspect-ratio: 16 / 10; }
   .award-lightbox { width: calc(100vw - 24px); padding: 10px; }
+  .paper-switcher { position: static; }
+  .paper-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .paper-tab { padding: 8px; }
+  .paper-tab b { font-size: 12px; }
+  .paper-tab small { font-size: 10px; }
+  .paper-detail-head { padding: 20px 17px; }
+  .paper-number { font-size: 42px; }
+  .paper-abstract { grid-template-columns: 1fr; gap: 7px; padding: 15px 16px; }
+  .paper-abstract p, .paper-method-card p { font-size: 15px; }
+  .paper-section-title { display: block; }
+  .paper-section-title h3 { margin-top: 4px; font-size: 20px; }
+  .paper-visual, .paper-result { padding: 8px; }
+  .paper-visual-medium { display: block; }
+  .paper-visual-medium figcaption { margin: 10px 4px 1px; }
+  .paper-visual figcaption, .paper-result figcaption { font-size: 13px; }
+  .paper-method-card { grid-template-columns: 1fr; padding: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
