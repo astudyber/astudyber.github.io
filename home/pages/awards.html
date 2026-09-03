@@ -1,57 +1,67 @@
 <!doctype html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#fdf6e3" />
-    <title>Astudyber | 获奖</title>
-    <link rel="stylesheet" href="../assets/pages.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fdf6e3" />
+  <title>程惠泽 | 获奖与荣誉</title>
+  <link rel="stylesheet" href="../assets/pages.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+<body class="awards-page">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../index.html" aria-label="程惠泽主页"><span class="brand-mark"><i data-lucide="orbit"></i></span><span>Astudyber</span></a>
+      <div class="sidebar-profile" aria-label="个人关键信息"><strong>程惠泽</strong><span>158 2978 9503</span><a href="mailto:hzcheng@chd.edu.cn">hzcheng@chd.edu.cn</a><span>人工智能 · 本科</span><span>计算机科学与技术 · 硕士</span></div>
+      <p class="side-label">PROFILE INDEX / 06</p>
+      <nav class="nav-list" aria-label="页面导航">
+        <a class="nav-link" href="../index.html"><i data-lucide="user-round"></i>主页</a>
+        <a class="nav-link" href="internships.html"><i data-lucide="briefcase-business"></i>实习</a>
+        <a class="nav-link" href="papers.html"><i data-lucide="file-text"></i>论文</a>
+        <a class="nav-link" href="research.html"><i data-lucide="flask-conical"></i>研究</a>
+        <a class="nav-link" href="coding.html"><i data-lucide="code-2"></i>编程</a>
+        <a class="nav-link active" href="awards.html"><i data-lucide="award"></i>获奖</a>
+      </nav>
+    </aside>
+    <main>
+      <header class="topbar"><div class="today"><i data-lucide="sun-medium"></i><span id="todayText">加载今天中...</span></div><div class="top-actions"><button class="icon-button" id="themeToggle" type="button" aria-label="切换主题" title="切换主题"><i data-lucide="moon-star"></i></button><img class="avatar profile-avatar-mini" src="../assets/avatar.jpg" alt="程惠泽头像" /></div></header>
+      <section class="page-hero hero-peach" aria-labelledby="awardsTitle"><div><span class="eyebrow"><i data-lucide="award"></i> 06 / HONOR</span><h1 id="awardsTitle">获奖与荣誉</h1><p>按时间倒序整理奖学金、学科竞赛、创新项目与学术成果，每一项都对应具体内容与项目级别。</p></div><div class="hero-doodle" aria-hidden="true"><i class="doodle-star" data-lucide="sparkle"></i><span class="planet"></span></div></section>
 
-<body>
-    <div class="app-shell">
-        <aside class="sidebar"><a class="brand" href="../index.html"><span class="brand-mark"><i
-                        data-lucide="orbit"></i></span><span>Astudyber</span></a>
-            <div class="sidebar-profile" aria-label="个人关键信息"><strong>程惠泽</strong><span>158 2978 9503</span><a href="mailto:hzcheng@chd.edu.cn">hzcheng@chd.edu.cn</a><span>人工智能 · 本科</span><span>计算机科学与技术 · 硕士</span></div>
-            <p class="side-label">PROFILE INDEX / 06</p>
-            <nav class="nav-list"><a class="nav-link" href="../index.html"><i data-lucide="user-round"></i>主页</a><a
-                    class="nav-link" href="internships.html"><i data-lucide="briefcase-business"></i>实习</a><a
-                    class="nav-link" href="papers.html"><i data-lucide="file-text"></i>论文</a><a class="nav-link"
-                    href="research.html"><i data-lucide="flask-conical"></i>研究</a><a class="nav-link"
-                    href="coding.html"><i data-lucide="code-2"></i>编程</a><a class="nav-link active"
-                    href="awards.html"><i data-lucide="award"></i>获奖</a></nav>
-        </aside>
-        <main>
-            <header class="topbar">
-                <div class="today"><i data-lucide="sun-medium"></i><span id="todayText">加载今天中...</span></div>
-                <div class="top-actions"><button class="icon-button" id="themeToggle" type="button" aria-label="切换主题"><i
-                            data-lucide="moon-star"></i></button>
-                    <div class="avatar"><i data-lucide="smile"></i></div>
-                </div>
-            </header>
-            <section class="page-hero hero-peach">
-                <div><span class="eyebrow"><i data-lucide="award"></i> 06 / HONOR</span>
-                    <h1>获奖</h1>
-                    <p>奖项、荣誉与值得记录的里程碑。</p>
-                </div>
-                <div class="hero-doodle" aria-hidden="true"><span class="planet"></span></div>
-            </section>
-            <section>
-                <div class="section-heading">
-                    <div>
-                        <h2>荣誉档案 / HONORS</h2>
-                        <p>内容将在确认后补充。</p>
-                    </div><i data-lucide="clock-3"></i>
-                </div>
-                <div class="panel placeholder-panel"><i data-lucide="clock-3"></i><span>待补充</span></div>
-            </section>
-            <footer class="footer"><span>06 / HONOR</span><span class="hearts">✦ ✦ ✦</span></footer>
-        </main>
-    </div>
-    <div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已保存</span></div>
-    <script src="../assets/common.js"></script>
+      <section aria-labelledby="honorsTimelineTitle"><div class="section-heading"><div><h2 id="honorsTimelineTitle">荣誉时间线 | TIMELINE</h2><p>最新经历优先展示，点击图片可查看完整证书或项目材料</p></div><i data-lucide="clock-3"></i></div>
+        <div class="award-grid">
+          <article class="panel award-card award-card-pink"><div class="award-meta"><span>2025.10</span><b>校级 · 研究生奖学金</b></div><h3>二等学业奖学金</h3><p>长安大学研究生阶段学业表现认可，体现课程学习与科研实践的持续投入。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2025-second-scholarship.png" data-alt="2025年二等学业奖学金证书"><img class="award-thumb" src="../assets/awards/2025-second-scholarship.png" alt="2025年二等学业奖学金证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-cyan"><div class="award-meta"><span>2025.04</span><b>校级 · 竞赛二等奖</b></div><h3>长安大学研究生数独比赛</h3><p>参加校级研究生数独比赛并获二等奖，展示逻辑推理、快速分析与稳定解题能力。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2025-sudoku-second.png" data-alt="长安大学研究生数独比赛二等奖证书"><img class="award-thumb" src="../assets/awards/2025-sudoku-second.png" alt="长安大学研究生数独比赛二等奖证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-lime"><div class="award-meta"><span>2024.12</span><b>CCF-CSP · 前 12.69%</b></div><h3>CCF 编程能力认证</h3><p>CCF-CSP 认证累计排名前 12.69%，体现算法设计、数据结构与 C/C++ 编程基础。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2024-ccf-csp-top1269.jpg" data-alt="CCF CSP 编程认证累计前12.69%证明"><img class="award-thumb" src="../assets/awards/2024-ccf-csp-top1269.jpg" alt="CCF CSP 编程认证累计前12.69%证明" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-pink"><div class="award-meta"><span>2024.10</span><b>校级 · 研究生奖学金</b></div><h3>一等学业奖学金</h3><p>长安大学研究生阶段获得一等学业奖学金，表彰优良的课程成绩与综合表现。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2024-first-scholarship.png" data-alt="2024年一等学业奖学金证书"><img class="award-thumb" src="../assets/awards/2024-first-scholarship.png" alt="2024年一等学业奖学金证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-amber"><div class="award-meta"><span>2023.11</span><b>校级 · 学业荣誉</b></div><h3>学业优秀奖与二等奖学金</h3><p>本科阶段获得学业优秀奖及二等奖学金，体现稳定的专业学习成绩和综合素质。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2023-academic-second-scholarship.jpg" data-alt="2023年学业优秀奖及二等奖学金证书"><img class="award-thumb" src="../assets/awards/2023-academic-second-scholarship.jpg" alt="2023年学业优秀奖及二等奖学金证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-cyan"><div class="award-meta"><span>2023.09</span><b>校级 · 大创银奖</b></div><h3>糖尿病饮食管理助手——糖Health</h3><p>围绕糖尿病饮食记录与管理设计微信小程序，完成需求分析、功能实现和项目展示，获校级银奖。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2023-innovation-silver-sugarhealth.jpg" data-alt="糖Health小程序大创校级银奖证书"><img class="award-thumb" src="../assets/awards/2023-innovation-silver-sugarhealth.jpg" alt="糖Health小程序大创校级银奖证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-cyan"><div class="award-meta"><span>2023.09</span><b>校级 · 大创银奖</b></div><h3>行车卫士——边缘智能驾驶员行为检测</h3><p>面向驾驶安全场景构建边缘智能行为检测方案，完成算法设计与应用展示，获校级银奖。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2023-innovation-silver-driving.jpg" data-alt="行车卫士项目大创校级银奖证书"><img class="award-thumb" src="../assets/awards/2023-innovation-silver-driving.jpg" alt="行车卫士项目大创校级银奖证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-lime"><div class="award-meta"><span>2023.08</span><b>学术成果 · CPCI 检索</b></div><h3>论文被 CPCI 检索</h3><p>参与完成的研究论文被 CPCI 检索，形成从问题分析、实验验证到论文写作的完整学术成果。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2023-cpci-paper.jpg" data-alt="2023年CPCI检索论文证明"><img class="award-thumb" src="../assets/awards/2023-cpci-paper.jpg" alt="2023年CPCI检索论文证明" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-amber"><div class="award-meta"><span>2023</span><b>国际竞赛 · 二等奖</b></div><h3>美国大学生数学建模竞赛</h3><p>参加 Mathematical Contest in Modeling（MCM），完成建模、编程分析与英文论文撰写，获二等奖。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2023-mcm-second.jpg" data-alt="2023年美国大学生数学建模竞赛二等奖证书"><img class="award-thumb" src="../assets/awards/2023-mcm-second.jpg" alt="2023年美国大学生数学建模竞赛二等奖证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-pink"><div class="award-meta"><span>2022.11</span><b>校级 · 课程荣誉</b></div><h3>课程优秀奖</h3><p>在专业课程学习与课程设计中表现突出，获得课程优秀奖，体现扎实的理论基础与实践完成度。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2022-course-excellence.jpg" data-alt="2022年课程优秀奖证书"><img class="award-thumb" src="../assets/awards/2022-course-excellence.jpg" alt="2022年课程优秀奖证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-cyan"><div class="award-meta"><span>2022.08</span><b>校级 · 大创铜奖</b></div><h3>Swab-Self 无人核酸咽拭子采样车</h3><p>参与无人化核酸咽拭子采样车项目，围绕机械结构、交互流程与应用场景完成创新设计，获校级铜奖。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2022-innovation-bronze-swab-self.jpg" data-alt="Swab-Self无人核酸咽拭子采样车大创校级铜奖证书"><img class="award-thumb" src="../assets/awards/2022-innovation-bronze-swab-self.jpg" alt="Swab-Self无人核酸咽拭子采样车大创校级铜奖证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-cyan"><div class="award-meta"><span>2022.06</span><b>校级 · 大创项目</b></div><h3>糖Health 微信小程序</h3><p>完成糖尿病饮食管理助手的项目立项与证书成果，探索健康数据记录、饮食建议与用户交互设计。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2022-innovation-sugarhealth.jpg" data-alt="糖Health微信小程序大创项目证书"><img class="award-thumb" src="../assets/awards/2022-innovation-sugarhealth.jpg" alt="糖Health微信小程序大创项目证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-amber"><div class="award-meta"><span>2022.05</span><b>校级 · 实物组二等奖</b></div><h3>小程序及 APP 创意设计大赛</h3><p>参加小程序及 APP 创意设计大赛实物组，完成可运行作品与现场展示，获得校级二等奖。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2022-app-design-second.jpg" data-alt="小程序及APP创意设计大赛实物组校级二等奖证书"><img class="award-thumb" src="../assets/awards/2022-app-design-second.jpg" alt="小程序及APP创意设计大赛实物组校级二等奖证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-lime"><div class="award-meta"><span>2022.02</span><b>知识产权 · 一作</b></div><h3>软件著作权</h3><p>以第一作者完成软件著作权登记，具备从软件方案设计、开发实现到成果申报的完整实践。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2022-software-copyright.jpg" data-alt="2022年软件著作权第一作者证书"><img class="award-thumb" src="../assets/awards/2022-software-copyright.jpg" alt="2022年软件著作权第一作者证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-amber"><div class="award-meta"><span>2022</span><b>国际竞赛 · 二等奖</b></div><h3>美国大学生数学建模竞赛</h3><p>参与国际数学建模竞赛，完成问题抽象、数学建模、程序求解与成果表达，获二等奖。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2022-mcm-second.jpg" data-alt="2022年美国大学生数学建模竞赛二等奖证书"><img class="award-thumb" src="../assets/awards/2022-mcm-second.jpg" alt="2022年美国大学生数学建模竞赛二等奖证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-pink"><div class="award-meta"><span>2021.03</span><b>校级 · 最佳创意奖</b></div><h3>交通大数据创新设计与应用大赛</h3><p>围绕交通数据分析与应用场景提出创新方案，完成作品设计与展示，获得校级最佳创意奖。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2021-traffic-best-idea.jpg" data-alt="交通大数据创新设计与应用大赛校级最佳创意奖证书"><img class="award-thumb" src="../assets/awards/2021-traffic-best-idea.jpg" alt="交通大数据创新设计与应用大赛校级最佳创意奖证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-cyan"><div class="award-meta"><span>2021</span><b>校级 · 志愿服务荣誉</b></div><h3>社区党支部优秀志愿者</h3><p>参与社区党支部志愿服务工作，积极完成组织协作、社区服务与公益实践，获优秀志愿者荣誉。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2021-volunteer.jpg" data-alt="2021年社区党支部优秀志愿者证书"><img class="award-thumb" src="../assets/awards/2021-volunteer.jpg" alt="2021年社区党支部优秀志愿者证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+          <article class="panel award-card award-card-lime"><div class="award-meta"><span>2020</span><b>综合荣誉 · 校级</b></div><h3>其他荣誉证书</h3><p>本科阶段早期获得的综合荣誉，记录持续参与校园活动、专业实践与个人成长的起点。</p><button class="award-thumb-wrap" type="button" data-image="../assets/awards/2020-other-honor.jpg" data-alt="2020年其他荣誉证书"><img class="award-thumb" src="../assets/awards/2020-other-honor.jpg" alt="2020年其他荣誉证书" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+        </div>
+      </section>
+
+      <section aria-labelledby="academicTitle"><div class="section-heading"><div><h2 id="academicTitle">学业与认证 | ACADEMIC SNAPSHOT</h2><p>仅展示绩点排名与英语能力证明，不展示学籍材料</p></div><i data-lucide="graduation-cap"></i></div><div class="academic-grid">
+        <article class="panel academic-card"><div class="academic-card-heading"><span class="academic-icon"><i data-lucide="bar-chart-3"></i></span><div><h3>本科绩点与专业排名</h3><p>长安大学 · 人工智能本科</p></div></div><button class="academic-thumb-wrap" type="button" data-image="../assets/awards/undergrad-gpa-ranking.jpg" data-alt="本科绩点和专业排名证明"><img src="../assets/awards/undergrad-gpa-ranking.jpg" alt="本科绩点和专业排名证明" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+        <article class="panel academic-card"><div class="academic-card-heading"><span class="academic-icon academic-icon-pink"><i data-lucide="languages"></i></span><div><h3>CET-6 英语能力</h3><p>英语六级成绩单（图片版）</p></div></div><button class="academic-thumb-wrap" type="button" data-image="../assets/awards/cet6-certificate.png" data-alt="CET-6英语六级成绩单"><img src="../assets/awards/cet6-certificate.png" alt="CET-6英语六级成绩单" loading="lazy" /><span class="zoom-hint"><i data-lucide="zoom-in"></i> 点击放大</span></button></article>
+      </div></section>
+      <footer class="footer"><span>06 / HONOR · 程惠泽的荣誉档案</span><span class="hearts">✦ ✦ ✦</span></footer>
+    </main>
+  </div>
+  <dialog class="award-lightbox" id="awardLightbox" aria-label="荣誉图片预览"><button class="lightbox-close" type="button" aria-label="关闭图片预览"><i data-lucide="x"></i></button><img id="lightboxImage" src="" alt="" /></dialog>
+  <div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已更新主题</span></div>
+  <script src="../assets/common.js"></script>
+  <script>
+    (() => { const dialog = document.getElementById('awardLightbox'); const preview = document.getElementById('lightboxImage'); const close = dialog.querySelector('.lightbox-close'); document.querySelectorAll('[data-image]').forEach((button) => button.addEventListener('click', () => { preview.src = button.dataset.image; preview.alt = button.dataset.alt || ''; dialog.showModal(); })); close.addEventListener('click', () => dialog.close()); dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); }); dialog.addEventListener('close', () => { preview.src = ''; }); })();
+  </script>
 </body>
-
 </html>

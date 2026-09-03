@@ -288,6 +288,43 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .honors-panel strong { display: block; color: var(--amber); font-size: 12px; }
 .honors-panel span { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; font-weight: 700; line-height: 1.6; }
 
+/* Awards timeline */
+.award-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
+.award-card { display: flex; min-width: 0; flex-direction: column; padding: 17px; border-top: 3px solid var(--cyan); }
+.award-card-pink { border-top-color: var(--pink); }
+.award-card-lime { border-top-color: var(--lime); }
+.award-card-amber { border-top-color: var(--amber); }
+.award-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.award-meta span { flex: 0 0 auto; color: var(--cyan); font-family: "Nunito", sans-serif; font-size: 16px; font-weight: 900; }
+.award-card-pink .award-meta span { color: var(--pink); }
+.award-card-lime .award-meta span { color: var(--lime); }
+.award-card-amber .award-meta span { color: var(--amber); }
+.award-meta b { min-width: 0; overflow: hidden; color: var(--muted); font-size: 12px; font-weight: 900; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
+.award-card h3 { margin: 10px 0 0; color: var(--ink); font-size: 17px; line-height: 1.45; }
+.award-card p { min-height: 4.9em; margin: 7px 0 13px; color: var(--muted); font-size: 13px; font-weight: 700; line-height: 1.7; }
+.award-thumb-wrap, .academic-thumb-wrap { position: relative; display: block; width: 100%; margin-top: auto; padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); cursor: zoom-in; }
+.award-thumb-wrap { aspect-ratio: 4 / 3; }
+.award-thumb, .academic-thumb-wrap img { display: block; width: 100%; height: 100%; object-fit: contain; background: var(--paper); transition: transform 220ms ease; }
+.award-thumb-wrap:hover .award-thumb, .academic-thumb-wrap:hover img { transform: scale(1.035); }
+.zoom-hint { position: absolute; right: 7px; bottom: 7px; display: inline-flex; align-items: center; gap: 4px; padding: 4px 7px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: color-mix(in srgb, var(--paper) 88%, transparent); font-size: 11px; font-weight: 900; opacity: 0; transition: opacity 180ms ease; }
+.zoom-hint svg { width: 13px; height: 13px; }
+.award-thumb-wrap:hover .zoom-hint, .academic-thumb-wrap:hover .zoom-hint, .award-thumb-wrap:focus-visible .zoom-hint, .academic-thumb-wrap:focus-visible .zoom-hint { opacity: 1; }
+.academic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+.academic-card { min-width: 0; padding: 17px; }
+.academic-card-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 13px; }
+.academic-card-heading h3 { margin: 0; font-size: 17px; }
+.academic-card-heading p { margin: 3px 0 0; color: var(--muted); font-size: 13px; font-weight: 700; }
+.academic-icon { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border: 1px solid var(--cyan); border-radius: 8px; color: var(--cyan); background: rgba(42,161,152,.08); }
+.academic-icon-pink { border-color: var(--pink); color: var(--pink); background: rgba(211,54,130,.08); }
+.academic-icon svg { width: 18px; height: 18px; }
+.academic-thumb-wrap { aspect-ratio: 16 / 9; }
+.award-lightbox { position: fixed; width: min(92vw, 1100px); max-width: none; max-height: 92vh; padding: 18px; border: 1px solid var(--cyan); border-radius: 10px; background: var(--panel); box-shadow: 0 20px 80px rgba(0,0,0,.38); }
+.award-lightbox::backdrop { background: rgba(4, 8, 18, .78); backdrop-filter: blur(4px); }
+.award-lightbox img { display: block; width: 100%; max-height: calc(92vh - 36px); object-fit: contain; border-radius: 5px; background: var(--paper); }
+.lightbox-close { position: absolute; top: 8px; right: 8px; display: grid; width: 34px; height: 34px; place-items: center; padding: 0; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: var(--panel); cursor: pointer; }
+.lightbox-close:hover { border-color: var(--pink); color: var(--pink); }
+.lightbox-close svg { width: 17px; height: 17px; }
+
 /* Inline technical highlights on the homepage follow each research track color. */
 .home-page mark { padding: 0 2px; color: inherit; background: transparent; font-weight: 900; }
 .home-page .tone-vlm { color: var(--cyan); }
@@ -430,6 +467,9 @@ body { font-size: 16px; }
   .nav-link svg { width: 16px; height: 16px; }
   main { width: 100%; min-width: 0; padding-top: 22px; }
 }
+@media (max-width: 1100px) {
+  .award-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 760px) {
   main { padding: 18px 16px 35px; }
   .topbar { margin-bottom: 18px; }
@@ -478,6 +518,11 @@ body { font-size: 16px; }
   .resume-image-row .resume-thumb { height: 145px; }
   .resume-pdf-home { height: 180px; }
   .resume-thumb-honor { grid-column: 1 / -1; margin-left: 14px; margin-right: 14px; width: calc(100% - 28px); }
+  .award-grid, .academic-grid { grid-template-columns: 1fr; }
+  .award-card p { min-height: 0; }
+  .award-thumb-wrap { aspect-ratio: 16 / 10; }
+  .academic-thumb-wrap { aspect-ratio: 16 / 10; }
+  .award-lightbox { width: calc(100vw - 24px); padding: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
