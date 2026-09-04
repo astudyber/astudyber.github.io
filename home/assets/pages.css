@@ -592,6 +592,121 @@ body { font-size: 16px; }
   .paper-visual figcaption, .paper-result figcaption { font-size: 13px; }
   .paper-method-card { grid-template-columns: 1fr; padding: 16px; }
 }
+
+/* Rebuilt publication chapters: one consistent reading unit per paper section. */
+.papers-page .paper-chapter {
+  margin-top: 18px;
+  padding: 22px clamp(18px, 3vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  box-shadow: 0 8px 22px rgba(0,0,0,.07);
+}
+.papers-page .chapter-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 13px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--line);
+}
+.papers-page .chapter-heading span {
+  color: var(--pink);
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  white-space: normal;
+}
+.papers-page .chapter-heading h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.3;
+}
+.papers-page .paper-chapter > p,
+.papers-page .chapter-copy p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.85;
+}
+.papers-page .paper-chapter > p:last-child,
+.papers-page .chapter-copy p:last-child { margin-bottom: 0; }
+.papers-page .paper-chapter strong,
+.papers-page .paper-chapter mark { color: var(--cyan); font-weight: 900; }
+.papers-page .chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.papers-page .chapter-copy {
+  min-height: 154px;
+  padding: 15px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--paper) 45%, transparent);
+}
+.papers-page .chapter-copy h4 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.35;
+}
+.papers-page .chapter-copy p { font-size: 16px; line-height: 1.72; }
+.papers-page .paper-chapter .paper-visual,
+.papers-page .paper-chapter .paper-result { margin: 0 0 16px; }
+.papers-page .paper-chapter .paper-visual:last-child,
+.papers-page .paper-chapter .paper-result:last-child { margin-bottom: 0; }
+.papers-page .paper-chapter .paper-visual figcaption,
+.papers-page .paper-chapter .paper-result figcaption {
+  font-size: 17px;
+  line-height: 1.82;
+}
+.papers-page .formula-wide { margin-top: 15px; }
+.papers-page .formula-wide code {
+  color: var(--cyan);
+  font-size: 17px;
+  line-height: 1.8;
+}
+.papers-page .formula-wide p { color: var(--muted); font-size: 15px; }
+.papers-page .paper-detail-head h3 { display: none; }
+
+@media (max-width: 760px) {
+  .papers-page .paper-chapter { padding: 18px 16px; }
+  .papers-page .chapter-heading { display: block; }
+  .papers-page .chapter-heading span { display: block; margin-bottom: 5px; font-size: 12px; white-space: normal; }
+  .papers-page .chapter-heading h3 { font-size: 22px; }
+  .papers-page .paper-chapter > p,
+  .papers-page .chapter-copy p { font-size: 16px; line-height: 1.8; }
+  .papers-page .chapter-grid { grid-template-columns: 1fr; }
+  .papers-page .chapter-copy { min-height: 0; }
+  .papers-page .paper-chapter .paper-visual figcaption,
+  .papers-page .paper-chapter .paper-result figcaption { font-size: 16px; }
+  .papers-page .formula-wide code { font-size: 15px; }
+}
+
+/* Internship tabs and panels use one green accent in both light and night themes. */
+.internships-page .company-tab:nth-child(2) .tab-number,
+.internships-page .company-tab:nth-child(2) > svg,
+.internships-page .company-tab:nth-child(2).is-active,
+.internships-page .company-mark-blockchain,
+.internships-page .metric-strip-three strong,
+.internships-page .rag-visual .visual-node svg,
+.internships-page .detail-block:nth-child(2) .detail-index,
+.internships-page .detail-block:nth-child(2) .detail-title small,
+.internships-page .detail-block:nth-child(2) li::marker,
+.internships-page .internship-panel#panel-blockchain .tool-row > span:not(:first-child) { color: var(--lime); }
+.internships-page .company-tab:nth-child(2).is-active,
+.internships-page .company-mark-blockchain,
+.internships-page .detail-block:nth-child(2) .detail-index { border-color: var(--lime); }
+.internships-page .company-tab:nth-child(2).is-active { background: var(--lime); box-shadow: 0 5px 14px rgba(133,153,0,.25); color: #223018; }
+.internships-page .company-tab:nth-child(2):hover { border-color: var(--lime); background: color-mix(in srgb, var(--lime) 10%, var(--panel)); }
+.internships-page .metric-strip-three > div { background: color-mix(in srgb, var(--lime) 8%, var(--panel)); }
+.internships-page .internship-panel#panel-blockchain .tool-row > span:not(:first-child) { background: color-mix(in srgb, var(--lime) 7%, transparent); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
@@ -616,3 +731,93 @@ body { font-size: 16px; }
 .home-page .honors-panel strong { font-size: 15px; }
 .home-page .footer { font-size: 14px; }
 .home-page .side-label, .home-page .tiny, .home-page .side-badge { font-size: 14px; }
+
+/* Larger reading scale for publication and award pages. */
+.papers-page .paper-switcher { position: static; top: auto; }
+.papers-page .paper-tab { min-height: 68px; padding: 11px 12px; }
+.papers-page .paper-tab > span { font-size: 23px; }
+.papers-page .paper-tab b { font-size: 16px; }
+.papers-page .paper-tab small { font-size: 14px; }
+.papers-page .paper-tab:hover { border-color: var(--cyan); background: rgba(42,161,152,.1); box-shadow: inset 0 -3px var(--cyan), 0 7px 18px rgba(42,161,152,.12); transform: translateY(-2px); }
+.papers-page .paper-tab.is-active { border-color: var(--pink); box-shadow: inset 0 -3px rgba(255,255,255,.6), 0 7px 18px rgba(211,54,130,.24); transform: translateY(-2px); }
+.papers-page .paper-tab.is-active:hover { border-color: var(--pink); background: var(--pink); }
+.papers-page .paper-badge { font-size: 13px; }
+.papers-page .paper-author { font-size: 16px; }
+.papers-page .paper-kicker { font-size: 14px; }
+.papers-page .paper-detail-head h3 { font-size: clamp(16px, 1.9vw, 21px); }
+.papers-page .paper-abstract h3 { font-size: 20px; }
+.papers-page .paper-abstract p { font-size: 18px; }
+.papers-page .paper-section-title span { font-size: 16px; }
+.papers-page .paper-section-title h3 { font-size: 25px; }
+.papers-page .paper-visual figcaption, .papers-page .paper-result figcaption { font-size: 17px; line-height: 1.8; }
+.papers-page .paper-method-card h3 { font-size: 21px; }
+.papers-page .paper-method-card p { font-size: 17px; line-height: 1.85; }
+.papers-page .formula-box > span { font-size: 14px; }
+.papers-page .formula-box code { font-size: 16px; }
+.papers-page .formula-box p { font-size: 15px; }
+
+/* Awards use a denser but more legible card scale; the hero title stays unchanged. */
+.awards-page .nav-link { font-size: 16px; }
+.awards-page .side-label { font-size: 14px; }
+.awards-page .today { font-size: 15px; }
+.awards-page .page-hero p { font-size: 16px; }
+.awards-page .section-heading h2 { font-size: 25px; }
+.awards-page .section-heading p { font-size: 15px; }
+.awards-page .award-meta span { font-size: 18px; }
+.awards-page .award-meta b { font-size: 14px; }
+.awards-page .award-card h3 { font-size: 20px; }
+.awards-page .award-card p { font-size: 16px; line-height: 1.8; }
+.awards-page .zoom-hint { font-size: 13px; }
+.awards-page .academic-card-heading h3 { font-size: 20px; }
+.awards-page .academic-card-heading p { font-size: 15px; }
+.awards-page .footer { font-size: 14px; }
+
+/* Raise tiny utility text on all non-home pages for consistent legibility. */
+body:not(.home-page) .eyebrow,
+body:not(.home-page) .side-label,
+body:not(.home-page) .tiny,
+body:not(.home-page) .side-badge,
+body:not(.home-page) .project-count,
+body:not(.home-page) .paper-index,
+body:not(.home-page) .research-browser__kicker,
+body:not(.home-page) .research-note__index,
+body:not(.home-page) .research-note small,
+body:not(.home-page) .prompt-card p,
+body:not(.home-page) .timer-kicker,
+body:not(.home-page) .composer .hint,
+body:not(.home-page) .character-count,
+body:not(.home-page) .focus-footer { font-size: 14px; }
+body:not(.home-page) .section-heading p,
+body:not(.home-page) .page-hero p,
+body:not(.home-page) .footer { font-size: 15px; }
+body:not(.home-page) .project > p,
+body:not(.home-page) .entry p,
+body:not(.home-page) .stack-panel p,
+body:not(.home-page) .today-panel > p,
+body:not(.home-page) .focus-item span,
+body:not(.home-page) .research-status,
+body:not(.home-page) .markdown-content p,
+body:not(.home-page) .markdown-content li { font-size: 15px; }
+body:not(.home-page) .company-mark,
+body:not(.home-page) .date-badge,
+body:not(.home-page) .metric-strip span,
+body:not(.home-page) .visual-node span,
+body:not(.home-page) .project-figure figcaption,
+body:not(.home-page) .detail-title small,
+body:not(.home-page) .tool-row,
+body:not(.home-page) .tool-row > span:not(:first-child),
+body:not(.home-page) .project-link,
+body:not(.home-page) .contact-row a { font-size: 14px; }
+
+@media (max-width: 760px) {
+  .papers-page .paper-tab { min-height: 62px; }
+  .papers-page .paper-tab > span { font-size: 20px; }
+  .papers-page .paper-tab b { font-size: 14px; }
+  .papers-page .paper-tab small { font-size: 12px; }
+  .papers-page .paper-abstract p { font-size: 17px; }
+  .papers-page .paper-section-title span { font-size: 14px; }
+  .papers-page .paper-section-title h3 { font-size: 22px; }
+  .papers-page .paper-visual figcaption, .papers-page .paper-result figcaption { font-size: 16px; }
+  .awards-page .award-meta { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .awards-page .award-meta b { text-align: left; }
+}

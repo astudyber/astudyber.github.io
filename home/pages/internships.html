@@ -1,86 +1,473 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#fdf6e3" />
-  <title>程惠泽 | 实习经历</title>
-  <link rel="stylesheet" href="../assets/pages.css" />
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
-  <div class="app-shell">
-    <aside class="sidebar">
-      <a class="brand" href="../index.html" aria-label="程惠泽主页"><span class="brand-mark"><i data-lucide="orbit"></i></span><span>Astudyber</span></a>
-      <div class="sidebar-profile" aria-label="个人关键信息"><strong>程惠泽</strong><span>158 2978 9503</span><a href="mailto:hzcheng@chd.edu.cn">hzcheng@chd.edu.cn</a><span>人工智能 · 本科</span><span>计算机科学与技术 · 硕士</span></div>
-      <p class="side-label">PROFILE / EXPERIENCE</p>
-      <nav class="nav-list" aria-label="页面导航">
-        <a class="nav-link" href="../index.html"><i data-lucide="user-round"></i>主页</a>
-        <a class="nav-link active" href="internships.html"><i data-lucide="briefcase-business"></i>实习</a>
-        <a class="nav-link" href="papers.html"><i data-lucide="file-text"></i>论文</a>
-        <a class="nav-link" href="research.html"><i data-lucide="flask-conical"></i>研究</a>
-        <a class="nav-link" href="coding.html"><i data-lucide="code-2"></i>编程</a>
-        <a class="nav-link" href="awards.html"><i data-lucide="award"></i>获奖</a>
-      </nav>
-    </aside>
-    <main>
-      <header class="topbar">
-        <div class="today"><i data-lucide="sun-medium"></i><span id="todayText">加载今天中...</span></div>
-        <div class="top-actions"><button class="icon-button" id="themeToggle" type="button" aria-label="切换主题" title="切换主题"><i data-lucide="moon-star"></i></button><img class="avatar profile-avatar-mini" src="../assets/avatar.jpg" alt="程惠泽头像" /></div>
-      </header>
-
-      <section class="page-hero hero-mint" aria-labelledby="internshipTitle">
-        <div><span class="eyebrow"><i data-lucide="briefcase-business"></i> 02 / EXPERIENCE</span><h1 id="internshipTitle">实习经历</h1><p>围绕多模态模型、具身智能与智能体应用，完成从实验验证到系统落地的工程实践。</p></div>
-        <div class="hero-doodle" aria-hidden="true"><i class="doodle-star" data-lucide="sparkle"></i><span class="planet"></span></div>
-      </section>
-
-      <section class="internship-switcher" aria-label="实习经历导航">
-        <div class="company-tabs" role="tablist" aria-label="公司切换">
-          <button class="company-tab is-active" id="tab-geely" role="tab" aria-selected="true" aria-controls="panel-geely"><span class="tab-number">01</span><span><strong>吉利研究院</strong><small>VLA · VLM · Agent · 2026.03—2026.08</small></span><i data-lucide="arrow-right"></i></button>
-          <button class="company-tab" id="tab-blockchain" role="tab" aria-selected="false" aria-controls="panel-blockchain" tabindex="-1"><span class="tab-number">02</span><span><strong>陕西省区块链技术与产业发展研究会</strong><small>RAG · 后端算法 · 2024.02—2024.05</small></span><i data-lucide="arrow-right"></i></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fdf6e3" />
+    <title>程惠泽 | 实习经历</title>
+    <link rel="stylesheet" href="../assets/pages.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="internships-page">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" aria-label="程惠泽主页"
+          ><span class="brand-mark"><i data-lucide="orbit"></i></span
+          ><span>Astudyber</span></a
+        >
+        <div class="sidebar-profile" aria-label="个人关键信息">
+          <strong>程惠泽</strong><span>158 2978 9503</span
+          ><a href="mailto:hzcheng@chd.edu.cn">hzcheng@chd.edu.cn</a
+          ><span>人工智能 · 本科</span><span>计算机科学与技术 · 硕士</span>
         </div>
-      </section>
+        <p class="side-label">PROFILE / EXPERIENCE</p>
+        <nav class="nav-list" aria-label="页面导航">
+          <a class="nav-link" href="../index.html"
+            ><i data-lucide="user-round"></i>主页</a
+          >
+          <a class="nav-link active" href="internships.html"
+            ><i data-lucide="briefcase-business"></i>实习</a
+          >
+          <a class="nav-link" href="papers.html"
+            ><i data-lucide="file-text"></i>论文</a
+          >
+          <a class="nav-link" href="research.html"
+            ><i data-lucide="flask-conical"></i>研究</a
+          >
+          <a class="nav-link" href="coding.html"
+            ><i data-lucide="code-2"></i>编程</a
+          >
+          <a class="nav-link" href="awards.html"
+            ><i data-lucide="award"></i>获奖</a
+          >
+        </nav>
+      </aside>
+      <main>
+        <header class="topbar">
+          <div class="today">
+            <i data-lucide="sun-medium"></i
+            ><span id="todayText">加载今天中...</span>
+          </div>
+          <div class="top-actions">
+            <button
+              class="icon-button"
+              id="themeToggle"
+              type="button"
+              aria-label="切换主题"
+              title="切换主题"
+            >
+              <i data-lucide="moon-star"></i></button
+            ><img
+              class="avatar profile-avatar-mini"
+              src="../assets/avatar.jpg"
+              alt="程惠泽头像"
+            />
+          </div>
+        </header>
 
-      <section class="internship-panel is-active" id="panel-geely" role="tabpanel" aria-labelledby="tab-geely">
-        <div class="internship-heading"><div><span class="company-mark company-mark-geely">GEELY</span><h2>吉利研究院</h2><p>研发实习岗 · VLA 算法研发 / VLM 应用 / Agent 开发</p></div><div class="date-badge"><i data-lucide="calendar-days"></i> 2026.03 — 2026.08</div></div>
-        <div class="metric-strip"><div><strong>96%</strong><span>Libero_10 长程任务成功率</span></div><div><strong>40 ms</strong><span>QDMD 单步推理耗时</span></div><div><strong>70%</strong><span>真机插花任务成功率</span></div><div><strong>+9%</strong><span>车载场景决策准确率</span></div></div>
-        <div class="experience-visual geely-visual" aria-label="吉利实习技术链路"><div class="visual-node"><i data-lucide="database"></i><span>数据采集<br />清洗标注</span></div><i class="visual-arrow" data-lucide="arrow-right"></i><div class="visual-node"><i data-lucide="brain-circuit"></i><span>VLA / VLM<br />后训练</span></div><i class="visual-arrow" data-lucide="arrow-right"></i><div class="visual-node"><i data-lucide="bot"></i><span>Agent<br />决策编排</span></div><i class="visual-arrow" data-lucide="arrow-right"></i><div class="visual-node"><i data-lucide="rocket"></i><span>仿真验证<br />真机部署</span></div></div>
-        <figure class="project-figure vla-figure"><iframe class="project-pdf" src="../assets/Q-FMI.pdf#page=1&amp;view=Fit" title="Q-FMI VLA 项目说明插图"></iframe><figcaption>Q-FMI：吉利研究院 VLA 项目说明与实验结果。<a href="../assets/Q-FMI.pdf" target="_blank" rel="noreferrer">打开完整 PDF <i data-lucide="arrow-up-right"></i></a></figcaption></figure>
-        <div class="internship-columns">
-          <article class="detail-block"><div class="detail-title"><span class="detail-index">01</span><div><h3>机械臂 VLA 全链路研发</h3><small>Sim → SFT → RL</small></div></div><p>深度参与机械臂 VLA 模型从数据采集、清洗、动作调控到训练部署的完整流程，完成 piperaio 机械臂硬件启动、置零标定与 CAN 接口配置，并以 Libero 仿真打通算法训练到真机落地的闭环。</p><ul><li><strong>PI05 + QDMD 仿真强化学习：</strong>引入 Moment Matching 机制，以 QGF 修正 Flow Matching 速度场，结合 CPS 采样与 DMD few-step 推理，将 Libero_10 长程任务成功率由 92.6% 提升至 96%，单步推理由 150ms 降至 40ms。</li><li><strong>openPi 真机 SFT：</strong>基于 JAX 搭建多任务监督微调基线，完成插花、插网线、插吸管、夹水杯、夹水果、清扫垃圾、放抽屉等任务的数据清洗、全量参数微调与多位置泛化测试；插花特定位置成功率超过 90%。</li><li><strong>EXPO-FT 真机强化学习：</strong>融合 IQL、QGF 与 best-of-N 候选采样，对比 online/offline、on-policy/off-policy 范式；使用 replay buffer 提升数据利用率 3—5 倍，并通过 Human-in-the-Loop DAgger 加速收敛，真机插花成功率由 SFT 基线 50% 提升至 70%。</li></ul></article>
-          <article class="detail-block"><div class="detail-title"><span class="detail-index">02</span><div><h3>车载主动交互与一句话场景泛化</h3><small>VLM + LLM + Multi-Agent</small></div></div><p>面向车载主动交互中视觉理解不足、用户意图泛化困难和车控指令冲突等问题，设计场景感知、智能介入与车控决策系统。系统融合车端图片、多帧数据、实时车辆信号、用户画像和历史对话，输出可执行的车控指令列表。</p><ul><li><strong>一句话场景泛化链路：</strong>将用户语句、历史对话、视觉 Caption 与车辆信号统一编排，完成自定义场景识别、意图理解与车控决策。</li><li><strong>主动交互链路：</strong>通过 VLM 感知、舒适/安全/情绪分类、子 Agent 并行决策、结果合并及安全边界校验，实现车内主动介入。</li><li><strong>性能与部署：</strong>采用 AWQ-INT4 量化、关键帧筛选、子 Agent 并行处理、车辆信号前置过滤和功能渐进式披露，准确率提升约 9%；平均时延增幅约 4.5%，P90 时延增幅约 2.5%，并以 FastAPI 完成服务化部署。</li></ul></article>
-        </div>
-        <div class="tool-row"><span>技术栈</span><span>Python</span><span>JAX</span><span>PyTorch</span><span>Qwen-VL</span><span>FastAPI</span><span>ThreadPoolExecutor</span><span>Docker</span></div>
-      </section>
+        <section class="page-hero hero-mint" aria-labelledby="internshipTitle">
+          <div>
+            <span class="eyebrow"
+              ><i data-lucide="briefcase-business"></i> 02 / EXPERIENCE</span
+            >
+            <h1 id="internshipTitle">实习经历</h1>
+            <p>
+              围绕多模态模型、具身智能与智能体应用，完成从实验验证到系统落地的工程实践。
+            </p>
+          </div>
+          <div class="hero-doodle" aria-hidden="true">
+            <i class="doodle-star" data-lucide="sparkle"></i
+            ><span class="planet"></span>
+          </div>
+        </section>
 
-      <section class="internship-panel" id="panel-blockchain" role="tabpanel" aria-labelledby="tab-blockchain" hidden>
-        <div class="internship-heading"><div><span class="company-mark company-mark-blockchain">AI × DATA</span><h2>陕西省区块链技术与产业发展研究会</h2><p>朝烨阳创 · 后端算法实习</p></div><div class="date-badge"><i data-lucide="calendar-days"></i> 2024.02 — 2024.05</div></div>
-        <div class="metric-strip metric-strip-three"><div><strong>3</strong><span>主导 / 协作项目</span></div><div><strong>RAG</strong><span>私有文档检索问答</span></div><div><strong>全链路</strong><span>数据 · 模型 · 服务</span></div></div>
-        <div class="experience-visual rag-visual" aria-label="RAG 项目技术链路"><div class="visual-node"><i data-lucide="file-stack"></i><span>本地文档<br />切分清洗</span></div><i class="visual-arrow" data-lucide="arrow-right"></i><div class="visual-node"><i data-lucide="scan-search"></i><span>向量化<br />建立索引</span></div><i class="visual-arrow" data-lucide="arrow-right"></i><div class="visual-node"><i data-lucide="message-square-text"></i><span>语义检索<br />拼接提示词</span></div><i class="visual-arrow" data-lucide="arrow-right"></i><div class="visual-node"><i data-lucide="sparkles"></i><span>GPT API<br />生成回答</span></div></div>
-        <figure class="project-figure"><img src="../assets/rag-demo.jpg" alt="AI 搜索与问答项目界面示意图" /><figcaption>AI 搜索与问答界面：从检索结果到生成式回答的完整交互。</figcaption></figure>
-        <div class="internship-columns">
-          <article class="detail-block"><div class="detail-title"><span class="detail-index">01</span><div><h3>Lepton + LlamaIndex RAG 项目</h3><small>项目负责人</small></div></div><p>负责将 Lepton Search 轻量级 AI 搜索引擎与 LlamaIndex 数据检索增强框架结合，搭建可部署的前后端检索问答应用，为本地私募基金文件提供自定义知识库能力。</p><ul><li><strong>数据与索引：</strong>整理本地基金相关文档，完成文本切分、清洗与向量化，构建可持久化的检索索引。</li><li><strong>检索与生成：</strong>设计用户查询触发的语义检索流程，将高相关片段组装为提示词并传递给 GPT API，实现带上下文的智能问答。</li><li><strong>工程实现：</strong>负责前后端联调、接口封装和 Gradio 交互界面，使用 FastAPI、LlamaIndex、Pandas、NumPy 等工具完成从数据到服务的闭环。</li></ul><a class="project-link" href="https://gitee.com/enenzainitoushang/search-ai" target="_blank" rel="noreferrer">查看 Search-AI 项目 <i data-lucide="arrow-up-right"></i></a></article>
-          <article class="detail-block"><div class="detail-title"><span class="detail-index">02</span><div><h3>模型与智能体协作实践</h3><small>算法支持与工程协作</small></div></div><p>围绕数据预处理、模型训练、损失函数设计和评估协助团队推进多个 AI 应用项目，将研究型代码整理为可复用的服务模块。</p><ul><li><strong>GPT-2 股票预测：</strong>使用 Pandas 清理 CSV 数据，处理缺失值与异常值；搭建训练环境，调整学习率等超参数，并将交叉熵损失替换为 MSE 以适配回归预测，完成训练与评估代码。</li><li><strong>AutoGen 多智能体工具：</strong>协助定位项目 Bug，使用 Queue 实现消息路由与任务管理，让智能体将待处理消息暂存并由其他 Agent 消费执行。</li><li><strong>团队支援：</strong>参与 Gradio 论文审稿与写作 AI、Pandas 数据集转换、数学公式 OCR 标注、Whisper 语音环境配置、Charles 抓包爬虫、思维导图前端、Nginx 与内网穿透等工作。</li></ul><div class="link-row"><a class="project-link" href="https://github.com/astudyber/GPT2-Stock-Prediction" target="_blank" rel="noreferrer">GPT-2 项目 <i data-lucide="arrow-up-right"></i></a><a class="project-link" href="https://github.com/astudyber/autogen" target="_blank" rel="noreferrer">AutoGen 项目 <i data-lucide="arrow-up-right"></i></a></div></article>
-        </div>
-        <div class="tool-row"><span>技术栈</span><span>Python</span><span>PyTorch</span><span>Pandas</span><span>NumPy</span><span>Transformers</span><span>LlamaIndex</span><span>FastAPI</span><span>Gradio</span></div>
-      </section>
+        <section class="internship-switcher" aria-label="实习经历导航">
+          <div class="company-tabs" role="tablist" aria-label="公司切换">
+            <button
+              class="company-tab is-active"
+              id="tab-geely"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-geely"
+            >
+              <span class="tab-number">01</span
+              ><span
+                ><strong>吉利研究院</strong
+                ><small>VLA · VLM · Agent · 2026.03—2026.08</small></span
+              ><i data-lucide="arrow-right"></i>
+            </button>
+            <button
+              class="company-tab"
+              id="tab-blockchain"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-blockchain"
+              tabindex="-1"
+            >
+              <span class="tab-number">02</span
+              ><span
+                ><strong>陕西省区块链技术与产业发展研究会</strong
+                ><small>RAG · 后端算法 · 2024.02—2024.05</small></span
+              ><i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+        </section>
 
-      <footer class="footer"><span>02 / EXPERIENCE · 从实验到落地</span><span class="hearts">✦ ✦ ✦</span></footer>
-    </main>
-  </div>
-  <div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已更新主题</span></div>
-  <script src="../assets/common.js"></script>
-  <script>
-    (() => {
-      const tabs = [...document.querySelectorAll('.company-tab')];
-      const panels = [...document.querySelectorAll('.internship-panel')];
-      function selectTab(tab) {
-        tabs.forEach((item) => { const selected = item === tab; item.classList.toggle('is-active', selected); item.setAttribute('aria-selected', selected); item.tabIndex = selected ? 0 : -1; });
-        panels.forEach((panel) => { const active = panel.id === tab.getAttribute('aria-controls'); panel.classList.toggle('is-active', active); panel.hidden = !active; });
-        if (window.Astudyber) window.Astudyber.refreshIcons();
-      }
-      tabs.forEach((tab, index) => { tab.addEventListener('click', () => selectTab(tab)); tab.addEventListener('keydown', (event) => { if (event.key === 'ArrowRight' || event.key === 'ArrowDown') { event.preventDefault(); tabs[(index + 1) % tabs.length].focus(); selectTab(tabs[(index + 1) % tabs.length]); } if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') { event.preventDefault(); tabs[(index - 1 + tabs.length) % tabs.length].focus(); selectTab(tabs[(index - 1 + tabs.length) % tabs.length]); } }); });
-    })();
-  </script>
-</body>
+        <section
+          class="internship-panel is-active"
+          id="panel-geely"
+          role="tabpanel"
+          aria-labelledby="tab-geely"
+        >
+          <div class="internship-heading">
+            <div>
+              <span class="company-mark company-mark-geely">GEELY</span>
+              <h2>吉利研究院</h2>
+              <p>研发实习岗 · VLA 算法研发 / VLM 应用 / Agent 开发</p>
+            </div>
+            <div class="date-badge">
+              <i data-lucide="calendar-days"></i> 2026.03 — 2026.08
+            </div>
+          </div>
+          <div class="metric-strip">
+            <div><strong>96%</strong><span>Libero_10 长程任务成功率</span></div>
+            <div><strong>40 ms</strong><span>QDMD 单步推理耗时</span></div>
+            <div><strong>70%</strong><span>真机插花任务成功率</span></div>
+            <div><strong>+9%</strong><span>车载场景决策准确率</span></div>
+          </div>
+          <div
+            class="experience-visual geely-visual"
+            aria-label="吉利实习技术链路"
+          >
+            <div class="visual-node">
+              <i data-lucide="database"></i><span>数据采集<br />清洗标注</span>
+            </div>
+            <i class="visual-arrow" data-lucide="arrow-right"></i>
+            <div class="visual-node">
+              <i data-lucide="brain-circuit"></i
+              ><span>VLA / VLM<br />后训练</span>
+            </div>
+            <i class="visual-arrow" data-lucide="arrow-right"></i>
+            <div class="visual-node">
+              <i data-lucide="bot"></i><span>Agent<br />决策编排</span>
+            </div>
+            <i class="visual-arrow" data-lucide="arrow-right"></i>
+            <div class="visual-node">
+              <i data-lucide="rocket"></i><span>仿真验证<br />真机部署</span>
+            </div>
+          </div>
+          <figure class="project-figure vla-figure">
+            <button
+              class="paper-image-button"
+              type="button"
+              data-image="../assets/Q-FMI.png"
+              data-alt="Q-FMI VLA 项目说明"
+            >
+              <img
+                src="../assets/Q-FMI.png"
+                alt="Q-FMI VLA 项目说明"
+                loading="lazy"
+              /><span class="zoom-hint"
+                ><i data-lucide="zoom-in"></i> 点击放大</span
+              >
+            </button>
+            <figcaption>Q-FMI：吉利研究院 VLA 项目说明与实验结果。</figcaption>
+          </figure>
+          <div class="internship-columns">
+            <article class="detail-block">
+              <div class="detail-title">
+                <span class="detail-index">01</span>
+                <div>
+                  <h3>机械臂 VLA 全链路研发</h3>
+                  <small>Sim → SFT → RL</small>
+                </div>
+              </div>
+              <p>
+                深度参与机械臂 VLA
+                模型从数据采集、清洗、动作调控到训练部署的完整流程，完成
+                piperaio 机械臂硬件启动、置零标定与 CAN 接口配置，并以 Libero
+                仿真打通算法训练到真机落地的闭环。
+              </p>
+              <ul>
+                <li>
+                  <strong>PI05 + QDMD 仿真强化学习：</strong>引入 Moment
+                  Matching 机制，以 QGF 修正 Flow Matching 速度场，结合 CPS
+                  采样与 DMD few-step 推理，将 Libero_10 长程任务成功率由 92.6%
+                  提升至 96%，单步推理由 150ms 降至 40ms。
+                </li>
+                <li>
+                  <strong>openPi 真机 SFT：</strong>基于 JAX
+                  搭建多任务监督微调基线，完成插花、插网线、插吸管、夹水杯、夹水果、清扫垃圾、放抽屉等任务的数据清洗、全量参数微调与多位置泛化测试；插花特定位置成功率超过
+                  90%。
+                </li>
+                <li>
+                  <strong>EXPO-FT 真机强化学习：</strong>融合 IQL、QGF 与
+                  best-of-N 候选采样，对比 online/offline、on-policy/off-policy
+                  范式；使用 replay buffer 提升数据利用率 3—5 倍，并通过
+                  Human-in-the-Loop DAgger 加速收敛，真机插花成功率由 SFT 基线
+                  50% 提升至 70%。
+                </li>
+              </ul>
+            </article>
+            <article class="detail-block">
+              <div class="detail-title">
+                <span class="detail-index">02</span>
+                <div>
+                  <h3>车载主动交互与一句话场景泛化</h3>
+                  <small>VLM + LLM + Multi-Agent</small>
+                </div>
+              </div>
+              <p>
+                面向车载主动交互中视觉理解不足、用户意图泛化困难和车控指令冲突等问题，设计场景感知、智能介入与车控决策系统。系统融合车端图片、多帧数据、实时车辆信号、用户画像和历史对话，输出可执行的车控指令列表。
+              </p>
+              <ul>
+                <li>
+                  <strong>一句话场景泛化链路：</strong
+                  >将用户语句、历史对话、视觉 Caption
+                  与车辆信号统一编排，完成自定义场景识别、意图理解与车控决策。
+                </li>
+                <li>
+                  <strong>主动交互链路：</strong>通过 VLM
+                  感知、舒适/安全/情绪分类、子 Agent
+                  并行决策、结果合并及安全边界校验，实现车内主动介入。
+                </li>
+                <li>
+                  <strong>性能与部署：</strong>采用 AWQ-INT4
+                  量化、关键帧筛选、子 Agent
+                  并行处理、车辆信号前置过滤和功能渐进式披露，准确率提升约
+                  9%；平均时延增幅约 4.5%，P90 时延增幅约 2.5%，并以 FastAPI
+                  完成服务化部署。
+                </li>
+              </ul>
+            </article>
+          </div>
+          <div class="tool-row">
+            <span>技术栈</span><span>Python</span><span>JAX</span
+            ><span>PyTorch</span><span>Qwen-VL</span><span>FastAPI</span
+            ><span>ThreadPoolExecutor</span><span>Docker</span>
+          </div>
+        </section>
+
+        <section
+          class="internship-panel"
+          id="panel-blockchain"
+          role="tabpanel"
+          aria-labelledby="tab-blockchain"
+          hidden
+        >
+          <div class="internship-heading">
+            <div>
+              <span class="company-mark company-mark-blockchain"
+                >AI × DATA</span
+              >
+              <h2>陕西省区块链技术与产业发展研究会</h2>
+              <p>朝烨阳创 · 后端算法实习</p>
+            </div>
+            <div class="date-badge">
+              <i data-lucide="calendar-days"></i> 2024.02 — 2024.05
+            </div>
+          </div>
+          <div class="metric-strip metric-strip-three">
+            <div><strong>3</strong><span>主导 / 协作项目</span></div>
+            <div><strong>RAG</strong><span>私有文档检索问答</span></div>
+            <div><strong>全链路</strong><span>数据 · 模型 · 服务</span></div>
+          </div>
+          <div
+            class="experience-visual rag-visual"
+            aria-label="RAG 项目技术链路"
+          >
+            <div class="visual-node">
+              <i data-lucide="file-stack"></i
+              ><span>本地文档<br />切分清洗</span>
+            </div>
+            <i class="visual-arrow" data-lucide="arrow-right"></i>
+            <div class="visual-node">
+              <i data-lucide="scan-search"></i><span>向量化<br />建立索引</span>
+            </div>
+            <i class="visual-arrow" data-lucide="arrow-right"></i>
+            <div class="visual-node">
+              <i data-lucide="message-square-text"></i
+              ><span>语义检索<br />拼接提示词</span>
+            </div>
+            <i class="visual-arrow" data-lucide="arrow-right"></i>
+            <div class="visual-node">
+              <i data-lucide="sparkles"></i><span>GPT API<br />生成回答</span>
+            </div>
+          </div>
+          <figure class="project-figure">
+            <img
+              src="../assets/rag-demo.jpg"
+              alt="AI 搜索与问答项目界面示意图"
+            />
+            <figcaption>
+              AI 搜索与问答界面：从检索结果到生成式回答的完整交互。
+            </figcaption>
+          </figure>
+          <div class="internship-columns">
+            <article class="detail-block">
+              <div class="detail-title">
+                <span class="detail-index">01</span>
+                <div>
+                  <h3>Lepton + LlamaIndex RAG 项目</h3>
+                  <small>项目负责人</small>
+                </div>
+              </div>
+              <p>
+                负责将 Lepton Search 轻量级 AI 搜索引擎与 LlamaIndex
+                数据检索增强框架结合，搭建可部署的前后端检索问答应用，为本地私募基金文件提供自定义知识库能力。
+              </p>
+              <ul>
+                <li>
+                  <strong>数据与索引：</strong
+                  >整理本地基金相关文档，完成文本切分、清洗与向量化，构建可持久化的检索索引。
+                </li>
+                <li>
+                  <strong>检索与生成：</strong
+                  >设计用户查询触发的语义检索流程，将高相关片段组装为提示词并传递给
+                  GPT API，实现带上下文的智能问答。
+                </li>
+                <li>
+                  <strong>工程实现：</strong>负责前后端联调、接口封装和 Gradio
+                  交互界面，使用 FastAPI、LlamaIndex、Pandas、NumPy
+                  等工具完成从数据到服务的闭环。
+                </li>
+              </ul>
+              <a
+                class="project-link"
+                href="https://gitee.com/enenzainitoushang/search-ai"
+                target="_blank"
+                rel="noreferrer"
+                >查看 Search-AI 项目 <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+            <article class="detail-block">
+              <div class="detail-title">
+                <span class="detail-index">02</span>
+                <div>
+                  <h3>模型与智能体协作实践</h3>
+                  <small>算法支持与工程协作</small>
+                </div>
+              </div>
+              <p>
+                围绕数据预处理、模型训练、损失函数设计和评估协助团队推进多个 AI
+                应用项目，将研究型代码整理为可复用的服务模块。
+              </p>
+              <ul>
+                <li>
+                  <strong>GPT-2 股票预测：</strong>使用 Pandas 清理 CSV
+                  数据，处理缺失值与异常值；搭建训练环境，调整学习率等超参数，并将交叉熵损失替换为
+                  MSE 以适配回归预测，完成训练与评估代码。
+                </li>
+                <li>
+                  <strong>AutoGen 多智能体工具：</strong>协助定位项目 Bug，使用
+                  Queue 实现消息路由与任务管理，让智能体将待处理消息暂存并由其他
+                  Agent 消费执行。
+                </li>
+                <li>
+                  <strong>团队支援：</strong>参与 Gradio 论文审稿与写作
+                  AI、Pandas 数据集转换、数学公式 OCR 标注、Whisper
+                  语音环境配置、Charles 抓包爬虫、思维导图前端、Nginx
+                  与内网穿透等工作。
+                </li>
+              </ul>
+              <div class="link-row">
+                <a
+                  class="project-link"
+                  href="https://github.com/astudyber/GPT2-Stock-Prediction"
+                  target="_blank"
+                  rel="noreferrer"
+                  >GPT-2 项目 <i data-lucide="arrow-up-right"></i></a
+                ><a
+                  class="project-link"
+                  href="https://github.com/astudyber/autogen"
+                  target="_blank"
+                  rel="noreferrer"
+                  >AutoGen 项目 <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+          <div class="tool-row">
+            <span>技术栈</span><span>Python</span><span>PyTorch</span
+            ><span>Pandas</span><span>NumPy</span><span>Transformers</span
+            ><span>LlamaIndex</span><span>FastAPI</span><span>Gradio</span>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <span>02 / EXPERIENCE · 从实验到落地</span
+          ><span class="hearts">✦ ✦ ✦</span>
+        </footer>
+      </main>
+    </div>
+    <dialog
+      class="award-lightbox"
+      id="internshipLightbox"
+      aria-label="项目图片预览"
+    >
+      <button
+        class="lightbox-close"
+        type="button"
+        aria-label="关闭项目图片预览"
+      >
+        <i data-lucide="x"></i></button
+      ><img id="internshipLightboxImage" src="" alt="" />
+    </dialog>
+    <div class="toast" id="toast" role="status">
+      <i data-lucide="sparkles"></i><span>已更新主题</span>
+    </div>
+    <script src="../assets/common.js"></script>
+    <script>
+      (() => {
+        const tabs = [...document.querySelectorAll(".company-tab")];
+        const panels = [...document.querySelectorAll(".internship-panel")];
+        function selectTab(tab) {
+          tabs.forEach((item) => {
+            const selected = item === tab;
+            item.classList.toggle("is-active", selected);
+            item.setAttribute("aria-selected", selected);
+            item.tabIndex = selected ? 0 : -1;
+          });
+          panels.forEach((panel) => {
+            const active = panel.id === tab.getAttribute("aria-controls");
+            panel.classList.toggle("is-active", active);
+            panel.hidden = !active;
+          });
+          if (window.Astudyber) window.Astudyber.refreshIcons();
+        }
+        tabs.forEach((tab, index) => {
+          tab.addEventListener("click", () => selectTab(tab));
+          tab.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+              event.preventDefault();
+              tabs[(index + 1) % tabs.length].focus();
+              selectTab(tabs[(index + 1) % tabs.length]);
+            }
+            if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+              event.preventDefault();
+              tabs[(index - 1 + tabs.length) % tabs.length].focus();
+              selectTab(tabs[(index - 1 + tabs.length) % tabs.length]);
+            }
+          });
+        });
+        const dialog = document.getElementById("internshipLightbox");
+        const preview = document.getElementById("internshipLightboxImage");
+        const close = dialog.querySelector(".lightbox-close");
+        document.querySelectorAll(".paper-image-button").forEach((button) =>
+          button.addEventListener("click", () => {
+            preview.src = button.dataset.image;
+            preview.alt = button.dataset.alt || "";
+            dialog.showModal();
+          }),
+        );
+        close.addEventListener("click", () => dialog.close());
+        dialog.addEventListener("click", (event) => {
+          if (event.target === dialog) dialog.close();
+        });
+        dialog.addEventListener("close", () => {
+          preview.src = "";
+        });
+      })();
+    </script>
+  </body>
 </html>
