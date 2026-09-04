@@ -755,6 +755,7 @@ body { font-size: 16px; }
 .papers-page .formula-box > span { font-size: 14px; }
 .papers-page .formula-box code { font-size: 16px; }
 .papers-page .formula-box p { font-size: 15px; }
+.papers-page .chapter-heading span { font-size: 16px; }
 
 /* Awards use a denser but more legible card scale; the hero title stays unchanged. */
 .awards-page .nav-link { font-size: 16px; }
@@ -818,6 +819,7 @@ body:not(.home-page) .contact-row a { font-size: 14px; }
   .papers-page .paper-section-title span { font-size: 14px; }
   .papers-page .paper-section-title h3 { font-size: 22px; }
   .papers-page .paper-visual figcaption, .papers-page .paper-result figcaption { font-size: 16px; }
+  .papers-page .chapter-heading span { font-size: 15px; }
   .awards-page .award-meta { align-items: flex-start; flex-direction: column; gap: 3px; }
   .awards-page .award-meta b { text-align: left; }
 }

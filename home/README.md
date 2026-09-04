@@ -12,3 +12,20 @@
 - `home/dox/研究/`：研究 Markdown 笔记
 
 主页采用全宽布局，桌面端为侧栏导航，移动端自动切换为横向导航。其他页面中的“主页”链接均返回 `home/index.html`。
+
+## 本地预览
+
+在命令行中进入 `home/` 目录，并指定一个端口启动 Python 静态服务器：
+
+```bash
+cd G:\A\github\astudyber.github.io\home
+python -m http.server 8000
+```
+
+然后访问 <http://localhost:8000/>。也可以在仓库根目录直接运行：
+
+```bash
+python -m http.server 8000 --directory home
+```
+
+其中 `8000` 是端口号，可按需替换为其他未占用端口。
