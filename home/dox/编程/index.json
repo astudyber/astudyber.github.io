@@ -1,0 +1,1 @@
+{"categories":[{"id":"languages","title":"编程语言","files":[{"file":"01-编程语言.md","title":"C++、Python 与 Web"}]},{"id":"ml","title":"机器学习","files":[{"file":"02-深度学习框架.md","title":"PyTorch、JAX 与 Transformers"}]},{"id":"engineering","title":"工程开发","files":[{"file":"03-工程开发.md","title":"服务化、容器与数据"}]},{"id":"tools","title":"效率工具","files":[{"file":"04-效率工具.md","title":"开发环境与协作"}]}]}

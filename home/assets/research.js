@@ -1,179 +1,23 @@
 (function () {
+  const categoryTabs = document.getElementById('researchCategories');
   const notes = document.getElementById('researchNotes');
   const content = document.getElementById('markdownContent');
-  if (!notes || !content) return;
-
+  if (!categoryTabs || !notes || !content) return;
   const manifestUrl = '../dox/研究/index.json';
   const documentsBaseUrl = new URL('../dox/研究/', window.location.href);
-
-  function escapeHtml(value) {
-    return value.replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
-  }
-
-  function inlineMarkdown(value) {
-    let html = escapeHtml(value);
-    html = html.replace(/!\[([^\]]*)\]\(((?:https?:\/\/|\.?\/)[^)]+)\)/g, '<img src="$2" alt="$1">');
-    html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
-    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-    html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/__([^_]+)__/g, '<strong>$1</strong>');
-    html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-    html = html.replace(/_([^_]+)_/g, '<em>$1</em>');
-    return html;
-  }
-
+  function escapeHtml(value) { return value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+  function inlineMarkdown(value) { let html = escapeHtml(value); html = html.replace(/\\_/g, '_').replace(/!\[([^\]]*)\]\(((?:https?:\/\/|\.?\/)[^)]+)\)/g, '<img src="$2" alt="$1">').replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>').replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/__([^_]+)__/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>'); html = html.replace(/&lt;font\s+color=(?:'|&quot;|&#39;)?(#[0-9a-f]{3,8})(?:'|&quot;|&#39;)?&gt;([\s\S]*?)&lt;\/font&gt;/gi, '<font color="$1">$2</font>'); return html; }
   function renderMarkdown(markdown) {
-    const lines = markdown.replace(/\r\n?/g, '\n').split('\n');
-    const output = [];
-    let inCode = false;
-    let codeLanguage = '';
-    let codeLines = [];
-    let listType = null;
-    let listItems = [];
-    let quoteLines = [];
-
-    function closeList() {
-      if (!listType) return;
-      output.push(`<${listType}>${listItems.join('')}</${listType}>`);
-      listType = null;
-      listItems = [];
-    }
-    function closeQuote() {
-      if (!quoteLines.length) return;
-      output.push(`<blockquote>${quoteLines.map((line) => `<p>${inlineMarkdown(line)}</p>`).join('')}</blockquote>`);
-      quoteLines = [];
-    }
-
-    lines.forEach((line) => {
-      if (inCode) {
-        if (/^\s*```/.test(line)) {
-          output.push(`<pre><code class="language-${escapeHtml(codeLanguage)}">${escapeHtml(codeLines.join('\n'))}</code></pre>`);
-          inCode = false;
-          codeLanguage = '';
-          codeLines = [];
-        } else codeLines.push(line);
-        return;
-      }
-      const fence = line.match(/^\s*```\s*([\w-]*)\s*$/);
-      if (fence) { closeList(); closeQuote(); inCode = true; codeLanguage = fence[1] || 'text'; return; }
-      if (/^\s*$/.test(line)) { closeList(); closeQuote(); return; }
-      const heading = line.match(/^\s*(#{1,4})\s+(.+?)\s*#*$/);
-      if (heading) { closeList(); closeQuote(); output.push(`<h${heading[1].length}>${inlineMarkdown(heading[2])}</h${heading[1].length}>`); return; }
-      const quote = line.match(/^\s*>\s?(.*)$/);
-      if (quote) { closeList(); quoteLines.push(quote[1]); return; }
-      const unordered = line.match(/^\s*[-*+]\s+(.+)$/);
-      const ordered = line.match(/^\s*\d+[.)]\s+(.+)$/);
-      if (unordered || ordered) {
-        closeQuote();
-        const nextType = unordered ? 'ul' : 'ol';
-        if (listType && listType !== nextType) closeList();
-        listType = nextType;
-        listItems.push(`<li>${inlineMarkdown((unordered || ordered)[1])}</li>`);
-        return;
-      }
-      closeList(); closeQuote();
-      output.push(`<p>${inlineMarkdown(line)}</p>`);
-    });
-    if (inCode) output.push(`<pre><code class="language-${escapeHtml(codeLanguage)}">${escapeHtml(codeLines.join('\n'))}</code></pre>`);
-    closeList(); closeQuote();
-    return output.join('');
+    const lines = markdown.replace(/\r\n?/g, '\n').split('\n'); const output = []; let code = false; let language = ''; let codeLines = []; let list = null; let items = []; let quote = [];
+    const closeList = () => { if (list) output.push(`<${list}>${items.join('')}</${list}>`); list = null; items = []; }; const closeQuote = () => { if (quote.length) output.push(`<blockquote>${quote.map((x) => `<p>${inlineMarkdown(x)}</p>`).join('')}</blockquote>`); quote = []; };
+    lines.forEach((line) => { if (code) { if (/^\s*```/.test(line)) { output.push(`<pre><code class="language-${escapeHtml(language)}">${escapeHtml(codeLines.join('\n'))}</code></pre>`); code = false; codeLines = []; language = ''; } else codeLines.push(line); return; } const fence = line.match(/^\s*```\s*([\w-]*)\s*$/); if (fence) { closeList(); closeQuote(); code = true; language = fence[1] || 'text'; return; } if (!line.trim()) { closeList(); closeQuote(); return; } const heading = line.match(/^\s*(#{1,4})\s+(.+?)\s*#*$/); if (heading) { closeList(); closeQuote(); output.push(`<h${heading[1].length}>${inlineMarkdown(heading[2])}</h${heading[1].length}>`); return; } const quoteLine = line.match(/^\s*>\s?(.*)$/); if (quoteLine) { closeList(); quote.push(quoteLine[1]); return; } const item = line.match(/^\s*[-*+]\s+(.+)$/) || line.match(/^\s*\d+[.)]\s+(.+)$/); if (item) { closeQuote(); const type = /^\s*\d/.test(line) ? 'ol' : 'ul'; if (list && list !== type) closeList(); list = type; items.push(`<li>${inlineMarkdown(item[1])}</li>`); return; } closeList(); closeQuote(); output.push(`<p>${inlineMarkdown(line)}</p>`); });
+    if (code) output.push(`<pre><code class="language-${escapeHtml(language)}">${escapeHtml(codeLines.join('\n'))}</code></pre>`); closeList(); closeQuote(); return output.join('');
   }
-
-  function setStatus(message, isError) {
-    notes.innerHTML = `<p class="research-status${isError ? ' is-error' : ''}">${escapeHtml(message)}</p>`;
-  }
-
-  function fileUrl(file) {
-    const url = new URL(encodeURIComponent(file), documentsBaseUrl);
-    url.searchParams.set('_refresh', Date.now().toString());
-    return url.href;
-  }
-
-  function renderNotes(files, selectFirst) {
-    notes.innerHTML = '';
-    files.forEach((file, index) => {
-      const button = document.createElement('button');
-      button.type = 'button'; button.className = 'research-note';
-      button.innerHTML = `<span class="research-note__index">${String(index + 1).padStart(2, '0')}</span><span><strong>${escapeHtml(titleFromFile(file))}</strong><small>${escapeHtml(file)}</small></span>`;
-      button.addEventListener('click', () => selectNote(button, file));
-      notes.appendChild(button);
-      if (selectFirst && index === 0) selectNote(button, file);
-    });
-  }
-
-  function selectNote(button, file) {
-    notes.querySelectorAll('.research-note').forEach((item) => item.classList.toggle('active', item === button));
-    content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="loader-circle"></i><p>正在加载 Markdown…</p></div>';
-    if (window.Astudyber) window.Astudyber.refreshIcons();
-    fetch(fileUrl(file), { cache: 'no-store' })
-      .then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.text(); })
-      .then((markdown) => {
-        content.innerHTML = renderMarkdown(markdown);
-        content.scrollTop = 0;
-      })
-      .catch(() => {
-        content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="loader-circle"></i><p>文件路径可能刚刚发生变化，正在重新扫描…</p></div>';
-        if (window.Astudyber) window.Astudyber.refreshIcons();
-        discoverFiles().then((files) => {
-          if (files.includes(file)) throw new Error('file still unavailable');
-          renderNotes(files, false);
-          content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="refresh-cw"></i><p>目录已更新，请从左侧选择重命名后的文件。</p></div>';
-          if (window.Astudyber) window.Astudyber.refreshIcons();
-        }).catch(() => {
-          content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="triangle-alert"></i><p>暂时无法读取这篇 Markdown，请确认文件路径和本地 HTTP 服务。</p></div>';
-          if (window.Astudyber) window.Astudyber.refreshIcons();
-        });
-      });
-  }
-
-  function titleFromFile(file) {
-    return file.replace(/\.md$/i, '').replace(/^\d+[-_ ]*/, '').replace(/[-_]+/g, ' ');
-  }
-
-  function discoverFromDirectoryListing() {
-    return fetch('../dox/研究/', { cache: 'no-store' })
-      .then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.text(); })
-      .then((html) => {
-        const documentFragment = new DOMParser().parseFromString(html, 'text/html');
-        const files = Array.from(documentFragment.querySelectorAll('a[href]')).map((link) => {
-          try { return decodeURIComponent(new URL(link.getAttribute('href'), location.href).pathname.split('/').filter(Boolean).pop()); } catch (error) { return ''; }
-        }).filter((file) => /^.+\.md$/i.test(file));
-        if (!files.length) throw new Error('directory listing unavailable');
-        return Array.from(new Set(files)).sort((a, b) => a.localeCompare(b, 'zh-CN'));
-      });
-  }
-
-  function discoverFromGitHubApi(branch) {
-    const path = ['home', 'dox', '研究'].map((part) => encodeURIComponent(part)).join('/');
-    return fetch(`https://api.github.com/repos/astudyber/astudyber.github.io/contents/${path}?ref=${branch}`, { cache: 'no-store', headers: { Accept: 'application/vnd.github+json' } })
-      .then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); })
-      .then((entries) => {
-        const files = entries.filter((entry) => entry.type === 'file' && /\.md$/i.test(entry.name)).map((entry) => entry.name);
-        if (!files.length) throw new Error('empty GitHub directory');
-        return files.sort((a, b) => a.localeCompare(b, 'zh-CN'));
-      });
-  }
-
-  function discoverFromManifest() {
-    return fetch(manifestUrl, { cache: 'no-store' })
-      .then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); })
-      .then((manifest) => {
-        const entries = Array.isArray(manifest) ? manifest : manifest.files;
-        if (!Array.isArray(entries) || !entries.length) throw new Error('empty manifest');
-        return entries.map((entry) => typeof entry === 'string' ? entry : entry.file).filter((file) => /\.md$/i.test(file));
-      });
-  }
-
-  function discoverFiles() {
-    return discoverFromDirectoryListing()
-      .catch(() => discoverFromGitHubApi('main'))
-      .catch(() => discoverFromGitHubApi('master'))
-      .catch(() => discoverFromManifest());
-  }
-
-  discoverFiles()
-    .then((files) => {
-      renderNotes(files, true);
-    })
-    .catch(() => setStatus('未找到 Markdown 文件。请使用 HTTP 静态服务器，或确认文件已提交到 GitHub。', true));
+  function fileUrl(file) { return new URL(encodeURIComponent(file), documentsBaseUrl).href; }
+  function titleFromFile(file) { return file.replace(/\.md$/i, '').replace(/^\d+[-_ ]*/, '').replace(/[-_]+/g, ' '); }
+  function refreshIcons() { if (window.Astudyber) window.Astudyber.refreshIcons(); }
+  function selectNote(button, file) { notes.querySelectorAll('.research-note').forEach((item) => item.classList.toggle('active', item === button)); content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="loader-circle"></i><p>正在加载 Markdown…</p></div>'; refreshIcons(); fetch(fileUrl(file), { cache: 'no-store' }).then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); }).then((md) => { content.innerHTML = renderMarkdown(md); window.scrollTo({ top: content.getBoundingClientRect().top + window.scrollY - 25, behavior: 'smooth' }); }).catch(() => { content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="triangle-alert"></i><p>暂时无法读取这篇 Markdown，请确认文件已部署。</p></div>'; refreshIcons(); }); }
+  function renderNotes(category, selectFirst) { notes.innerHTML = ''; category.files.forEach((entry, index) => { const file = typeof entry === 'string' ? entry : entry.file; const title = typeof entry === 'string' ? titleFromFile(file) : (entry.title || titleFromFile(file)); const button = document.createElement('button'); button.type = 'button'; button.className = 'research-note'; button.innerHTML = `<span class="research-note__index">${String(index + 1).padStart(2, '0')}</span><span><strong>${escapeHtml(title)}</strong><small>${escapeHtml(file)}</small></span>`; button.addEventListener('click', () => selectNote(button, file)); notes.appendChild(button); if (selectFirst && index === 0) selectNote(button, file); }); }
+  function renderCategories(categories) { const icons = ['brain-circuit', 'scan-face', 'orbit', 'sparkles']; categoryTabs.innerHTML = ''; categories.forEach((category, index) => { const button = document.createElement('button'); button.type = 'button'; button.className = `research-category-tab category-tone-${index + 1}`; button.innerHTML = `<i data-lucide="${icons[index] || 'layers-3'}"></i><span>${escapeHtml(category.title)}</span>`; button.setAttribute('role', 'tab'); button.addEventListener('click', () => { categoryTabs.querySelectorAll('button').forEach((x) => x.classList.toggle('active', x === button)); renderNotes(category, true); refreshIcons(); }); categoryTabs.appendChild(button); if (index === 0) { button.classList.add('active'); renderNotes(category, true); } }); refreshIcons(); }
+  fetch(manifestUrl, { cache: 'no-store' }).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then((manifest) => renderCategories(manifest.categories || [{ id: 'all', title: '全部', files: manifest.files || [] }])).catch(() => { notes.innerHTML = '<p class="research-status is-error">未找到研究分类清单，请确认 index.json 已部署。</p>'; });
 })();

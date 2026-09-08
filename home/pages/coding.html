@@ -45,12 +45,13 @@
                         <p>持续学习与实践中。</p>
                     </div><i data-lucide="terminal"></i>
                 </div>
-                <div class="panel stack-panel">
-                    <p><strong>编程语言</strong><br /><span>C++ · Python · HTML · CSS · JavaScript</span></p>
-                    <p><strong>工具与技术栈</strong><br /><span>Vibe Coding · VS Code · Pycharm · Jupyter Notebook · SPSS ·
-                            StataSE · Blender · PyQt · Transformers · PyTorch · JAX · Pandas · NumPy · Linux · Git · SQL
-                            · Android Studio · Unity 3D · FinalShell · MobaXterm · Typora · Markdown · 爬虫 ·
-                            微信开发者工具</span></p>
+                <div class="coding-category-tabs" id="codingCategories" role="tablist" aria-label="编程技术分类"></div>
+                <div class="coding-browser panel" id="codingBrowser">
+                    <aside class="research-browser__sidebar" aria-label="编程笔记目录">
+                        <div class="research-browser__kicker">技术笔记</div>
+                        <nav class="research-notes" id="codingNotes" aria-label="编程 Markdown 文件"><p class="research-status">正在读取目录…</p></nav>
+                    </aside>
+                    <article class="markdown-content" id="codingContent" aria-live="polite"><div class="markdown-placeholder"><i data-lucide="file-code-2"></i><p>选择左侧栏目开始阅读。</p></div></article>
                 </div>
             </section>
             <footer class="footer"><span>05 / CODE</span><span class="hearts">✦ ✦ ✦</span></footer>
@@ -58,6 +59,7 @@
     </div>
     <div class="toast" id="toast" role="status"><i data-lucide="sparkles"></i><span>已保存</span></div>
     <script src="../assets/common.js"></script>
+    <script src="../assets/coding.js"></script>
 </body>
 
 </html>

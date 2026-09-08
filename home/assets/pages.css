@@ -198,6 +198,18 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .focus-item input:checked + span { color: var(--muted); text-decoration: line-through; }
 
 .research-browser { display: grid; grid-template-columns: minmax(190px, 240px) minmax(0, 1fr); min-height: 390px; overflow: hidden; }
+.research-category-tabs, .coding-category-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 18px 0 12px; }
+.research-category-tab, .coding-category-tab { display: flex; min-height: 78px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; padding: 13px 16px; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); background: var(--panel); font-size: 15px; font-weight: 900; text-align: left; cursor: pointer; transition: 180ms ease; }
+.research-category-tab svg, .coding-category-tab svg { width: 22px; height: 22px; color: var(--cyan); }
+.research-category-tab:hover, .research-category-tab.active, .coding-category-tab:hover, .coding-category-tab.active { border-color: rgba(69,217,255,.55); color: var(--ink); background: color-mix(in srgb, var(--cyan) 12%, var(--panel)); box-shadow: var(--shadow); transform: translateY(-3px); }
+.research-category-tab.category-tone-2 svg, .coding-category-tab.category-tone-2 svg { color: var(--pink); }
+.research-category-tab.category-tone-3 svg, .coding-category-tab.category-tone-3 svg { color: var(--lime); }
+.research-category-tab.category-tone-4 svg, .coding-category-tab.category-tone-4 svg { color: var(--amber); }
+.research-category-tab.category-tone-2:hover, .research-category-tab.category-tone-2.active, .coding-category-tab.category-tone-2:hover, .coding-category-tab.category-tone-2.active { border-color: var(--pink); }
+.research-category-tab.category-tone-3:hover, .research-category-tab.category-tone-3.active, .coding-category-tab.category-tone-3:hover, .coding-category-tab.category-tone-3.active { border-color: var(--lime); }
+.research-category-tab.category-tone-4:hover, .research-category-tab.category-tone-4.active, .coding-category-tab.category-tone-4:hover, .coding-category-tab.category-tone-4.active { border-color: var(--amber); }
+.coding-category-tabs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.coding-browser { display: grid; grid-template-columns: minmax(190px, 240px) minmax(0, 1fr); min-height: 390px; overflow: hidden; }
 .research-browser__sidebar { padding: 17px 12px; border-right: 1px solid var(--line); background: rgba(42,161,152,.045); }
 .research-browser__kicker { margin: 0 8px 11px; color: var(--cyan); font-size: 10px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
 .research-notes { display: grid; gap: 6px; }
@@ -209,7 +221,7 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .research-note small { margin-top: 3px; color: var(--muted); font-size: 10px; }
 .research-status { margin: 12px 8px; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .research-status.is-error { color: var(--pink); }
-.markdown-content { min-width: 0; max-height: 560px; overflow: auto; padding: 27px clamp(20px, 4vw, 38px); color: var(--ink); }
+.markdown-content { min-width: 0; padding: 27px clamp(20px, 4vw, 38px); color: var(--ink); }
 .markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4 { margin: 0 0 12px; line-height: 1.3; }
 .markdown-content h1 { font-size: 27px; }
 .markdown-content h2 { margin-top: 23px; font-size: 21px; }
@@ -218,6 +230,7 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .markdown-content p { margin: 0 0 13px; }
 .markdown-content ul, .markdown-content ol { margin: 8px 0 16px; padding-left: 23px; }
 .markdown-content strong { color: var(--ink); }
+.markdown-content font { font-weight: 900; }
 .markdown-content em { color: var(--cyan); }
 .markdown-content a { color: var(--cyan); }
 .markdown-content code { padding: 2px 5px; border: 1px solid var(--line); border-radius: 4px; color: var(--pink); background: rgba(211,54,130,.08); font-family: Consolas, monospace; font-size: .92em; }
@@ -269,6 +282,10 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .info-card p, .paper-card p, .experience-card p { margin: 8px 0 0; color: var(--muted); font-size: 12px; font-weight: 700; line-height: 1.7; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
 .skill-tags span { padding: 4px 7px; border: 1px solid var(--line); border-radius: 5px; color: var(--cyan); background: rgba(69,217,255,.07); font-family: "Nunito", sans-serif; font-size: 10px; font-weight: 900; }
+.software-skills-card { display: flex; flex-direction: column; }
+.software-skill-grid { display: grid; flex: 1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+.software-skill-grid span { display: flex; min-height: 52px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 7px 4px; border: 1px solid var(--line); border-radius: 7px; color: var(--cyan); background: color-mix(in srgb, var(--cyan) 7%, var(--panel)); font-size: 11px; font-weight: 900; text-align: center; }
+.software-skill-grid svg { width: 21px; height: 21px; color: var(--pink); }
 .paper-card { display: flex; flex-direction: column; align-items: flex-start; }
 .paper-index { color: var(--pink); font-family: "Nunito", sans-serif; font-size: 10px; font-weight: 900; letter-spacing: .04em; }
 .paper-card h3 { margin-top: 10px; line-height: 1.45; }
@@ -535,10 +552,12 @@ body { font-size: 16px; }
   .score { width: 102px; height: 102px; }
   .project-grid { grid-template-columns: 1fr; }
   .research-browser { grid-template-columns: 1fr; }
+  .coding-browser { grid-template-columns: 1fr; }
+  .research-category-tabs, .coding-category-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .research-browser__sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
   .research-notes { display: flex; overflow-x: auto; padding-bottom: 3px; scrollbar-width: thin; }
   .research-note { min-width: 170px; }
-  .markdown-content { max-height: none; min-height: 350px; }
+  .markdown-content { min-height: 350px; }
   .entry { grid-template-columns: 41px minmax(0, 1fr) auto; gap: 9px; padding: 14px; }
   .entry p { white-space: normal; }
   .footer { align-items: flex-start; flex-direction: column; }
