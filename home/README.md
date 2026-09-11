@@ -18,7 +18,7 @@
 在命令行中进入 `home/` 目录，并指定一个端口启动 Python 静态服务器：
 
 ```bash
-cd G:\A\github\astudyber.github.io\home
+cd .\home
 python -m http.server 8000
 ```
 
