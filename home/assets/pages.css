@@ -238,6 +238,7 @@ main { min-width: 0; padding: 29px clamp(20px, 4vw, 58px) 52px; }
 .markdown-content pre code { padding: 0; border: 0; color: var(--ink); background: transparent; }
 .markdown-content blockquote { margin: 16px 0; padding: 9px 15px; border-left: 3px solid var(--cyan); background: rgba(42,161,152,.08); }
 .markdown-content blockquote p { margin: 0; }
+.markdown-content hr { margin: 24px 0; border: 0; border-top: 2px solid var(--cyan); opacity: .65; }
 .markdown-content img { display: block; width: auto; max-width: min(100%, 720px); max-height: 520px; height: auto; margin: 14px auto; border-radius: 6px; object-fit: contain; cursor: zoom-in; }
 .markdown-toc { margin: 0 0 22px; padding: 12px 15px; border: 1px solid var(--line); border-left: 3px solid var(--cyan); border-radius: 6px; background: rgba(42,161,152,.06); }
 .markdown-toc > strong { color: var(--ink); font-size: 14px; }

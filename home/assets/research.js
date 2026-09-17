@@ -4,6 +4,9 @@
   const content = document.getElementById('markdownContent');
   if (!categoryTabs || !notes || !content) return;
 
+  const imageDialog = document.getElementById('researchLightbox');
+  const imagePreview = document.getElementById('researchLightboxImage');
+
   const manifestUrl = '../dox/研究/index.json';
   const documentsBaseUrl = new URL('../dox/研究/', window.location.href);
 
@@ -62,7 +65,11 @@
 
   function isTableSeparator(line) {
     const cells = splitTableRow(line);
-    return cells.length > 1 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+    return cells.length > 1 && cells.every((cell) => /^:?-{1,}:?$/.test(cell));
+  }
+
+  function isHorizontalRule(line) {
+    return /^\s*(?:-{3,}|\*{3,}|_{3,})\s*$/.test(line);
   }
 
   function tableAlignment(cell) {
@@ -82,7 +89,9 @@
   }
 
   function renderMarkdown(markdown) {
-    const lines = markdown.replace(/\r\n?/g, '\n').split('\n');
+    const normalizedMarkdown = markdown.replace(/\r\n?/g, '\n');
+    const frontmatter = normalizedMarkdown.match(/^\uFEFF?---\s*\n(?=[\s\S]*?typora-(?:root-url|copy-images-to))([\s\S]*?)\n---\s*(?:\n|$)/i);
+    const lines = (frontmatter ? normalizedMarkdown.slice(frontmatter[0].length) : normalizedMarkdown).split('\n');
     const output = [];
     const headings = [];
     const headingIds = new Map();
@@ -211,6 +220,13 @@
         continue;
       }
 
+      if (isHorizontalRule(line)) {
+        closeList();
+        closeQuote();
+        output.push('<hr>');
+        continue;
+      }
+
       const heading = line.match(/^\s*(#{1,4})\s+(.+?)\s*#*$/);
       if (heading) {
         closeList();
@@ -312,6 +328,45 @@
     if (window.Astudyber) window.Astudyber.refreshIcons();
   }
 
+  function openImagePreview(image) {
+    if (!imageDialog || !imagePreview) return;
+    imagePreview.src = image.currentSrc || image.src;
+    imagePreview.alt = image.alt || '研究图片';
+    if (typeof imageDialog.showModal === 'function') imageDialog.showModal();
+    else imageDialog.setAttribute('open', '');
+  }
+
+  function enhanceImages() {
+    content.querySelectorAll('img').forEach((image) => {
+      image.tabIndex = 0;
+      image.setAttribute('role', 'button');
+      image.setAttribute('aria-label', '点击查看大图');
+      image.title = '点击查看大图';
+    });
+  }
+
+  content.addEventListener('click', (event) => {
+    const image = event.target.closest('img');
+    if (image && content.contains(image)) openImagePreview(image);
+  });
+  content.addEventListener('keydown', (event) => {
+    if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('img')) {
+      event.preventDefault();
+      openImagePreview(event.target);
+    }
+  });
+  if (imageDialog && imagePreview) {
+    const closeButton = imageDialog.querySelector('.lightbox-close');
+    closeButton?.addEventListener('click', () => imageDialog.close());
+    imageDialog.addEventListener('click', (event) => {
+      if (event.target === imageDialog) imageDialog.close();
+    });
+    imageDialog.addEventListener('close', () => {
+      imagePreview.src = '';
+      imagePreview.alt = '';
+    });
+  }
+
   function selectNote(button, file) {
     notes.querySelectorAll('.research-note').forEach((item) => item.classList.toggle('active', item === button));
     content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="loader-circle"></i><p>正在加载 Markdown…</p></div>';
@@ -323,6 +378,7 @@
       })
       .then((markdown) => {
         content.innerHTML = highlightPiKeywords(renderMarkdown(normalizeImagePaths(markdown, file)), file);
+        enhanceImages();
         typesetMath();
         window.scrollTo({ top: content.getBoundingClientRect().top + window.scrollY - 25, behavior: 'smooth' });
       })
