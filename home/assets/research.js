@@ -27,7 +27,7 @@
     });
     html = html
       .replace(/\\_/g, '_')
-      .replace(/!\[([^\]]*)\]\(((?:https?:\/\/|\.\.?\/)[^)]+)\)/g, '<img src="$2" alt="$1">')
+      .replace(/!\[([^\]]*)\]\(((?:https?:\/\/|\.\.?\/|\/)[^)]+)\)/g, '<img src="$2" alt="$1">')
       .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>')
       .replace(/`([^`]+)`/g, '<code>$1</code>')
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
@@ -264,6 +264,46 @@
     return new URL(file.split('/').map((segment) => encodeURIComponent(segment)).join('/'), documentsBaseUrl).href;
   }
 
+  function assetUrl(source, currentFile) {
+    const raw = source.trim();
+    if (/^(?:data:|https?:|\/\/)/i.test(raw)) return raw;
+    const base = new URL(currentFile.split('/').map((segment) => encodeURIComponent(segment)).join('/'), documentsBaseUrl);
+    const category = currentFile.split('/')[0];
+    const filename = raw.split('/').filter(Boolean).pop();
+    if (filename && (raw.startsWith('/') || raw.startsWith('/../../'))) {
+      return new URL(['imgs', category, decodeURIComponent(filename)].map((segment) => encodeURIComponent(segment)).join('/'), documentsBaseUrl).href;
+    }
+    const typoraPath = raw.match(/^\/\.\.\/\.\.\/(.+)$/);
+    if (typoraPath) {
+      return new URL(['imgs', category, decodeURIComponent(filename)].map((segment) => encodeURIComponent(segment)).join('/'), documentsBaseUrl).href;
+    }
+    try {
+      return new URL(raw.replace(/^\/+/, ''), base).href;
+    } catch (error) {
+      return raw;
+    }
+  }
+
+  function normalizeImagePaths(markdown, currentFile) {
+    return markdown.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, source) => `![${alt}](${assetUrl(source, currentFile)})`);
+  }
+
+  function highlightPiKeywords(html, currentFile) {
+    if (currentFile !== '5.具身/1.π系列.md') return html;
+    const keywords = ['Pi0-Fast', 'Pi0', 'π_0', 'flow matching', 'Action-Expert', 'Action Expert', 'Gemma Transformer', 'SigLIP', 'Gemma', 'Open X-Embodiment', 'FAST', 'DCT', 'BPE', 'block-causal', 'DoF', 'Pre-training', 'Post-training'];
+    const escaped = keywords.sort((left, right) => right.length - left.length).map((item) => item.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    const pattern = new RegExp(`(${escaped.join('|')})`, 'gi');
+    const mathSegments = [];
+    const protectedHtml = html.replace(/(\$\$[\s\S]*?\$\$|\$[^$\n]+\$|\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\])/g, (segment) => {
+      const token = `@@PI_MATH_${mathSegments.length}@@`;
+      mathSegments.push(segment);
+      return token;
+    });
+    let highlighted = protectedHtml.split(/(<[^>]+>)/g).map((part) => part.startsWith('<') ? part : part.replace(pattern, '<font color="#2aa198">$1</font>')).join('');
+    mathSegments.forEach((segment, index) => { highlighted = highlighted.replace(`@@PI_MATH_${index}@@`, segment); });
+    return highlighted;
+  }
+
   function titleFromFile(file) {
     return file.replace(/\.md$/i, '').replace(/^\d+[-_ ]*/, '').replace(/[-_]+/g, ' ');
   }
@@ -282,7 +322,7 @@
         return response.text();
       })
       .then((markdown) => {
-        content.innerHTML = renderMarkdown(markdown);
+        content.innerHTML = highlightPiKeywords(renderMarkdown(normalizeImagePaths(markdown, file)), file);
         typesetMath();
         window.scrollTo({ top: content.getBoundingClientRect().top + window.scrollY - 25, behavior: 'smooth' });
       })
@@ -294,7 +334,14 @@
 
   function renderNotes(category, selectFirst) {
     notes.innerHTML = '';
-    category.files.forEach((entry, index) => {
+    const files = [...category.files].sort((left, right) => {
+      const leftFile = typeof left === 'string' ? left : left.file;
+      const rightFile = typeof right === 'string' ? right : right.file;
+      const leftNumber = Number((leftFile.split('/').pop().match(/^\s*(\d+)/) || [0, 0])[1]);
+      const rightNumber = Number((rightFile.split('/').pop().match(/^\s*(\d+)/) || [0, 0])[1]);
+      return leftNumber - rightNumber || leftFile.localeCompare(rightFile, 'zh-CN');
+    });
+    files.forEach((entry, index) => {
       const file = typeof entry === 'string' ? entry : entry.file;
       const title = typeof entry === 'string' ? titleFromFile(file) : (entry.title || titleFromFile(file));
       const button = document.createElement('button');

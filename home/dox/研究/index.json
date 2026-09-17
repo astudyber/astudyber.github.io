@@ -1,28 +1,28 @@
 {
   "categories": [
     {"id": "embodied", "title": "具身", "files": [
-      {"file": "具身/π系列.md", "title": "π 系列"},
-      {"file": "具身/GR00T.md", "title": "GR00T"},
-      {"file": "具身/RT系列.md", "title": "RT 系列"},
-      {"file": "具身/WAM.md", "title": "WAM"},
-      {"file": "具身/仿真.md", "title": "仿真"},
-      {"file": "具身/数据格式.md", "title": "数据格式"},
-      {"file": "具身/数据处理.md", "title": "数据处理"},
-      {"file": "具身/强化框架.md", "title": "强化框架"},
-      {"file": "具身/极佳视界.md", "title": "极佳视界"},
-      {"file": "具身/其他.md", "title": "其他"}
+      {"file": "5.具身/1.π系列.md", "title": "π 系列"},
+      {"file": "5.具身/2.GR00T.md", "title": "GR00T"},
+      {"file": "5.具身/3.RT系列.md", "title": "RT 系列"},
+      {"file": "5.具身/4.极佳视界.md", "title": "极佳视界"},
+      {"file": "5.具身/5.WAM.md", "title": "WAM"},
+      {"file": "5.具身/6.数据格式.md", "title": "数据格式"},
+      {"file": "5.具身/7.数据处理.md", "title": "数据处理"},
+      {"file": "5.具身/8.仿真.md", "title": "仿真"},
+      {"file": "5.具身/9.强化框架.md", "title": "强化框架"},
+      {"file": "5.具身/10.其他.md", "title": "其他"}
     ]},
     {"id": "multimodal", "title": "多模态", "files": [
-      {"file": "多模态/视觉语言模型.md", "title": "视觉语言模型"},
-      {"file": "多模态/视觉理解.md", "title": "视觉理解与生成"}
+      {"file": "3.多模态/视觉语言模型.md", "title": "视觉语言模型"},
+      {"file": "3.多模态/视觉理解.md", "title": "视觉理解与生成"}
     ]},
     {"id": "rl", "title": "强化学习", "files": [
-      {"file": "强化学习/基础与算法.md", "title": "基础与算法"},
-      {"file": "强化学习/视觉强化学习.md", "title": "视觉强化学习"}
+      {"file": "6.强化学习/基础与算法.md", "title": "基础与算法"},
+      {"file": "6.强化学习/视觉强化学习.md", "title": "视觉强化学习"}
     ]},
     {"id": "generative", "title": "生成式", "files": [
-      {"file": "生成式/扩散模型.md", "title": "扩散模型"},
-      {"file": "生成式/生成应用.md", "title": "生成应用"}
+      {"file": "4.生成式/扩散模型.md", "title": "扩散模型"},
+      {"file": "4.生成式/生成应用.md", "title": "生成应用"}
     ]}
   ]
 }
