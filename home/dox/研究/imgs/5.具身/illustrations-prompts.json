@@ -1,0 +1,94 @@
+[
+    {
+        "name":  "groot",
+        "filename":  "groot-architecture.png",
+        "prompt":  "Create an original Chinese educational infographic for a robotics research notebook. Style: warm ivory ruled notebook paper, dark navy handwritten Chinese lettering, pastel mint/blue/lavender/yellow/pink rounded boxes, thick hand-drawn arrows, sparse highlighter strokes, very readable large text, landscape 4:3. Match the style of the two reference notebook infographics already shown in conversation, but NO GEELY logo, no dates, no branding. Title exact: \u0027GR00T：从理解到动作\u0027. Draw a clear architecture with LEFT two inputs \u0027相机图像\u0027 and \u0027语言指令\u0027 pointing into BLUE box \u0027视觉语言模型 VLM\u0027. Arrow right labeled \u0027语义特征\u0027 into PURPLE box \u0027动作模型 DiT\u0027. Below it separate inputs \u0027机器人状态\u0027 and \u0027动作噪声\u0027 feeding DiT. DiT arrow right into MINT box \u0027连续动作块\u0027, then robot arm line drawing with label \u0027执行前几步\u0027. A curved return arrow from robot arm to camera input labeled \u0027重新观测\u0027. Footer exact: \u0027概念示意：各版本骨干与训练配置不同\u0027. Keep short text only; scientifically correct diagram, no invented statistics. Save as a finished PNG illustration for project use.",
+        "edits":  [
+                      "Correct this infographic background only: composite all existing diagram content onto a fully OPAQUE warm ivory ruled notebook paper background, matching the reference paper aesthetic. Absolutely no transparent pixels, no black background, no speckled transparent holes. Keep all text, arrows, boxes, layout and diagrams unchanged. Return a complete opaque PNG."
+                  ],
+        "tool":  "built-in image_gen",
+        "created":  "2026-09-21"
+    },
+    {
+        "name":  "pi-overview",
+        "filename":  "pi-overview.png",
+        "prompt":  "Create an original Chinese robotics educational infographic, landscape 4:3, high resolution PNG. Warm ivory ruled notebook paper, dark navy legible handwritten Chinese, pastel mint/blue/lavender/yellow/pink rounded boxes, thick hand-drawn arrows and subtle marker highlights. Match the notebook style of FAST and BPE references shown previously. NO logo, NO branding, NO dates. Large clear text, uncluttered, accurate short labels, no invented performance numbers. Title \u0027π 系列：动作、泛化与经验\u0027. Five separated numbered rows, each has two pastel boxes joined by arrow: \u0027π0：图像 + 指令 + 状态\u0027 → \u0027流匹配 → 连续动作块\u0027; \u0027FAST：动作序列\u0027 → \u0027DCT → 量化 → BPE\u0027; \u0027π0.5：异构数据\u0027 → \u0027语义子任务 → 动作\u0027; \u0027π*0.6：自主经验 + 纠正\u0027 → \u0027价值评估 → 策略改进\u0027; \u0027π0.7：多种引导信号\u0027 → \u0027可引导的通用策略\u0027. Bottom note \u0027路线概览，不代表版本间所有结构完全相同\u0027. Small robot arm in corner.",
+        "edits":  null,
+        "tool":  "built-in image_gen",
+        "created":  "2026-09-21"
+    },
+    {
+        "name":  "rt-evolution",
+        "filename":  "rt-evolution.png",
+        "prompt":  "Create an original Chinese robotics educational infographic, landscape 4:3, high resolution PNG. Warm ivory ruled notebook paper, dark navy legible handwritten Chinese, pastel mint/blue/lavender/yellow/pink rounded boxes, thick hand-drawn arrows and subtle marker highlights. Match the notebook style of FAST and BPE references shown previously. NO logo, NO branding, NO dates. Large clear text, uncluttered, accurate short labels, no invented performance numbers. Title \u0027RT 系列：动作也能成为 token\u0027. Three large horizontal rows: first \u0027RT-1\u0027 with flow \u0027图像 + 指令\u0027 → \u0027视觉压缩\u0027 → \u0027动作 token\u0027 → \u0027机器人\u0027; second \u0027RT-2\u0027 flow \u0027互联网图文 + 机器人示范\u0027 → \u0027联合训练 VLM\u0027 → \u0027动作 token\u0027; third \u0027RT-X\u0027 flow \u0027多机器人轨迹\u0027 → \u0027统一数据接口\u0027 → \u0027跨本体迁移\u0027. Bottom highlighted takeaway \u0027语义知识迁移 ≠ 自动掌握新运动技能\u0027. Small drawings of camera and robot gripper.",
+        "edits":  null,
+        "tool":  "built-in image_gen",
+        "created":  "2026-09-21"
+    },
+    {
+        "name":  "giga-ecosystem",
+        "filename":  "giga-ecosystem.png",
+        "prompt":  "Create an original Chinese robotics educational infographic, landscape 4:3, high resolution PNG. Warm ivory ruled notebook paper, dark navy legible handwritten Chinese, pastel mint/blue/lavender/yellow/pink rounded boxes, thick hand-drawn arrows and subtle marker highlights. Match the notebook style of FAST and BPE references shown previously. NO logo, NO branding, NO dates. Large clear text, uncluttered, accurate short labels, no invented performance numbers. Title \u0027极佳视界：数据、策略与世界模型\u0027. Three horizontal large pastel sections, no unverified corporate statistics. Section one \u0027数据引擎\u0027 with \u0027真实轨迹\u0027 → \u0027世界模型扩展\u0027 → \u0027质量筛选\u0027; arrow into section two \u0027策略学习\u0027 with two DISTINCT sibling boxes \u0027GigaBrain：VLA 路线\u0027 and \u0027GigaWorld-Policy：WAM 路线\u0027; arrow into section three \u0027真实评测\u0027 with \u0027新物体 / 新场景 / 长任务\u0027. Return arrow from evaluation to real data labeled \u0027失败回流\u0027. Footer \u0027技术关系示意，不是官方组织架构\u0027. Robot arm notebook doodle.",
+        "edits":  [
+                      "Keep this Chinese notebook infographic unchanged except correct the bottom lavender GigaWorld-Policy panel inside the middle column. Replace its internal globe flow with a clear two-line diagram: \u0027训练：视觉动态 + 动作监督\u0027 and \u0027推理：高效动作解码\u0027. Replace \u0027在丰富的模拟世界中，学习通用的策略\u0027 with \u0027未来视觉监督帮助动作学习\u0027. Remove the claim \u0027世界模型（虚拟世界）\u0027 from this panel. Keep heading \u0027GigaWorld-Policy：WAM 路线\u0027. Do not imply this model is trained by robot rollouts in a simulated world. Preserve all other panels, title, fonts, arrows and the fully opaque ivory notebook background."
+                  ],
+        "tool":  "built-in image_gen",
+        "created":  "2026-09-21"
+    },
+    {
+        "name":  "wam-loop",
+        "filename":  "wam-loop.png",
+        "prompt":  "Create an original Chinese robotics educational infographic, landscape 4:3, high resolution PNG. Warm ivory ruled notebook paper, dark navy legible handwritten Chinese, pastel mint/blue/lavender/yellow/pink rounded boxes, thick hand-drawn arrows and subtle marker highlights. Match the notebook style of FAST and BPE references shown previously. NO logo, NO branding, NO dates. Large clear text, uncluttered, accurate short labels, no invented performance numbers. Title \u0027WAM：同时学习动作与未来\u0027. Left input box \u0027当前观测 + 任务\u0027; arrow into central lavender box \u0027世界—动作模型\u0027; two separate outgoing arrows to mint box \u0027动作序列\u0027 and blue box \u0027未来视觉 / 潜在状态\u0027. Action sequence arrow to robot arm labeled \u0027执行前几步\u0027; robot arrow to box \u0027真实新观测\u0027; curved feedback to input. Future prediction dotted arrow to new observation labeled \u0027比较预测与现实\u0027. Footer \u0027未来画面合理，不等于动作可执行\u0027. Use simple original model schematic, do not imply every WAM generates pixels at deployment.",
+        "edits":  [
+                      "Change only the text on the large curved bottom feedback arrow from \u0027将新的观测反馈回去，继续学习和改进\u0027 to exact \u0027读取真实新观测，重新生成动作\u0027. This is inference feedback, NOT online training; do not depict automatic weight updates. Keep all other diagram elements, text, colors, arrows, opaque ivory notebook background unchanged."
+                  ],
+        "tool":  "built-in image_gen",
+        "created":  "2026-09-21"
+    },
+    {
+        "name":  "data-schema",
+        "filename":  "data-schema.png",
+        "prompt":  "Create an original Chinese robotics educational infographic, landscape 4:3, high resolution PNG. Warm ivory ruled notebook paper, dark navy legible handwritten Chinese, pastel mint/blue/lavender/yellow/pink rounded boxes, thick hand-drawn arrows and subtle marker highlights. Match the notebook style of FAST and BPE references shown previously. NO logo, NO branding, NO dates. Large clear text, uncluttered, accurate short labels, no invented performance numbers. Title \u0027机器人数据：一条 episode\u0027. Top horizontal timeline with three aligned rows \u0027相机帧\u0027, \u0027机器人状态\u0027, \u0027控制命令\u0027, three time marks \u0027t0\u0027, \u0027t1\u0027, \u0027t2\u0027. Explicit observation and state at t1 arrows into box \u0027输入 observation\u0027; control command at t1 arrow into \u0027标签 action\u0027. Under timeline three colored file cards \u0027数据表：状态 / 动作 / 时间\u0027, \u0027视频：多相机画面\u0027, \u0027元数据：单位 / 坐标系 / 标定\u0027. Bottom yellow note \u0027数组长度相同 ≠ 时间对齐\u0027. Large readable Chinese text.",
+        "edits":  [
+                      "Fix the top timeline data arrows precisely, preserving notebook style and bottom three panels. Delete ALL diagonal arrows between the camera row and state row, especially camera t1 to s2; delete the vertical arrow s1 to a1. Instead show only two small blue arrows from the camera frame at t1 and from the state s1 to the green \u0027输入 observation\u0027 box. Show a single purple arrow from a1 at t1 to the pink \u0027标签 action\u0027 box; remove the arrow from a2. These are sample selection arrows, not state transition arrows. No arrows may point from a camera to any state or from a state to an action. Preserve readable timeline t0,t1,t2, all text, lower metadata panels and fully opaque warm ivory background.",
+                      "Correct ONLY the upper timeline annotations. Keep the three aligned time rows and lower panels. REMOVE EVERY colored arrow in the timeline area, including the long camera curve, the blue state arrow, and purple action line. No arrows between samples and no arrows to the right boxes. Instead make the green box a plain legend: \u0027输入：同一时刻的图像 + 状态\u0027, and the pink box a plain legend: \u0027标签：对应时刻的动作\u0027. Keep all t0/t1/t2 and s0/s1/s2 and a0/a1/a2, notebook layout, all lower content. Crucial: upper timeline has ONLY the horizontal navy TIME AXIS arrow; NO blue or purple arrows anywhere in top half. Fully opaque ivory paper."
+                  ],
+        "tool":  "built-in image_gen",
+        "created":  "2026-09-21"
+    },
+    {
+        "name":  "data-pipeline",
+        "filename":  "data-pipeline.png",
+        "prompt":  "Create an original Chinese robotics educational infographic, landscape 4:3, high resolution PNG. Warm ivory ruled notebook paper, dark navy legible handwritten Chinese, pastel mint/blue/lavender/yellow/pink rounded boxes, thick hand-drawn arrows and subtle marker highlights. Match the notebook style of FAST and BPE references shown previously. NO logo, NO branding, NO dates. Large clear text, uncluttered, accurate short labels, no invented performance numbers. Title \u0027从原始轨迹到训练样本\u0027. Snake flow of six numbered pastel boxes: \u0027① 原始记录：保留不改\u0027 → \u0027② 按任务 / 场景划分\u0027 → \u0027③ 时间与坐标对齐\u0027 → \u0027④ 质量检查与标注\u0027 → \u0027⑤ 仅训练集拟合归一化\u0027 → \u0027⑥ 构造动作块与掩码\u0027. Bottom mini strip shows \u0027过去观测\u0027 vertical boundary \u0027当前 t\u0027 then \u0027未来动作块\u0027. Footer \u0027防泄漏：同一轨迹不跨训练与测试集\u0027. Each step connected exactly once in order.",
+        "edits":  null,
+        "tool":  "built-in image_gen",
+        "created":  "2026-09-21"
+    },
+    {
+        "name":  "sim-to-real",
+        "filename":  "sim-to-real.png",
+        "prompt":  "Create an original Chinese robotics educational infographic, landscape 4:3, high resolution PNG. Warm ivory ruled notebook paper, dark navy legible handwritten Chinese, pastel mint/blue/lavender/yellow/pink rounded boxes, thick hand-drawn arrows and subtle marker highlights. Match the notebook style of FAST and BPE references shown previously. NO logo, NO branding, NO dates. Large clear text, uncluttered, accurate short labels, no invented performance numbers. Title \u0027仿真到真机：逐层缩小差距\u0027. Four pastel modules left-to-right: \u0027运动学与控制接口\u0027 → \u0027接触与动力学\u0027 → \u0027视觉与时间延迟\u0027 → \u0027真机验证\u0027. Under modules add short corresponding labels \u0027关节 / 单位 / 坐标\u0027, \u0027质量 / 摩擦 / 碰撞\u0027, \u0027光照 / 相机 / 时钟\u0027, \u0027成功率 / 失败类型\u0027. Bottom loop \u0027测量真实参数\u0027 → \u0027校准仿真\u0027 → \u0027合理随机化\u0027 → \u0027对照评测\u0027 with return arrow to first. Tiny matching simulated robot and real robot illustrations. Footer \u0027仿真成功不能替代真机评测\u0027.",
+        "edits":  null,
+        "tool":  "built-in image_gen",
+        "created":  "2026-09-21"
+    },
+    {
+        "name":  "rl-loop",
+        "filename":  "rl-loop.png",
+        "prompt":  "Create an original Chinese robotics educational infographic, landscape 4:3, high resolution PNG. Warm ivory ruled notebook paper, dark navy legible handwritten Chinese, pastel mint/blue/lavender/yellow/pink rounded boxes, thick hand-drawn arrows and subtle marker highlights. Match the notebook style of FAST and BPE references shown previously. NO logo, NO branding, NO dates. Large clear text, uncluttered, accurate short labels, no invented performance numbers. Title \u0027从示范到强化学习\u0027. Flow diagram with \u0027专家示范\u0027 → \u0027行为克隆初始化\u0027 → \u0027策略执行\u0027; execution arrow into \u0027轨迹 + 奖励 + 终止\u0027; arrow to \u0027价值 / 优势估计\u0027; arrow to \u0027策略更新\u0027; curved return arrow to \u0027策略执行\u0027. Separate \u0027人工纠正\u0027 box pointing into trajectory box. Bottom three colored cards \u0027离线 RL：固定数据\u0027, \u0027在线 RL：继续交互\u0027, \u0027DAgger：专家纠正的模仿学习\u0027. Footer \u0027看任务成功率，也看接管与失败\u0027. No claim that DAgger is RL.",
+        "edits":  [
+                      "Correct this infographic background only: put all existing diagram content on fully OPAQUE warm ivory ruled notebook paper. No transparent areas, no black background, no white/black noisy speckled holes. Preserve all text, arrows, diagrams and labels exactly; ensure all navy labels read clearly against ivory paper. Return complete opaque PNG.",
+                      "Change the single label above the large loop arrow from \u0027用最新收集的策略继续交互\u0027 to \u0027用更新后的策略继续交互\u0027. Keep all other diagram content exactly the same. Ensure fully opaque warm ivory notebook paper background, never transparent."
+                  ],
+        "tool":  "built-in image_gen",
+        "created":  "2026-09-21"
+    },
+    {
+        "name":  "embodied-map",
+        "filename":  "embodied-map.png",
+        "prompt":  "Create an original Chinese robotics educational infographic, landscape 4:3, high resolution PNG. Warm ivory ruled notebook paper, dark navy legible handwritten Chinese, pastel mint/blue/lavender/yellow/pink rounded boxes, thick hand-drawn arrows and subtle marker highlights. Match the notebook style of FAST and BPE references shown previously. NO logo, NO branding, NO dates. Large clear text, uncluttered, accurate short labels, no invented performance numbers. Title \u0027具身系统：把任务变成可验证的行动\u0027. Vertical flow four layers: \u0027任务层：目标与约束\u0027 → \u0027技能层：抓取 / 放置 / 开门\u0027 → \u0027控制层：位姿 / 关节 / 力\u0027 → \u0027物理世界：接触与反馈\u0027. Left box \u0027记忆：过去发生了什么\u0027 points to task layer. Right box \u0027感知：视觉 + 触觉\u0027 feeds task and control. Bottom box \u0027评测：成功 / 时间 / 恢复\u0027 receives physical world. Footer \u0027每一层都需要明确输入、输出和完成判据\u0027. Notebook robot hand illustration.",
+        "edits":  null,
+        "tool":  "built-in image_gen",
+        "created":  "2026-09-21"
+    }
+]

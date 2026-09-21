@@ -32,6 +32,10 @@ python -m http.server 8000 --directory home
 
 ## GitHub Pages 部署
 
+具身笔记位于 `dox/研究/5.具身/`，共 10 篇，涵盖模型路线、数据、仿真与强化学习；`模板.md` 提供后续扩写指南，不加入阅读列表。配图统一保存在 `dox/研究/imgs/5.具身/`，正文沿用 `![说明](/图片名.png)` 的引用方式，由研究页转换为实际地址。
+
+本轮补充的 10 张手写笔记风格 PNG 使用内置 image_gen 生成；完整提示词与修订记录见 `dox/研究/imgs/5.具身/illustrations-prompts.json`。图示用于解释概念，具体模型结论以各篇正文附近的论文和官方资料链接为准。
+
 本项目使用静态 HTML 和浏览器端 Markdown 渲染。仓库根目录的 `.nojekyll` 文件必须一并提交，确保 GitHub Pages 原样发布 Markdown 文件。
 
 例如 `dox/研究/5.具身/1.π系列.md` 开头包含 Typora 的 YAML front matter（`---` 包围的元数据）。如果启用默认 Jekyll 构建，这类文件会被转换为 HTML，研究页请求原始 `.md` 路径时便可能返回 404。本地 Python 静态服务器不做这种转换，所以本地能正常显示。
