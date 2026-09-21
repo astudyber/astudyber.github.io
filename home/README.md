@@ -29,3 +29,13 @@ python -m http.server 8000 --directory home
 ```
 
 其中 `8000` 是端口号，可按需替换为其他未占用端口。
+
+## GitHub Pages 部署
+
+本项目使用静态 HTML 和浏览器端 Markdown 渲染。仓库根目录的 `.nojekyll` 文件必须一并提交，确保 GitHub Pages 原样发布 Markdown 文件。
+
+例如 `dox/研究/5.具身/1.π系列.md` 开头包含 Typora 的 YAML front matter（`---` 包围的元数据）。如果启用默认 Jekyll 构建，这类文件会被转换为 HTML，研究页请求原始 `.md` 路径时便可能返回 404。本地 Python 静态服务器不做这种转换，所以本地能正常显示。
+
+当前 `/home/pages/research.html` 地址对应仓库根目录发布：在仓库 **Settings → Pages** 中使用 **Deploy from a branch**，选择站点所在分支及 **/(root)**。提交 `.nojekyll` 后，等待 Pages 部署成功，再用 `Ctrl+F5` 刷新研究页。可直接访问 `/home/dox/研究/5.具身/1.π系列.md`，确认返回的是 Markdown 原文。
+
+如果改为自定义 GitHub Actions 部署，应直接上传静态文件（包括 Markdown），不要运行 Jekyll 转换；如果更换发布目录，则需将 `.nojekyll` 放在实际发布源的根目录。
