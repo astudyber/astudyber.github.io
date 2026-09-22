@@ -1,0 +1,655 @@
+[
+  {
+    "id": "attention-cache",
+    "title": "KV cache 与分块注意力",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'KV cache 与分块注意力'. Two separated panels. Left generation old K,V cache plus current K,V append, current Q reads all. Right flash attention tiles QK and online softmax without full N×N stored matrix. Labels '缓存避免重复计算','分块减少显存读写'. Footer '精确注意力分块不等于稀疏注意力'.",
+    "file": "8.注意力机制.md",
+    "filename": "attention-cache.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Left bottom change '注意力计算（得到下一个 token）' to '注意力输出（后续网络再预测 token）'. Right tile label 'K 按列分块' change 'Kᵀ 按列分块'. Remove lower loop arrow from output back into Q block (could imply output becomes Q); replace caption '遍历 KV 块，在线累积统计量与输出'. Preserve exact attention distinction."
+    ]
+  },
+  {
+    "id": "attention-heads",
+    "title": "多头注意力与共享 KV",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '多头注意力与共享 KV'. Compare MHA 4 query heads and4 KV groups, GQA4 Q heads share2 KV groups, MQA4 Q share1 KV group. Clearly connect mappings. Caption '减少 KV 头可降低缓存量'.",
+    "file": "8.注意力机制.md",
+    "filename": "attention-heads.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "attention-mask",
+    "title": "因果掩码：不能看未来",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '因果掩码：不能看未来'. 5x5 matrix, rows queries t1..t5, cols keys t1..t5. Lower triangle including diagonal blue visible, strictly upper triangle gray blocked. Labels '可见','屏蔽'. Footer '第 t 个位置只访问不晚于 t 的信息'.",
+    "file": "8.注意力机制.md",
+    "filename": "attention-mask.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "attention-qkv",
+    "title": "Q、K、V：先匹配，再读取",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'Q、K、V：先匹配，再读取'. Query magnifier compares three key cards; probability weights point to three value cards then weighted sum. Labels 'Q：查询','K：匹配线索','V：读取内容','加权求和'. No claim K=V always.",
+    "file": "8.注意力机制.md",
+    "filename": "attention-qkv.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "attention-transformer",
+    "title": "Transformer：两个核心子层",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'Transformer：两个核心子层'. Single pre-norm block: x splits residual around 'Norm → Attention'; addition then residual around 'Norm → FFN'; output. Labels '注意力：跨位置混合','FFN：逐位置变换'. Separate decoder icon labeled '生成时使用因果掩码'.",
+    "file": "8.注意力机制.md",
+    "filename": "attention-transformer.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "basics-autograd",
+    "title": "链式法则与自动微分",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '链式法则与自动微分'. Simple forward flow x → square node → multiply-by-3 node → y. Exact labels 'x', 'u=x²', 'y=3u'. Backward arrows labels 'dy/du=3', 'du/dx=2x'. Footer 'dy/dx=6x'. Use x=2 annotation and gradient 12 as worked example.",
+    "file": "1.预备知识.md",
+    "filename": "basics-autograd.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "basics-broadcast",
+    "title": "广播：对齐末尾维度",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '广播：对齐末尾维度'. Show a 2x3 grid plus one 1x3 row, ghost-copy the row into 2 rows, then a 2x3 result. Labels '[2,3]', '[1,3]', '[2,3]'. State '维度相等，或其中一个为 1'. No numeric arithmetic.",
+    "file": "1.预备知识.md",
+    "filename": "basics-broadcast.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "basics-linear",
+    "title": "矩阵乘法：线性映射",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '矩阵乘法：线性映射'. Diagram X [B,d] times W [d,h] to H [B,h]. Highlight contracted dimension d with same color. Separate geometric inset shows square transformed to parallelogram. Labels '样本', '特征', '新表示'. No extraneous formula.",
+    "file": "1.预备知识.md",
+    "filename": "basics-linear.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "basics-probability",
+    "title": "概率：从数据到不确定性",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '概率：从数据到不确定性'. Four separate conceptual panels: '联合概率' with intersecting colored sets; '条件概率' with selected subset; '期望' with weighted balance; '负对数似然' with predicted probability high versus low and loss low versus high. No invented dataset statistics. Footer '预测概率，不等于保证结果'.",
+    "file": "1.预备知识.md",
+    "filename": "basics-probability.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "basics-tensors",
+    "title": "张量：形状就是接口",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '张量：形状就是接口'. Show scalar, vector of 4 cells, 3 by 4 matrix, 2 by 3 by 4 stacked tensor. Labels only '标量', '向量 [4]', '矩阵 [3,4]', '批量 [2,3,4]'. Color the batch axis pink, features blue. Footer '先检查 shape，再检查数值'.",
+    "file": "1.预备知识.md",
+    "filename": "basics-tensors.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "cnn-blocks",
+    "title": "经典 CNN 的三个连接方式",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '经典 CNN 的三个连接方式'. Three diagrams '串行堆叠：VGG' sequential conv; '并行分支：Inception' split multiple branches then concatenate; '残差相加：ResNet' x split identity and F(x) then plus. Footer '相加与拼接不是同一种操作'.",
+    "file": "6.卷积神经网络.md",
+    "filename": "cnn-blocks.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "cnn-channels",
+    "title": "多通道：先求和，再形成新通道",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '多通道：先求和，再形成新通道'. Three input channel grids each convolved with separate kernel, summation produces one output grid; repeat with second kernel group produces second output channel. Labels '输入通道','一组卷积核','通道求和','输出通道'. No arrow implies channels simply concatenated for same filter.",
+    "file": "6.卷积神经网络.md",
+    "filename": "cnn-channels.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "cnn-kernel",
+    "title": "卷积核如何扫描图像",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '卷积核如何扫描图像'. 5x5 input grid, 3x3 highlighted patch, 3x3 kernel, arrow one output cell. Labels '局部窗口','共享卷积核','特征图'. No numeric calculations.",
+    "file": "6.卷积神经网络.md",
+    "filename": "cnn-kernel.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "cnn-modern",
+    "title": "卷积模块的现代化",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '卷积模块的现代化'. Two separated panels: depthwise spatial conv each channel independently then pointwise channel mix; ConvNeXt conceptual block '大核深度卷积' → '归一化' → '通道扩展与收缩' with skip. Labels '空间混合','通道混合'. No performance ranking.",
+    "file": "6.卷积神经网络.md",
+    "filename": "cnn-modern.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "cnn-shape",
+    "title": "填充、步幅与感受野",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '填充、步幅与感受野'. Three panels 'padding：补边界','stride：移动间隔','dilation：核内间隔'. Clearly distinguish stride2 movement and dilated sample spacing. Footer '尺寸计算先于网络堆叠'.",
+    "file": "6.卷积神经网络.md",
+    "filename": "cnn-shape.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Redraw middle and right diagrams precisely, simplify to ONE-DIMENSIONAL examples for clarity. Middle stride: row of7 cells indexed0..6; a 3-cell window first covers0,1,2; second window for stride1 covers1,2,3, distinct row stride2 covers2,3,4. Show start moves1 vs2. Right dilation: row of5 cells; kernel3 dilation1 samples positions0,1,2; dilation2 samples0,2,4 (three dots each). Left padding keep 3x3→5x5 with border zeros. No 2D sparse grid missing sample points. Preserve style.",
+      "保留左右padding与dilation。中间stride图数字格子仍错误，全部删除格子和旧箭头。改为两组文字加极简两条水平线，每组只用三个圆点，不画重叠窗口。stride=1：窗口起点 0 → 1 → 2；stride=2：窗口起点 0 → 2 → 4。补一句：固定卷积核，每次移动s个输入位置。其他内容保持，确保没有重复0/1/2/3数字格子。"
+    ]
+  },
+  {
+    "id": "dist-collectives",
+    "title": "三种集合通信",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '三种集合通信'. Three row diagrams for 2 devices: AllGather shards A/B→AB both; ReduceScatter full gradients [a1,a2],[b1,b2]→[a1+b1] and [a2+b2]; AllReduce→[a1+b1,a2+b2] both. Large symbols carefully correct, minimal text.",
+    "file": "10.分布式.md",
+    "filename": "dist-collectives.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "dist-ddp",
+    "title": "数据并行：模型相同，数据不同",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '数据并行：模型相同，数据不同'. Two GPU lanes same model θ, different batch A B → gradients gA gB → shared averaging → identical updated θ. Label 'All-Reduce'. Footer '全局 batch = 每卡 batch × 卡数 × 累积步数'.",
+    "file": "10.分布式.md",
+    "filename": "dist-ddp.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "dist-parallel",
+    "title": "四种并行，切分对象不同",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '四种并行，切分对象不同'. Four panels data parallel different samples replicated model; tensor parallel one matrix split; pipeline different layers GPUs sequential; expert parallel tokens route distinct expert GPUs. Labels '数据','张量','流水线','专家'. No implication interchangeable.",
+    "file": "10.分布式.md",
+    "filename": "dist-parallel.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "dist-schedule",
+    "title": "流水线：用微批次减少空闲",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '流水线：用微批次减少空闲'. Two-stage timeline with microbatches A B C, stage2 starts A after stage1 A; diagonal fill/drain bubbles clearly shaded. Labels 'GPU 0','GPU 1','时间','空闲气泡','微批次'. Footer '增加流水深度也会增加调度复杂度'.",
+    "file": "10.分布式.md",
+    "filename": "dist-schedule.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "dist-sharding",
+    "title": "ZeRO：逐步分片训练状态",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'ZeRO：逐步分片训练状态'. Four rows baseline all GPUs full params gradients optimizer; stage1 optimizer shards; stage2 optimizer+grad shards; stage3 all three sharded. Use blocks with legend P G O. Footer '节省显存通常伴随通信变化'.",
+    "file": "10.分布式.md",
+    "filename": "dist-sharding.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "infer-kv",
+    "title": "PagedAttention：逻辑连续，物理分块",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'PagedAttention：逻辑连续，物理分块'. Two request token sequences divided into logical blocks, page table maps to noncontiguous physical memory blocks. Labels '请求 A','请求 B','块表','显存块'. Shared prefix one block maps both only read-only concept. No false claim eliminates all KV storage.",
+    "file": "11.推理加速算法.md",
+    "filename": "infer-kv.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Redraw token blocks as abstract fixed capacity THREE token cells per block for BOTH requests. A logical blocks0,1,2 contents [a,b,c],[d,e,f],[g,h,pad]. B logical blocks0,1,2 contents [a,b,c],[u,v,w],[x,y,pad]. Shared block0→physical5 for both. A1→2,A2→8,B1→7,B2→1. Physical blocks contain exact corresponding triples, pad gray invalid. All logical block numbers per request consecutive0,1,2. Keep explanation of read-only shared prefix and noncontiguous physical placement. No real sentence needed."
+    ]
+  },
+  {
+    "id": "infer-prefill",
+    "title": "Prefill 与 Decode",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'Prefill 与 Decode'. Prompt tokens processed parallel as wide block 'Prefill'; then token1→token2→token3 sequential 'Decode'. Under prefill label '处理输入上下文'; under decode '逐步生成'. Side separate 'TTFT','TPOT' timing brackets.",
+    "file": "11.推理加速算法.md",
+    "filename": "infer-prefill.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Correct timeline and timing brackets: Prefill processes prompt and produces FIRST output token t1 at its end. Decode then processes t1→produces t2, processes t2→produces t3. TTFT bracket from request arrival to t1, with optional queue/preprocessing included. TPOT bracket spans ONLY interval t1 to t2, another equal bracket t2 to t3; never span entire decode and label one-token time. Simplify to a single timeline below the two panels."
+    ]
+  },
+  {
+    "id": "infer-quant",
+    "title": "量化：数值映射需要尺度",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '量化：数值映射需要尺度'. Float range with selected values maps to integer grid via scale s and zero point z, arrow reconstruct approximation. Formula 'q=round(x/s)+z','x̂=s(q−z)'. Clearly mark clipping endpoints and error. Label '校准分布决定误差风险'.",
+    "file": "11.推理加速算法.md",
+    "filename": "infer-quant.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Correct quantization formula everywhere to 'q=clip(round(x/s)+z)'. In error bound panel replace blanket '|e|≤s/2' caption with '仅在未截断且采用最近舍入时：|e|≤s/2'. Clipping can exceed this bound. Keep remaining scale/zero-point explanation.",
+      "仅修改第6块量化误差的错误文字与公式：目前写仅在截断且采用最近舍入时是反的。清晰写 必须未发生截断，且采用最近舍入。下一行明确写 |x_hat - x| ≤ s / 2 ，分子必须是小写字母s，表示量化步长，不是其他符号。底部写 发生截断时，此上界不再成立。其余图保持。"
+    ]
+  },
+  {
+    "id": "infer-roofline",
+    "title": "加速之前先问瓶颈",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '加速之前先问瓶颈'. Conceptual roofline axes arithmetic intensity and throughput, sloped memory-bound region then compute flat ceiling. Labels '带宽受限','计算受限','算术强度'. Mark '概念图，不是硬件实测'. No numeric claims.",
+    "file": "11.推理加速算法.md",
+    "filename": "infer-roofline.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "infer-speculative",
+    "title": "推测解码：先提案，再验证",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '推测解码：先提案，再验证'. Draft model proposes 4 tokens, target verifies together, first2 green accepted third red rejected fourth gray discarded; replacement token purple from corrected distribution. Labels '提案','并行验证','接受前缀','拒绝后修正'. Footer '精确采样需要接受概率与残差分布'.",
+    "file": "11.推理加速算法.md",
+    "filename": "infer-speculative.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "linear-loss",
+    "title": "平方损失：为什么大误差更贵",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '平方损失：为什么大误差更贵'. Two panels: residual arrow small and large, then exact y=x² curve labeled '残差 e' and '损失 e²'. Mark e=1 loss1, e=2 loss4. Footer '平方损失对离群点敏感'.",
+    "file": "2.线性神经网络.md",
+    "filename": "linear-loss.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "linear-metrics",
+    "title": "分类评测：准确率之外",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '分类评测：准确率之外'. 2x2 confusion matrix with axes actual and predicted, labels 'TP','FN','FP','TN' correct: rows actual positive/negative, cols pred positive/negative. Side labels 'Precision：预测为正有多准','Recall：真实正例找回多少'. Footer '先划分数据，再比较模型'.",
+    "file": "2.线性神经网络.md",
+    "filename": "linear-metrics.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "linear-regression",
+    "title": "线性回归：预测与残差",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '线性回归：预测与残差'. Scatterplot conceptual points and regression line, vertical segments to line colored as residuals. Side formula 'ŷ=w·x+b'. Labels '输入 x', '预测 ŷ', '残差 y−ŷ'. No performance metrics.",
+    "file": "2.线性神经网络.md",
+    "filename": "linear-regression.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Correct the scatterplot: every blue sample point has exactly one vertical segment to the red regression line at its x coordinate. Points above line pink dashed; points below line green dashed. Remove duplicate points aligned at same x. Right text replace '垂直距离' with '竖直方向的有符号差'. Preserve remaining style and correct formula."
+    ]
+  },
+  {
+    "id": "linear-softmax",
+    "title": "Softmax：分数变成概率",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'Softmax：分数变成概率'. Three logits boxes with numbers 2,1,0, arrow exponentiate and normalize, three probability bars exact labels '0.665','0.245','0.090'. Sum label '总和为 1'. Formula 'softmax(z−max(z)) = softmax(z)'.",
+    "file": "2.线性神经网络.md",
+    "filename": "linear-softmax.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "linear-training",
+    "title": "小批量梯度下降",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '小批量梯度下降'. Cycle '抽取 batch' → '计算预测' → '计算平均损失' → '反向求梯度' → '更新参数' → next batch. Side '验证集：只评估，不更新'. Distinct training and validation lanes.",
+    "file": "2.线性神经网络.md",
+    "filename": "linear-training.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "mlp-activations",
+    "title": "激活函数的不同形状",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '激活函数的不同形状'. Four schematic graph panels labeled 'Sigmoid','Tanh','ReLU','SiLU'. Correct curves: sigmoid 0..1, tanh -1..1, relu zero negative and identity positive, SiLU small negative dip then identity. Use conceptual axes, no empirical metrics.",
+    "file": "3.多层感知机.md",
+    "filename": "mlp-activations.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "mlp-gates",
+    "title": "SwiGLU 与稀疏专家",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'SwiGLU 与稀疏专家'. Two clearly separated concept panels. Left x branches into '线性 + SiLU' and '线性', meet elementwise multiplication, then '输出投影'. Right x → router → choose two of four expert boxes → weighted sum. Labels '门控前馈','稀疏 MoE'. Footer '总参数量 ≠ 每次激活参数量'.",
+    "file": "3.多层感知机.md",
+    "filename": "mlp-gates.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Replace left explanatory sentence asserting always more effective with 'SiLU 分支与线性分支逐元素相乘，再做输出投影'. In SiLU box use 'SiLU(x)=x/(1+e⁻ˣ)' instead of sigma(x) to avoid sigmoid confusion. Preserve correct flow and sparse MoE."
+    ]
+  },
+  {
+    "id": "mlp-losses",
+    "title": "损失函数：问题决定目标",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '损失函数：问题决定目标'. Three panels: continuous target ruler '回归：MSE / MAE / Huber'; mutually exclusive categories '单标签：交叉熵'; independent checkboxes '多标签：BCE'. Footer 'logits 与 probabilities 不要混淆'.",
+    "file": "3.多层感知机.md",
+    "filename": "mlp-losses.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Correct right heading subtext from '每个类别相互独立' to '每个标签分别预测，可同时为真'. Correct footer: 'CrossEntropyLoss / BCEWithLogitsLoss 接收 logits；BCELoss 接收概率'. Remove misleading claim BCE always takes logits. Preserve rest."
+    ]
+  },
+  {
+    "id": "mlp-network",
+    "title": "多层感知机：逐层构造特征",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '多层感知机：逐层构造特征'. Network 3 input nodes → 4 hidden → 3 hidden → 2 output. Labels '输入','仿射变换 + 激活','输出'. Formula 'H=σ(XW+b)'. Caption '没有非线性，多层仍可合成线性映射'.",
+    "file": "3.多层感知机.md",
+    "filename": "mlp-network.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "mlp-xor",
+    "title": "为什么需要隐藏层",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '为什么需要隐藏层'. XOR plot four points: (0,0),(1,1) blue; (0,1),(1,0) pink. Left single line cannot separate, right two hidden feature boundaries enable nonlinear separation. Labels '原空间','隐藏表示','分类输出'. No claim a single line separates original XOR.",
+    "file": "3.多层感知机.md",
+    "filename": "mlp-xor.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Replace the mathematically WRONG middle and right panels entirely. Keep left XOR points as shown. Middle show explicit two ReLU features h1=max(0,x1-x2), h2=max(0,x2-x1), with table: inputs (0,0),(1,1) blue map to (0,0); input(1,0) pink maps(1,0); input(0,1) pink maps(0,1). Right plot hidden coordinates: one blue point at origin annotated '两点重合', pink points at (1,0) and (0,1), SINGLE diagonal decision line h1+h2=0.5 separating origin from both pink points. Label '一条直线可分'. NO XOR quadrant pattern in hidden space. Sparse exact labels, remove long prose. Ivory opaque style."
+    ]
+  },
+  {
+    "id": "modules-checkpoint",
+    "title": "保存的是恢复训练所需状态",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '保存的是恢复训练所需状态'. Center checkpoint archive with cards '模型参数','优化器状态','调度器','随机数状态','训练进度','精度缩放状态'. Arrow paused training → file → resume training. Footer '仅保存权重 ≠ 完整恢复训练'.",
+    "file": "5.模型模块化.md",
+    "filename": "modules-checkpoint.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "modules-gpu",
+    "title": "GPU：提交任务不等于完成",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'GPU：提交任务不等于完成'. CPU lane enqueue A B then synchronization, GPU lane execute A B slightly shifted. timing bracket starts before enqueue ends after sync. Side compiler flow eager ops → captured graph → fused kernels. Labels '异步执行','同步计时','编译与融合'.",
+    "file": "5.模型模块化.md",
+    "filename": "modules-gpu.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "modules-sharing",
+    "title": "共享与冻结：两种不同关系",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '共享与冻结：两种不同关系'. Left two branches share same weight block W with arrows joint gradients. Right W frozen padlock, input gradient still flowing through W to earlier trainable layer. Labels '共享：同一参数','冻结：不更新参数'. No claim freeze always no_grad.",
+    "file": "5.模型模块化.md",
+    "filename": "modules-sharing.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Correct right diagram arrow direction: forward solid arrows go from input at bottom through earlier trainable layer then frozen W then later layer on top. Add pink dashed BACKWARD arrows DOWNWARD from later layer through frozen W to earlier trainable layer. Label '反向梯度仍可穿过 W'. Remove existing upward gradient arrow. Keep left shared weight description."
+    ]
+  },
+  {
+    "id": "modules-state",
+    "title": "参数与 buffer",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '参数与 buffer'. Two cards 'Parameter：可学习权重' gradient arrow optimizer; 'buffer：持久状态' example running_mean no gradient optimizer arrow. Both arrows state_dict. Footer '普通属性不等于已注册状态'.",
+    "file": "5.模型模块化.md",
+    "filename": "modules-state.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Make qualifications precise and sparse: left Parameter text '注册为参数；是否更新取决于梯度与优化器配置'. Right heading 'buffer：注册的非参数状态'; example 'running_mean：通常不求梯度'; state_dict arrow label 'persistent=True 时保存'. Remove blanket all buffers never gradient and all parameters automatically updated. Footer '普通张量属性不自动成为参数或 buffer'. Keep clean two cards.",
+      "仅修正一个标签：左下从Parameter到state_dict的箭头文字删除persistent=True时保存，替换为 注册参数保存。persistent选项仅属于buffer。右侧buffer箭头的persistent=True时保存必须保留。其余保持不变。"
+    ]
+  },
+  {
+    "id": "modules-tree",
+    "title": "模型是一棵模块树",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '模型是一棵模块树'. Root Model branches Encoder and Head; Encoder branches Linear Norm Activation. Side 'forward 定义数据流' distinct from tree. Highlight registered children.",
+    "file": "5.模型模块化.md",
+    "filename": "modules-tree.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "optim-adamw",
+    "title": "AdamW：两条更新分开",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'AdamW：两条更新分开'. Gradient → first moment m and second moment v → adaptive update. Separate weights θ → decay (1−ηλ)θ; combine final updated weights. Labels '自适应梯度步','解耦权重衰减'. No claim equals Adam L2.",
+    "file": "9.优化器.md",
+    "filename": "optim-adamw.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "In left gradient curve sketch, arrow currently points downhill but labelled g_t. Relabel arrow '-g_t（下降方向）'. Keep top equation g_t=gradient L and all AdamW formulas unchanged."
+    ]
+  },
+  {
+    "id": "optim-batches",
+    "title": "批量大小改变噪声和成本",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '批量大小改变噪声和成本'. Three panels single sample arrow noisy gradient, mini batch few samples average gradient, full dataset all samples average. Labels '单样本','小批量','全批量'. Footer '每轮样本数相同，更新次数不同'.",
+    "file": "9.优化器.md",
+    "filename": "optim-batches.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "optim-landscape",
+    "title": "梯度下降：沿局部下降方向",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '梯度下降：沿局部下降方向'. Elliptical contour valley with zigzag high step path and smoother smaller step path. Labels '梯度','学习率','病态曲率'. Mark schematic not experimental.",
+    "file": "9.优化器.md",
+    "filename": "optim-landscape.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Fix upper-right gradient illustration only: place evaluation point OFF CENTER of concentric circular contours, e.g. upper-right quadrant. Red positive gradient arrow points radially OUT from center; blue negative gradient points from point TOWARD center. At center gradient would be zero, do not place point there. Main trajectory label add '示意图'. Preserve rest."
+    ]
+  },
+  {
+    "id": "optim-momentum",
+    "title": "动量：平滑梯度方向",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '动量：平滑梯度方向'. Sequence g1,g2,g3 arrows and moving average velocity v; paths zigzag SGD versus smooth momentum. Exact formula 'v=βv+(1−β)g'. Label '历史梯度的指数平滑'.",
+    "file": "9.优化器.md",
+    "filename": "optim-momentum.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "optim-muon",
+    "title": "Muon：利用矩阵结构",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'Muon：利用矩阵结构'. Matrix gradient G → momentum M → approximate orthogonalization → scaled matrix update. Side separate vector params arrow '其他优化器'. Footer '正交化的是更新矩阵，不是强制权重正交'. No performance guarantees.",
+    "file": "9.优化器.md",
+    "filename": "optim-muon.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Remove blanket rectangular-matrix assertion U_t^T U_t≈I entirely. Replace with '按矩阵形状近似正交化，具体缩放依实现'. Add label '流程示意' near title; do not assert vectors drawn are all mutually orthogonal. Preserve main point update matrix not weights."
+    ]
+  },
+  {
+    "id": "rnn-gates",
+    "title": "GRU 与 LSTM：控制信息保留",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'GRU 与 LSTM：控制信息保留'. Two conceptual panels, not full algebra: GRU old state and candidate through update gate to new state, reset gate affects candidate; LSTM long horizontal cell-state path with forget and input gates, output gate to hidden. Labels '保留','写入','读出','细胞状态 c'. Make gate roles correct.",
+    "file": "7.循环神经网络.md",
+    "filename": "rnn-gates.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Redraw this infographic with minimal exact formulas instead of misleading incomplete gate wiring. Left GRU show old h and candidate htilde each going through weights (1-z) and z then PLUS→h. Candidate box receives x and reset-filtered old state r⊙h_old. Exact formula h=(1−z)⊙h_old+z⊙htilde. Right LSTM main horizontal c_old→multiply f→PLUS→c; candidate ctilde→multiply i→PLUS; c→tanh→multiply o→h. Show gates as provided control signals, no false assertion gates depend only on c. Short labels '保留','写入','读出'. No arrow x directly into final sum. Preserve opaque style.",
+      "现有计算图仍错误。保留手绘纸张风格，完全删除GRU和LSTM所有计算图箭头，重新用两栏公式卡片解释。左栏GRU：z=σ(W_z[x_t,h_prev]+b_z)，r=σ(W_r[x_t,h_prev]+b_r)，h_candidate=tanh(W_x x_t+W_h(r⊙h_prev)+b)，h_t=(1-z)⊙h_prev+z⊙h_candidate。标明本图约定z为写入比例。右栏LSTM：f,i,o分别由当前输入与上一隐藏状态计算；c_candidate=tanh(W_c[x_t,h_prev]+b_c)；c_t=f⊙c_prev+i⊙c_candidate；h_t=o⊙tanh(c_t)。用彩色突出保留项、写入项和读出项，不画连线或神经网络节点。底部解释⊙逐元素相乘、σ为sigmoid。确保门不是将h_prev直接传到输出，公式完整精确。"
+    ]
+  },
+  {
+    "id": "rnn-language",
+    "title": "语言模型：只根据过去预测未来",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '语言模型：只根据过去预测未来'. Token row '我' '喜欢' '学习' with shifts input '我 喜欢' targets '喜欢 学习'. Lower future token covered with mask. Labels '输入序列','右移一位的标签','不能偷看未来'.",
+    "file": "7.循环神经网络.md",
+    "filename": "rnn-language.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Change title of target row from '右移一位的标签' to '下一词标签'. Keep input 我 喜欢 and target 喜欢 学习 aligned correctly. All other concepts unchanged."
+    ]
+  },
+  {
+    "id": "rnn-seq2seq",
+    "title": "编码器—解码器与束搜索",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '编码器—解码器与束搜索'. Top source tokens→encoder→context→decoder→target. Below small beam tree keep two paths per level, faded pruned paths, label 'beam=2：保留两个候选'. Footer '训练可用真值前缀，推理只能用已生成前缀'.",
+    "file": "7.循环神经网络.md",
+    "filename": "rnn-seq2seq.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Keep top seq2seq. Replace beam search tree with compact THREE-level tree that retains EXACTLY TWO candidates at each depth. Step1 retain A and B; step2 candidates AA,AB,BA,BB, retain AA and BA only; step3 expand only retained AA and BA into AAA,AAB,BAA,BAB, retain AAA and BAB only. Rejected candidates gray, no descendants from pruned nodes. Label '每层全局保留 2 条'. No invented scores needed. Footer unchanged."
+    ]
+  },
+  {
+    "id": "rnn-ssm",
+    "title": "从固定递推到选择性状态",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '从固定递推到选择性状态'. Compare fixed recurrence with same transition each token versus input-dependent gates controlling state update. Labels '输入 x','压缩状态 h','输出 y','选择性更新'. Side note '固定大小状态与显式 KV 缓存是不同取舍'. No claim exact equivalence attention.",
+    "file": "7.循环神经网络.md",
+    "filename": "rnn-ssm.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Fix state flow both panels: old state h_(t−1) and x_t ENTER update; update OUTPUT h_t; h_t branches to output readout y_t and next-step memory. NEVER y_t feeds state. Left exact h_t=A h_(t−1)+B x_t, caption 'A、B 固定；仍依赖历史状态'. Right conceptual h_t=A(x_t)h_(t−1)+b(x_t), caption '输入相关更新'. Remove false '只与当前位置输入有关'. Keep fixed-state vs KV tradeoff footer. Sparse large labels.",
+      "只修正两栏底部错误反馈线：当前h_t不能回到输入x_t。将左右两栏从h_t向下再向左指回x_t的整条反馈线彻底删除。改为h_t向右短箭头到一个独立小框，框中写下一时刻的历史状态。保留h_t向上到y_t输出读取的分支。其它内容和公式保持。不允许任何输出箭头指向x_t。"
+    ]
+  },
+  {
+    "id": "rnn-unroll",
+    "title": "RNN：同一个单元反复使用",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: 'RNN：同一个单元反复使用'. Unroll three recurrent cells identical W labels; x1 x2 x3 bottom, h1 h2 h3 horizontal, y1 y2 y3 top. Backward dashed arrows for BPTT. Label '跨时间共享参数'.",
+    "file": "7.循环神经网络.md",
+    "filename": "rnn-unroll.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "training-fit",
+    "title": "从学习曲线诊断拟合",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '从学习曲线诊断拟合'. Three schematic panels underfit train+val high, fit both decline and near, overfit train declines val U-shape. Labels '欠拟合','合适容量','过拟合'. Axes '训练轮次','损失'. Mark all '示意曲线'.",
+    "file": "4.模型训练技巧.md",
+    "filename": "training-fit.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "training-graph",
+    "title": "前向与反向：方向不同",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '前向与反向：方向不同'. x,w → multiply → add b → prediction → loss. Blue forward arrows, pink backward arrows. Labels '前向：计算数值','反向：传播梯度','optimizer：更新参数'. Optimizer separate from loss.backward.",
+    "file": "4.模型训练技巧.md",
+    "filename": "training-graph.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Redesign as a sparse exact SCALAR computation graph: x and w each enter multiply node u=xw; u and b each enter add node yhat=u+b; yhat and target y enter loss L. Blue forward arrows follow dependencies. Pink reverse arrows flow L→yhat then BRANCH at add to u and b, and BRANCH at multiply to x and w. NEVER draw gradients w→x or b→u sequentially. Separate optimizer box receives dw and db only, labeled '更新 w、b'. Footer 'backward 计算梯度；optimizer 更新参数'. Remove all vector/matrix inset and long prose. Preserve paper style.",
+      "原图反向图仍错误地从∂L/∂b再流向∂L/∂u。重画为极简双行，保持笔记风格。上行前向 x,w→乘法u=xw；u,b→加法ŷ=u+b；ŷ,y→L。下行完全不用箭头图，只列四条精确公式，避免错误依赖：g=∂L/∂ŷ；∂L/∂b=g；∂L/∂w=gx；∂L/∂x=gw。删除下行所有旧梯度框和箭头。底部：backward计算梯度；optimizer使用∂L/∂w与∂L/∂b更新w,b。"
+    ]
+  },
+  {
+    "id": "training-regularization",
+    "title": "正则化：限制不必要的自由度",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '正则化：限制不必要的自由度'. Two panels weight decay shrink large arrows and dropout randomly hidden 2 of 6 nodes only during training. Exact '权重衰减','Dropout','训练：随机掩码','推理：完整网络'. No claim all optimizers L2=weight decay.",
+    "file": "4.模型训练技巧.md",
+    "filename": "training-regularization.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Correct left card: title '解耦权重衰减', formula 'W ← (1−ηλ)W', description '独立缩小权重；与损失梯度更新分开'. No blanket equivalence L2. Footer left '普通 SGD 下可对应 L2；Adam 下需区分'. Right dropout draw EXACTLY 6 hidden circles in both training and inference; cross out2 of6 training. Text '训练：随机掩码并缩放','推理：完整网络'. No absolute guarantee generalization. Reduce prose."
+    ]
+  },
+  {
+    "id": "training-split",
+    "title": "数据划分与泄漏",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '数据划分与泄漏'. Pipeline raw data → group split into train validation test; normalization fit only on train then same statistics arrows into all three. Clear label '测试集不能参与调参'. No arrow from test back to fit.",
+    "file": "4.模型训练技巧.md",
+    "filename": "training-split.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "training-stability",
+    "title": "稳定训练的四个检查点",
+    "prompt": "Original Chinese educational infographic for a deep learning study notebook. Landscape 4:3. Fully OPAQUE warm ivory lined notebook paper, navy legible handwritten Chinese, pastel mint blue lavender pink yellow rounded panels, strong simple arrows and small explanatory drawings. No transparency, no black background, no brand/logo/date/watermark, no slogans, no additional unsolicited text. Prioritize precise concepts, sparse LARGE readable labels. Do not invent empirical curves or performance numbers. Title exact: '稳定训练的四个检查点'. Four large cards '初始化：保持信号尺度','归一化：稳定中间表示','残差：提供短路径','裁剪：限制梯度范数'. Bottom small LoRA diagram W frozen plus BA trainable. Label 'LoRA：低秩更新'.",
+    "file": "4.模型训练技巧.md",
+    "filename": "training-stability.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-21",
+    "status": "reviewed",
+    "edits": [
+      "Keep upper four cards. Redraw bottom LoRA as TWO PARALLEL branches from input x: upper through frozen W; lower through trainable A THEN trainable B; branches meet PLUS then y. Formula 'y=Wx+BAx'. Remove old W followed by BA sequential-looking diagram. Replace computational savings text with '减少可训练参数与优化器状态'. Do not claim base forward disappears."
+    ]
+  }
+]

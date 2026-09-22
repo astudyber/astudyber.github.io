@@ -30,7 +30,7 @@
     });
     html = html
       .replace(/\\_/g, '_')
-      .replace(/!\[([^\]]*)\]\(((?:https?:\/\/|\.\.?\/|\/)[^)]+)\)/g, '<img src="$2" alt="$1">')
+      .replace(/!\[([^\]]*)\]\(((?:https?:\/\/|\.\.?\/|\/)[^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy" decoding="async">')
       .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>')
       .replace(/`([^`]+)`/g, '<code>$1</code>')
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
@@ -367,7 +367,9 @@
     });
   }
 
+  let noteRequest = 0;
   function selectNote(button, file) {
+    const request = ++noteRequest;
     notes.querySelectorAll('.research-note').forEach((item) => item.classList.toggle('active', item === button));
     content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="loader-circle"></i><p>正在加载 Markdown…</p></div>';
     refreshIcons();
@@ -377,12 +379,14 @@
         return response.text();
       })
       .then((markdown) => {
+        if (request !== noteRequest) return;
         content.innerHTML = highlightPiKeywords(renderMarkdown(normalizeImagePaths(markdown, file)), file);
         enhanceImages();
         typesetMath();
         window.scrollTo({ top: content.getBoundingClientRect().top + window.scrollY - 25, behavior: 'smooth' });
       })
       .catch(() => {
+        if (request !== noteRequest) return;
         content.innerHTML = '<div class="markdown-placeholder"><i data-lucide="triangle-alert"></i><p>暂时无法读取这篇 Markdown，请确认文件已部署。</p></div>';
         refreshIcons();
       });
@@ -411,13 +415,14 @@
   }
 
   function renderCategories(categories) {
-    const icons = ['brain-circuit', 'scan-face', 'orbit', 'sparkles'];
+    const icons = { embodied: 'brain-circuit', deep_learning: 'network', multimodal: 'scan-face', rl: 'orbit', generative: 'sparkles' };
+    const tones = { embodied: 1, deep_learning: 1, multimodal: 2, rl: 3, generative: 4 };
     categoryTabs.innerHTML = '';
     categories.forEach((category, index) => {
       const button = document.createElement('button');
       button.type = 'button';
-      button.className = `research-category-tab category-tone-${index + 1}`;
-      button.innerHTML = `<i data-lucide="${icons[index] || 'layers-3'}"></i><span>${escapeHtml(category.title)}</span>`;
+      button.className = `research-category-tab category-tone-${tones[category.id] || 1}`;
+      button.innerHTML = `<i data-lucide="${icons[category.id] || 'layers-3'}"></i><span>${escapeHtml(category.title)}</span>`;
       button.setAttribute('role', 'tab');
       button.addEventListener('click', () => {
         categoryTabs.querySelectorAll('button').forEach((item) => item.classList.toggle('active', item === button));
