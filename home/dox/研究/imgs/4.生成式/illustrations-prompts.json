@@ -1,0 +1,525 @@
+{
+  "category": "4.生成式",
+  "tool": "built-in image_gen",
+  "created": "2026-09-23",
+  "images": [
+    {
+      "file": "1.VAE.md",
+      "id": "gen-vae-1",
+      "title": "变分自编码器：核心思想",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"变分自编码器：核心思想\". Three panels: input handwritten digit → approximate posterior cloud q(z|x) → reconstructed digit. Separate lower generation path prior z~N(0,I) → shared decoder → new digit. Explain 训练：重建与正则；生成：先验采样. Distinguish posterior and prior.",
+      "filename": "gen-vae-1.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "1c3caf1b15be0c87801de5015575ce75cc8f86d559953c78702a4ec92d6aa01c"
+    },
+    {
+      "file": "1.VAE.md",
+      "id": "gen-vae-2",
+      "title": "变分自编码器：网络架构",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"变分自编码器：网络架构\". Concrete MNIST example: x [B,784] → Linear784→400 ReLU → two heads μ [B,20], logσ² [B,20] → z=μ+exp(0.5 logσ²)⊙ε, ε~N(0,I) → Linear20→400 ReLU → Linear400→784 Sigmoid. Two-headed branch must rejoin z. Loss arrows reconstruction x↔output, KL posterior↔prior. Caption 教学配置，非唯一架构.",
+      "filename": "gen-vae-2.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "982947fff0881ce8eec7afc715f27274e6e4b0f1a3009a4bdff467a311865aca"
+    },
+    {
+      "file": "1.VAE.md",
+      "id": "gen-vae-3",
+      "title": "变分自编码器：优缺点",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"变分自编码器：优缺点\". Three-row table columns 优势,代价,实践. rows 可微潜变量 / 重建与正则折中 / 同时观察两项损失; 单次解码生成 / 简单似然可能模糊 / 区分重建与生成; 概率建模 / 后验坍塌 / 检查潜变量使用率. No fake statistics.",
+      "filename": "gen-vae-3.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "In upper-right practice cell remove the two loss curves and axes entirely; replace with two simple labeled metric cards 重建损失 and KL正则 plus caption 分别记录，不预设变化趋势. Keep all other cells and layout unchanged. These are conceptual illustrations not experimental plots."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "507b7cf7838b5b568060ed3e646366b19f461fc28a5907d0deced5b2ea66b9c2"
+    },
+    {
+      "file": "2.GAN.md",
+      "id": "gen-gan-1",
+      "title": "生成对抗网络：核心思想",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"生成对抗网络：核心思想\". Noise z → generator G → fake image, real image parallel, both feed discriminator D → real/fake score. Alternate update G and D, label D 学会区分 and G 学会生成. Do not claim convergence guaranteed. Show two different generated examples, no collapse guarantee.",
+      "filename": "gen-gan-1.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Correct only labels of bottom alternating-update cycle: arrow pointing from 更新D box toward 更新G box must say 固定D，更新G; arrow pointing from 更新G box back toward 更新D must say 固定G，更新D. Preserve all else."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "4b36e7aca9e0e08e707118f46f8e79672303bb7de066e104bc8196ac517a65ce"
+    },
+    {
+      "file": "2.GAN.md",
+      "id": "gen-gan-2",
+      "title": "生成对抗网络：网络架构",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"生成对抗网络：网络架构\". Concrete DCGAN-style32x32 illustration: z[B,100] → G: projection4x4, upsampling8,16,32 → fake[B,3,32,32]. D shared for real/fake: conv stride2 →16→8→4 → scalar logit[B,1]. Two training cards 更新D：假图detach；更新G：梯度穿过D，只更新G. D fixed parameters still differentiates input.",
+      "filename": "gen-gan-2.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "2e2a26575923d79439f783575cddcfc732ea497e010568046e1927980214c74d"
+    },
+    {
+      "file": "2.GAN.md",
+      "id": "gen-gan-3",
+      "title": "生成对抗网络：优缺点",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"生成对抗网络：优缺点\". Table 优势 / 局限 / 检查: 一次前向生成 / 对抗训练不稳定 / 分别监控G与D; 可学习细节 / 模式坍塌 / 检查多样性与近邻; 灵活生成器 / 无直接归一化似然 / 按任务选指标. Footer 判别器准确率不是生成质量.",
+      "filename": "gen-gan-3.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "282d5eee97952036c5781893538c95826a21f6047b8bbaeddfc3d5bbd91f90ab"
+    },
+    {
+      "file": "3.DDIM.md",
+      "id": "gen-ddim-1",
+      "title": "去噪扩散隐式模型：核心思想",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"去噪扩散隐式模型：核心思想\". Left dense descending diffusion times T→...→0; right sparse T→τ2→τ1→0 each noise→structure→image. Label 复用去噪模型；选择稀疏时间步. Two cards η=0 确定性更新（初始噪声仍随机）,η>0 添加采样噪声. Do not claim skipping with noqualityloss.",
+      "filename": "gen-ddim-1.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "2a809211d1bd0c47a17ed3e55834125fcbdeec9b95e9f096b1be40d6625d038b"
+    },
+    {
+      "file": "3.DDIM.md",
+      "id": "gen-ddim-2",
+      "title": "去噪扩散隐式模型：网络架构",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"去噪扩散隐式模型：网络架构\". Sampling loop x_t,t → shared time-conditioned U-Net εθ → predicted ε. Then formula xhat0=(x_t−sqrt(1−αbar_t)εθ)/sqrt(αbar_t) → DDIM更新器 → x_s, s<t → next call. U-Net schematic down bottleneck up with skips,timeembedding. Label DDIM改变更新规则，不指定新骨干. Noencoderirrelevant.",
+      "filename": "gen-ddim-2.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Correct lower U-Net diagram: replace label under central rectangular bottleneck currently 跳跃连接（融合多尺度特征） with 瓶颈层（低分辨率特征）. Add label 跳跃连接 to horizontal dashed connections between left and right arms. Preserve all formulas and everything else.",
+        "Edit target image only one label: under the central horizontal purple bottleneck block in the lower U-Net panel, replace the incorrect 跃连接（低分辨率特征） with exactly 瓶颈层. Keep the dashed upper skip label 跳跃连接 and ALL other image content unchanged. Clear Chinese 瓶颈层."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "5843341209e34716399ff492b5fd5aec1f5f559f2807c3f8268f99d29280f97d"
+    },
+    {
+      "file": "3.DDIM.md",
+      "id": "gen-ddim-3",
+      "title": "去噪扩散隐式模型：优缺点",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"去噪扩散隐式模型：优缺点\". Table 优势 / 局限 / 检查: 可减少采样步 / 过少步会损失质量 / 固定种子比较; 确定性轨迹 / 不是精确可逆保证 / 检查反演误差; 复用训练权重 / 需匹配噪声日程 / 核对prediction_type. Footer η与步数是不同控制项.",
+      "filename": "gen-ddim-3.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Clarify deterministic case only: upper-left header 基本思想 becomes η=0 的确定性采样. Replace pink sentence in upper-right with 选择稀疏时间点可减少网络调用；是否新增噪声由η控制. Preserve table and all other content."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "90d1d856c66580fb4f996062dd47dc5d22275248190a358a35f98eb751a38270"
+    },
+    {
+      "file": "4.NCSN.md",
+      "id": "gen-ncsn-1",
+      "title": "噪声条件分数网络：核心思想",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"噪声条件分数网络：核心思想\". Three distributions clouds at large medium small noise; local gradient arrows toward denserregions. Label score=∇x log pσ(x),不是分类分数. Annealed sampling σ大→σ中→σ小, eachstage score drift plus random noise. Label 噪声平滑让分数更易估计.",
+      "filename": "gen-ncsn-1.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "In upper-right yellow panel replace 而是数据密度的梯度 with 而是对数密度的梯度. Preserve all othercontent."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "92ebf1b040240ead9110c6e705d7fc85cf79f5364f6828ff7fd2f7c43eb80dbf"
+    },
+    {
+      "file": "4.NCSN.md",
+      "id": "gen-ncsn-2",
+      "title": "噪声条件分数网络：网络架构",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"噪声条件分数网络：网络架构\". Input noisy image x̃[B,C,H,W] plus noise level σ → noise embedding and conditional multiscale residual/RefineNet blocks → score[B,C,H,W]. Training target −(x̃−x)/σ². Separate sampling loop score drift + Gaussian noise → nextstate, repeated at each σ. Caption NCSN以多噪声级共享参数；不是输出类别概率.",
+      "filename": "gen-ncsn-2.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Correct top input path: noisy image x̃ must have its own direct arrow into first multiscale residual block, never feed sigma box. Sigma is separate input → noise embedding e(σ) → conditioning injected into residual blocks. Remove image-to-sigma arrow. Change output heading 分数（噪声梯度） to 分数（对数密度梯度）. Keep formula and remaining panels unchanged."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "8e5ff3f7aded61fb262ac334fe5c9f516d1cc74815d79547264fb339415af2a9"
+    },
+    {
+      "file": "4.NCSN.md",
+      "id": "gen-ncsn-3",
+      "title": "噪声条件分数网络：优缺点",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"噪声条件分数网络：优缺点\". Table 优势 / 局限 / 检查: 不需归一化常数 / 噪声日程敏感 / 覆盖足够尺度; 无对抗训练 / 采样需多次迭代 / 检查步长与步数; 向量场解释 / 小噪声梯度难估 / 监控各尺度损失. No guaranteedmodecoverage.",
+      "filename": "gen-ncsn-3.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Replace middle-panel phrase 表示数据密度在该噪声水平下的梯度方向 with 表示该噪声水平下对数密度的梯度方向. Keep everythingelse."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "6f9dc53ab5c4289b59649f43939d3ad9d7a32922a080d680527aac42343e6a8f"
+    },
+    {
+      "file": "5.CFG.md",
+      "id": "gen-cfg-1",
+      "title": "无分类器引导：核心思想",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"无分类器引导：核心思想\". Two vectors εu, εc starting same origin, difference direction εc−εu, guided εu+s(εc−εu) farther along line for s>1. Clearly conceptual vectorgeometry. Three labels s=0 无条件,s=1 普通条件,s>1 外推增强. Guidance influences sampler,notdirectpixelblend.",
+      "filename": "gen-cfg-1.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Correct only the central vector geometry. Draw common origin O. Blue εu endpoint at coordinate (2,1), magenta εc endpoint at (1,2). Purple dashed difference arrow must start at blue endpoint (2,1) and end at magenta endpoint (1,2), labeled εc−εu. Green guided vector must start at O and end at (0,3), representing s=2 and labeled εu+2(εc−εu). Blue, magenta, green endpoints must lie on one straight line, green beyond magenta away from blue. Remove all old incompatible central arrows. Preserve textual panels, layout, colors.",
+        "Edit target Chinese infographic. Replace ONLY central left vector-coordinate plot (axes and all plotted arrows/points, coordinates) with a clear numerical worked example panel, same notebook pastel style. Exact title 二维算例（噪声预测向量）. Two input cards ε_u = (1, 0) and ε_c = (0, 1). Below show s = 2 and exact arithmetic ε̂ = (1, 0) + 2[ (0, 1) − (1, 0) ] = (−1, 2). No axes, no vector geometry. Keep all surrounding title and descriptive cards unchanged. This replaces mathematically misleading plot with precise arithmetic. Legible scientific typography."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "dc2da3117d61ec4a1967fe329bf0d539f6fd5a24347e6eb03bfbf8ec33520990"
+    },
+    {
+      "file": "5.CFG.md",
+      "id": "gen-cfg-2",
+      "title": "无分类器引导：网络架构",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"无分类器引导：网络架构\". One shared denoiser drawn twice with tied parameter link: inputs x_t,t,c → εc and x_t,t,∅ → εu. Combine εu+s(εc−εu) → sampler → x_s. Toptrainingcard 随机丢弃条件，同一网络学两种预测. Caption 推理两分支，可合并batch；没有额外分类器.",
+      "filename": "gen-cfg-2.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "15d27b8883611f55ebde06e39da67ce33c1010c487d6b4ddff1dcd42da98127c"
+    },
+    {
+      "file": "5.CFG.md",
+      "id": "gen-cfg-3",
+      "title": "无分类器引导：优缺点",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"无分类器引导：优缺点\". Table 优势 / 局限 / 检查: 无额外分类器 / 通常两次分支计算 / 统计实际成本; 推理可调条件强度 / 过强可能失真 / 扫描引导系数; 易结合扩散模型 / 多样性可能下降 / 固定种子比较. Footer 大系数不是更高正确率.",
+      "filename": "gen-cfg-3.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "8c37284e40df035983ad1cc4b758c8573a1b8e102bd9667ffd7e16d64074f9eb"
+    },
+    {
+      "file": "6.LDM.md",
+      "id": "gen-ldm-1",
+      "title": "潜空间扩散模型：核心思想",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"潜空间扩散模型：核心思想\". Pixels image H×W → autoencoder E → smaller spatial latent H/f×W/f → diffusion inlatent → decoder D → image. Distinct lower generation route Gaussian latent→iterative denoise→D→newimage. Caption 压缩空间，不是压缩训练时间步. Do not imply encodingimage requiredunconditionalgeneration.",
+      "filename": "gen-ldm-1.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Clarify upper diagram label only: replace 1.图像的潜空间表示（训练过程） with 1.编码、潜空间处理与解码（概念示意）. Replace 编码器（Autoencoder） with 编码器（Encoder）. Replace upper-right 重建的图像 with 解码图像. Preserve lower sampling pipeline and everything else."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "5358136f5885e04c501bcafbfd734c990372235eb3839875eb8215b507c95751"
+    },
+    {
+      "file": "6.LDM.md",
+      "id": "gen-ldm-2",
+      "title": "潜空间扩散模型：网络架构",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"潜空间扩散模型：网络架构\". Three-part architecture: frozen firststage E and D; trainable latent U-Net εθ(z_t,t,context); text→conditionencoder→crossattention inU-Net. Training x→E→z0→addnoise→zt→U-Net→ε prediction. Generation zT→U-Net sampler loop→z0→D→image. Label 第一阶段自编码器；第二阶段潜空间去噪.",
+      "filename": "gen-ldm-2.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "685f42a682d101966bfcb32ca9b7e8c1ae2670150f6a525b53c196d164036ad9"
+    },
+    {
+      "file": "6.LDM.md",
+      "id": "gen-ldm-3",
+      "title": "潜空间扩散模型：优缺点",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"潜空间扩散模型：优缺点\". Table 优势 / 局限 / 检查: 较低空间计算量 / 压缩损失细节 / 先检查重建; 灵活条件接口 / 条件理解有边界 / 检查空间关系; 可复用自编码器 / latent尺度必须匹配 / 核对缩放与调度器. Footer 速度收益取决于配置，不给固定倍数.",
+      "filename": "gen-ldm-3.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Correct upper-right conceptual latent-space caption: replace text with 高维图像被压缩为较小的空间张量；语义距离关系并无自动保证。图中分组仅为示意。 Replace upper-left heading 总体思路 with 编码、潜空间处理与解码（示意）. Preserve table and othercontent."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "2413382857c6e6b91223d5ffc1064812c4ab5e4f838f04a0cd179749263926fa"
+    },
+    {
+      "file": "7.Flow Matching.md",
+      "id": "gen-fm-1",
+      "title": "流匹配：核心思想",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"流匹配：核心思想\". Noise point x0 at t0 to data x1 at t1 with straightconditionalpath xt=(1−t)x0+t x1 and targetvelocity x1−x0. Separate panel many pairs → learned marginal velocityfield → ODE path maycurve. Caption 单条条件路径直，不代表整体轨迹直. Time convention noise0data1.",
+      "filename": "gen-fm-1.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "a8eaa7cc0a64a48a7dc9168d19faa753c8ef577ce230f1499f29eb6f69a11cf3"
+    },
+    {
+      "file": "7.Flow Matching.md",
+      "id": "gen-fm-2",
+      "title": "流匹配：网络架构",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"流匹配：网络架构\". Training noise x0,data x1,t → interpolate xt and target x1−x0. Inputs xt,t,optionalcondition → velocitynetwork U-Net or DiT → vθ same shape asxt → squared-error target. Sampling Gaussian x0 → ODE solver repeated vθ calls → data x1. Label 训练无需解ODE；采样需要积分.",
+      "filename": "gen-fm-2.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "06113a4b49e4b61b2b7c849ff767d8543b7e3cdde4ff027f3aa60aa3b9954fb1"
+    },
+    {
+      "file": "7.Flow Matching.md",
+      "id": "gen-fm-3",
+      "title": "流匹配：优缺点",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"流匹配：优缺点\". Table 优势 / 局限 / 检查: 监督速度回归 / 路径与配对影响难度 / 核对时间方向; 训练不解ODE / 采样仍有积分误差 / 比较步数和求解器; 灵活网络 / 不自动实现全局最优传输 / 明确耦合方式. Footer 流匹配不是天然一步生成.",
+      "filename": "gen-fm-3.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "8a1294818b782160daaa0a5ad6058c9f235b3e7ece705c010da66ddbce65cde1"
+    },
+    {
+      "file": "10.零和博弈与纳什均衡.md",
+      "id": "gen-game-1",
+      "title": "零和博弈与纳什均衡：核心思想",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"零和博弈与纳什均衡：核心思想\". Two players A andB with gains +1 and−1 balanced scales. Separate Nashbox 单方改变策略不能提高自身收益. Arrow zero-sum ispayoffproperty;Nashisequilibriumproperty. Show intersection not equivalence, caption 一般纳什均衡不要求零和.",
+      "filename": "gen-game-1.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "In bottom relationship panel replace Venn diagram and its intersection/set explanations with two simple independent cards: 零和：检查双方收益是否相反 and 纳什：检查每个玩家是否有获利的单方偏离. Replace bottom-left line 并集之外还存在... with 非零和博弈也可以有纳什均衡. Keep top3panels. Do not use setunion language tocompare differenttypesofproperties."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "34b4c34e82046ed320e48545c2ddc2704e0c8249bde5e1c29b160731afe41870"
+    },
+    {
+      "file": "10.零和博弈与纳什均衡.md",
+      "id": "gen-game-2",
+      "title": "零和博弈与纳什均衡：混合策略算例",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"零和博弈与纳什均衡：混合策略算例\". Matching pennies payoff table Arows H,T Bcolumns H,T, rowA utility entries +1 −1;−1 +1. Explicit B收益=−A收益. Uniform mixed strategies each H/T1/2 → expectedA payoff0. No pure equilibrium. Explain 知道对手固定选择就能反制.",
+      "filename": "gen-game-2.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Correct expected payoff upper-right yellow formula: E(A)=1/4×(+1)+1/4×(−1)+1/4×(−1)+1/4×(+1)=0. All four joint outcomes have probability1/4. Lower-middle header becomes B 的最优响应（A 固定时）; explanatory text explicitly says B wants opposite action to A, examples A总出H→B出T and A总出T→B出H. Bottom generalization replace with 在这个游戏中，任一纯策略组合都存在获利的单方偏离. Preserve payoff matrix andotherpanels.",
+        "Edit only the yellow expected payoff equation box in upper right. Erase its old equation entirely and replace with exactly E(A) = 0.25 × (1 − 1 − 1 + 1) = 0. Then on second line 四种联合结果各占 0.25. No fractions in this yellow box. This is matching pennies independent fair random choices so four equally likely outcomes, not mixed 1/2 and 1/4. Preserve all other infographic content, layout and notebook style unchanged."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "890bb743b2345c66b80dfde0bbd92759f00a6512a17ddc1a4b4a16e4fa8ed7cc"
+    },
+    {
+      "file": "10.零和博弈与纳什均衡.md",
+      "id": "gen-game-3",
+      "title": "零和博弈与纳什均衡：适用边界",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"零和博弈与纳什均衡：适用边界\". Table 能解释 / 不能保证 / 实践: 对抗目标 / 梯度下降收敛 / 观察训练动态; 混合策略均衡 / 神经参数空间凸性 / 区分理论假设; 最优响应关系 / 生成样本质量 / 单独做生成评测. Footer 均衡是条件，不是训练算法.",
+      "filename": "gen-game-3.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Correct lower-left text to 原始GAN的minimax目标可写为零和；非饱和损失需另行区分. In lower-right replace arbitrary rising bestresponse curve with simple arrow diagram 给定对手策略 → 求自身收益最大化 → 最优响应. Preserve main table and footer."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "02b666025e293438965a1e063ddc4812f49316bac0203b96015fdeddb170c5ed"
+    },
+    {
+      "file": "11.散度.md",
+      "id": "gen-div-1",
+      "title": "概率散度：核心思想",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"概率散度：核心思想\". Two discrete distributions P,Q over same threecategories, barplots P .5 .3 .2,Q .2 .3 .5. Draw KL directional P→Q and Q→P; separate JS symmetric mixture M=(P+Q)/2. Caption 散度衡量分布差异；通常不是距离度量. No misleading these symmetricexample equalKL forasym claim use P .5 .5 Q .9 .1 instead.",
+      "filename": "gen-div-1.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Keep barplots P=(0.5,0.3,0.2),Q=(0.2,0.3,0.5),M=(0.35,0.30,0.35). Remove all numerical KL results0.336 and0.693, replacing with only D_KL(P||Q) and D_KL(Q||P) symbols. Remove numeric JS=0.146 entirely. Add small caption 此例两方向KL恰相等；一般情况未必相等. Keep correct JS definition, directionexplanation and style."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "9190c1c16d4e8a5cc45549a5cf3044fbfa3f50e8e6aafa5f234101c90c7aca5d"
+    },
+    {
+      "file": "11.散度.md",
+      "id": "gen-div-2",
+      "title": "概率散度：离散算例",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"概率散度：离散算例\". Two-bin distributions P=(1/2,1/2), Q=(3/4,1/4), natural log. KL(P||Q)=0.1438, KL(Q||P)=0.1308. Three clear boxes probabilities, weightedlogratio, results. Caption 示例单位nat；方向不能交换.",
+      "filename": "gen-div-2.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "In center panel replace ambiguous expanded product line after first KL sum with exact clear formula 1/2 ln((1/2)/(3/4)) + 1/2 ln((1/2)/(1/4)). Keep next simplification 1/2 ln(2/3)+1/2 ln2 and correct finalvalues. Change top 两个二项分布 to 两个二元离散分布. Preserve all else.",
+        "Edit ONLY the central blue calculation panel. Retain title 2. 加权对数比值 and general KL formulas, but replace the entire detailed numerical forward expansion with a single large clear line: KL(P∥Q) = 0.5 ln(2/3) + 0.5 ln 2. Replace reverse numerical expansion with KL(Q∥P) = 0.75 ln(3/2) + 0.25 ln(1/2). DO NOT include nested fractions like 1/2 over 3/4, avoid that error-prone intermediate line entirely. Retain all left probability bars and right correct results 0.1438 and 0.1308. Preserve typography and notebook pastel layout, remaining whitespace is fine."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "ca4ff0a3e9dd9c64eb0672b2eea6c0e0bce419b5626544da6dfa5e1d4227b8ce"
+    },
+    {
+      "file": "11.散度.md",
+      "id": "gen-div-3",
+      "title": "概率散度：优缺点对照",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"概率散度：优缺点对照\". Table 指标 / 优点 / 限制: KL / 与似然和变分推断相连 / 非对称、支持集不符可无穷; JS / 对称且有界 / 支持不重叠时可饱和; W1 / 感知样本空间几何 / 需指定代价且求解更贵. Footer sqrt(JS)是度量；JS本身通常不是.",
+      "filename": "gen-div-3.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "c2cbd13018aa1a2ef99dbd6978ebcb0208412d3a22c1dd95d9fc17c47a4d53fa"
+    },
+    {
+      "file": "12.EM距离.md",
+      "id": "gen-emd-1",
+      "title": "推土机距离：核心思想",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"推土机距离：核心思想\". Source piles P mass0.5 at0 and0.5 at2;target Q mass1 at1. Arrows0→1 transports.5cost.5 and2→1 .5cost.5;total W1=1. Label 工作量=质量×距离. Earth Mover distance /一阶Wasserstein. EM不是期望最大化.",
+      "filename": "gen-emd-1.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "8782a9a20c7b3ccadcdd4775ae22f7c39716a2a54ad9fec32a17cd5bd5e28a8d"
+    },
+    {
+      "file": "12.EM距离.md",
+      "id": "gen-emd-2",
+      "title": "推土机距离：离散运输算例",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"推土机距离：离散运输算例\". Transport plan table rows source0,2 cols target1, each .5; costcolumn eachdistance1. Row sums .5,.5 columnsum1. Objective min sumπij dij. Secondpanel WGAN critic score difference constrained1-Lipschitz; label 对偶估计，不是显式搬运网络. No networkarchitectureclaim.",
+      "filename": "gen-emd-2.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Correct bottom-right critic plot for maximizing source minus target: draw V-shaped f(x)=|x−1| with f(0)=1,f(1)=0,f(2)=1, minimum at target1. Label 最优可行例 f(x)=|x−1|. Top-left summary row replace messy row/column sums with caption below table 源质量分别0.5、0.5；目标总质量1；总成本1. Keep allotherformulas."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "46ca879963b0519733d6395bdabfe76b6e274e86381b704e539feb94f79a0eed"
+    },
+    {
+      "file": "12.EM距离.md",
+      "id": "gen-emd-3",
+      "title": "推土机距离：优缺点对照",
+      "prompt": "Use case: scientific educational illustration. Landscape 4:3, opaque warm ivory ruled notebook paper, navy large legible Chinese handwriting, pastel mint blue lavender pink yellow panels, precise sparse arrows and diagrams. No logos watermark, no invented performance charts, no decorative equations. Title \"推土机距离：优缺点对照\". Table 优势 / 代价 / 检查: 感知几何距离 / 依赖ground metric / 统一特征尺度; 支持分离仍可比较 / 精确运输成本高 / 选择求解方式; 可用对偶估计 / critic约束只是近似 / 监控Lipschitz约束. Footer WGANcritic损失不等于已算准的W1.",
+      "filename": "gen-emd-3.png",
+      "tool": "built-in image_gen",
+      "created": "2026-09-23",
+      "revisions": [
+        "Correct middle bottom cell text: critic 的 Lipschitz 约束只是近似，得分差不保证是严格下界；需结合约束与优化误差判断。 In middle-left support cell add 在有限一阶矩等条件下 before assertion distancefinite. Preserve table and footer."
+      ],
+      "review": "人工视觉校对：核对主要标签、公式、箭头、数值算例及正文一致性；教学示意，不是实测图。",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "89cfa8dbdc0ebeebb4e0821e9660da18a9527c50999ed64bbb30b7808cd28511"
+    }
+  ]
+}

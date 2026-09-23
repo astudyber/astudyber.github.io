@@ -1,162 +1,215 @@
 {
-    "categories":  [
-                       {
-                           "id":  "embodied",
-                           "title":  "具身",
-                           "files":  [
-                                         {
-                                             "file":  "5.具身/1.π系列.md",
-                                             "title":  "π 系列"
-                                         },
-                                         {
-                                             "file":  "5.具身/2.GR00T.md",
-                                             "title":  "GR00T"
-                                         },
-                                         {
-                                             "file":  "5.具身/3.RT系列.md",
-                                             "title":  "RT 系列"
-                                         },
-                                         {
-                                             "file":  "5.具身/4.极佳视界.md",
-                                             "title":  "极佳视界"
-                                         },
-                                         {
-                                             "file":  "5.具身/5.WAM.md",
-                                             "title":  "WAM"
-                                         },
-                                         {
-                                             "file":  "5.具身/6.数据格式.md",
-                                             "title":  "数据格式"
-                                         },
-                                         {
-                                             "file":  "5.具身/7.数据处理.md",
-                                             "title":  "数据处理"
-                                         },
-                                         {
-                                             "file":  "5.具身/8.仿真.md",
-                                             "title":  "仿真"
-                                         },
-                                         {
-                                             "file":  "5.具身/9.强化框架.md",
-                                             "title":  "强化框架"
-                                         },
-                                         {
-                                             "file":  "5.具身/10.其他.md",
-                                             "title":  "其他"
-                                         }
-                                     ]
-                       },
-                       {
-                           "id":  "deep_learning",
-                           "title":  "深度学习",
-                           "files":  [
-                                         {
-                                             "file":  "2.深度学习/1.预备知识.md",
-                                             "title":  "预备知识"
-                                         },
-                                         {
-                                             "file":  "2.深度学习/2.线性神经网络.md",
-                                             "title":  "线性神经网络"
-                                         },
-                                         {
-                                             "file":  "2.深度学习/3.多层感知机.md",
-                                             "title":  "多层感知机"
-                                         },
-                                         {
-                                             "file":  "2.深度学习/4.模型训练技巧.md",
-                                             "title":  "模型训练技巧"
-                                         },
-                                         {
-                                             "file":  "2.深度学习/5.模型模块化.md",
-                                             "title":  "模型模块化"
-                                         },
-                                         {
-                                             "file":  "2.深度学习/6.卷积神经网络.md",
-                                             "title":  "卷积神经网络"
-                                         },
-                                         {
-                                             "file":  "2.深度学习/7.循环神经网络.md",
-                                             "title":  "循环神经网络"
-                                         },
-                                         {
-                                             "file":  "2.深度学习/8.注意力机制.md",
-                                             "title":  "注意力机制"
-                                         },
-                                         {
-                                             "file":  "2.深度学习/9.优化器.md",
-                                             "title":  "优化器"
-                                         },
-                                         {
-                                             "file":  "2.深度学习/10.分布式.md",
-                                             "title":  "分布式训练"
-                                         },
-                                         {
-                                             "file":  "2.深度学习/11.推理加速算法.md",
-                                             "title":  "推理加速算法"
-                                         }
-                                     ]
-                       },
-                       {
-                           "id":  "multimodal",
-                           "title":  "多模态",
-                           "files":  [
-                                         {
-                                             "file":  "3.多模态/1.VLM简介.md",
-                                             "title":  "VLM简介"
-                                         },
-                                         {
-                                             "file":  "3.多模态/2.视觉编码器.md",
-                                             "title":  "视觉编码器"
-                                         },
-                                         {
-                                             "file":  "3.多模态/3.面向视觉的语言模型.md",
-                                             "title":  "面向视觉的语言模型"
-                                         },
-                                         {
-                                             "file":  "3.多模态/4.CLIP.md",
-                                             "title":  "CLIP"
-                                         },
-                                         {
-                                             "file":  "3.多模态/5.BLIP和BLIP2.md",
-                                             "title":  "BLIP和BLIP2"
-                                         },
-                                         {
-                                             "file":  "3.多模态/6.LLaVA.md",
-                                             "title":  "LLaVA"
-                                         },
-                                         {
-                                             "file":  "3.多模态/7.Qwen-VL.md",
-                                             "title":  "Qwen-VL"
-                                         }
-                                     ]
-                       },
-                       {
-                           "id":  "rl",
-                           "title":  "强化学习",
-                           "files":  [
-                                         {
-                                             "file":  "6.强化学习/基础与算法.md",
-                                             "title":  "基础与算法"
-                                         },
-                                         {
-                                             "file":  "6.强化学习/视觉强化学习.md",
-                                             "title":  "视觉强化学习"
-                                         }
-                                     ]
-                       },
-                       {
-                           "id":  "generative",
-                           "title":  "生成式",
-                           "files":  [
-                                         {
-                                             "file":  "4.生成式/扩散模型.md",
-                                             "title":  "扩散模型"
-                                         },
-                                         {
-                                             "file":  "4.生成式/生成应用.md",
-                                             "title":  "生成应用"
-                                         }
-                                     ]
-                       }
-                   ]
+  "categories": [
+    {
+      "id": "machine_learning",
+      "title": "机器学习",
+      "files": [
+        {
+          "file": "1.机器学习/1.模型评估.md",
+          "title": "模型评估"
+        },
+        {
+          "file": "1.机器学习/2.线性模型.md",
+          "title": "线性模型"
+        },
+        {
+          "file": "1.机器学习/3.决策树.md",
+          "title": "决策树"
+        },
+        {
+          "file": "1.机器学习/4.神经网络.md",
+          "title": "神经网络"
+        },
+        {
+          "file": "1.机器学习/5.支持向量机.md",
+          "title": "支持向量机"
+        },
+        {
+          "file": "1.机器学习/6.其他.md",
+          "title": "其他"
+        }
+      ]
+    },
+    {
+      "id": "deep_learning",
+      "title": "深度学习",
+      "files": [
+        {
+          "file": "2.深度学习/1.预备知识.md",
+          "title": "预备知识"
+        },
+        {
+          "file": "2.深度学习/2.线性神经网络.md",
+          "title": "线性神经网络"
+        },
+        {
+          "file": "2.深度学习/3.多层感知机.md",
+          "title": "多层感知机"
+        },
+        {
+          "file": "2.深度学习/4.模型训练技巧.md",
+          "title": "模型训练技巧"
+        },
+        {
+          "file": "2.深度学习/5.模型模块化.md",
+          "title": "模型模块化"
+        },
+        {
+          "file": "2.深度学习/6.卷积神经网络.md",
+          "title": "卷积神经网络"
+        },
+        {
+          "file": "2.深度学习/7.循环神经网络.md",
+          "title": "循环神经网络"
+        },
+        {
+          "file": "2.深度学习/8.注意力机制.md",
+          "title": "注意力机制"
+        },
+        {
+          "file": "2.深度学习/9.优化器.md",
+          "title": "优化器"
+        },
+        {
+          "file": "2.深度学习/10.分布式.md",
+          "title": "分布式训练"
+        },
+        {
+          "file": "2.深度学习/11.推理加速算法.md",
+          "title": "推理加速算法"
+        }
+      ]
+    },
+    {
+      "id": "multimodal",
+      "title": "多模态",
+      "files": [
+        {
+          "file": "3.多模态/1.VLM简介.md",
+          "title": "VLM简介"
+        },
+        {
+          "file": "3.多模态/2.视觉编码器.md",
+          "title": "视觉编码器"
+        },
+        {
+          "file": "3.多模态/3.面向视觉的语言模型.md",
+          "title": "面向视觉的语言模型"
+        },
+        {
+          "file": "3.多模态/4.CLIP.md",
+          "title": "CLIP"
+        },
+        {
+          "file": "3.多模态/5.BLIP和BLIP2.md",
+          "title": "BLIP和BLIP2"
+        },
+        {
+          "file": "3.多模态/6.LLaVA.md",
+          "title": "LLaVA"
+        },
+        {
+          "file": "3.多模态/7.Qwen-VL.md",
+          "title": "Qwen-VL"
+        }
+      ]
+    },
+    {
+      "id": "generative",
+      "title": "生成式",
+      "files": [
+        {
+          "file": "4.生成式/1.VAE.md",
+          "title": "VAE"
+        },
+        {
+          "file": "4.生成式/2.GAN.md",
+          "title": "GAN"
+        },
+        {
+          "file": "4.生成式/3.DDIM.md",
+          "title": "DDIM"
+        },
+        {
+          "file": "4.生成式/4.NCSN.md",
+          "title": "NCSN"
+        },
+        {
+          "file": "4.生成式/5.CFG.md",
+          "title": "CFG"
+        },
+        {
+          "file": "4.生成式/6.LDM.md",
+          "title": "LDM"
+        },
+        {
+          "file": "4.生成式/7.Flow Matching.md",
+          "title": "Flow Matching"
+        },
+        {
+          "file": "4.生成式/10.零和博弈与纳什均衡.md",
+          "title": "零和博弈与纳什均衡"
+        },
+        {
+          "file": "4.生成式/11.散度.md",
+          "title": "散度"
+        },
+        {
+          "file": "4.生成式/12.EM距离.md",
+          "title": "EM距离"
+        }
+      ]
+    },
+    {
+      "id": "embodied",
+      "title": "具身",
+      "files": [
+        {
+          "file": "5.具身/1.π系列.md",
+          "title": "π 系列"
+        },
+        {
+          "file": "5.具身/2.GR00T.md",
+          "title": "GR00T"
+        },
+        {
+          "file": "5.具身/3.RT系列.md",
+          "title": "RT 系列"
+        },
+        {
+          "file": "5.具身/4.极佳视界.md",
+          "title": "极佳视界"
+        },
+        {
+          "file": "5.具身/5.WAM.md",
+          "title": "WAM"
+        },
+        {
+          "file": "5.具身/6.数据格式.md",
+          "title": "数据格式"
+        },
+        {
+          "file": "5.具身/7.数据处理.md",
+          "title": "数据处理"
+        },
+        {
+          "file": "5.具身/8.仿真.md",
+          "title": "仿真"
+        },
+        {
+          "file": "5.具身/9.强化框架.md",
+          "title": "强化框架"
+        },
+        {
+          "file": "5.具身/10.其他.md",
+          "title": "其他"
+        }
+      ]
+    },
+    {
+      "id": "rl",
+      "title": "强化学习",
+      "files": []
+    }
+  ]
 }

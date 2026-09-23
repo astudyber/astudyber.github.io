@@ -651,5 +651,123 @@
     "edits": [
       "Keep upper four cards. Redraw bottom LoRA as TWO PARALLEL branches from input x: upper through frozen W; lower through trainable A THEN trainable B; branches meet PLUS then y. Formula 'y=Wx+BAx'. Remove old W followed by BA sequential-looking diagram. Replace computational savings text with '减少可训练参数与优化器状态'. Do not claim base forward disappears."
     ]
+  },
+  {
+    "id": "syntax-apis",
+    "title": "NumPy、PyTorch、pandas 对照",
+    "prompt": "Use case: scientific-educational. Chinese notebook infographic, opaque ivory lined paper, navy large clear lettering, pastel mint blue pink lavender panels, landscape4:3. Accurate code text rendered in monospace. Only requested content, no logo or invented statistics. Title NumPy、PyTorch、pandas 对照. 三列表格四行，NumPy轴axis/PyTorch轴dim/pandas轴与标签；NumPy默认CPU/PyTorch显式device/pandas表格索引；NumPy无自动微分/PyTorch autograd/pandas预处理；NumPy ndarray/PyTorch Tensor/pandas DataFrame。不加入复杂代码。",
+    "file": "1.预备知识.md",
+    "filename": "syntax-apis.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct PyTorch device cell to 可用 device 指定 CPU/GPU；默认创建通常在 CPU. Correct pandas axis cell to axis=0 沿行轴归约，得到各列统计；axis=1 沿列轴归约，得到各行统计. In PyTorch autograd code include x = torch.ones(3, requires_grad=True) before y=x.sum();y.backward(). Preserve all other cells."
+    ]
+  },
+  {
+    "id": "syntax-hf-labels",
+    "title": "Transformers：三种掩码不同",
+    "prompt": "Use case: scientific-educational. Chinese notebook infographic, opaque ivory lined paper, navy large clear lettering, pastel mint blue pink lavender panels, landscape4:3. Accurate code text rendered in monospace. Only requested content, no logo or invented statistics. Title Transformers：三种掩码不同. 三列 attention_mask控制padding可见性；causal mask控制未来位置；labels=-100不计该位置损失。明确labels掩码不阻止注意力读取。底部训练回答掩码与生成前缀是不同概念。",
+    "file": "1.预备知识.md",
+    "filename": "syntax-hf-labels.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Only correct left attention_mask 5x5 matrix: all FIVE query rows must have columns 0,1,2 blue and columns 3,4 gray. A 2D padding attention_mask masks KEY positions, not necessarily padded QUERY rows. Add concise note 此处只展示 key padding；填充 query 的输出需另行忽略. Keep center causal triangle and right labels correct."
+    ]
+  },
+  {
+    "id": "syntax-hf-workflow",
+    "title": "Transformers：加载到生成",
+    "prompt": "Use case: scientific-educational. Chinese notebook infographic, opaque ivory lined paper, navy large clear lettering, pastel mint blue pink lavender panels, landscape4:3. Accurate code text rendered in monospace. Only requested content, no logo or invented statistics. Title Transformers：加载到生成. model_id同时用于AutoTokenizer和AutoModelForCausalLM；文本→tokenizer→input_ids与attention_mask→model.generate→新增token→decode。底部 config只有结构，from_pretrained加载权重。",
+    "file": "1.预备知识.md",
+    "filename": "syntax-hf-workflow.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct top workflow API boxes: AutoTokenizer.from_pretrained(model_id) and AutoModelForCausalLM.from_pretrained(model_id), not class constructor calls with model_id. Ensure clear typography. Add max_new_tokens=64 to generation snippet. Label config block 配置字段示意（随架构变化） and bottom explanation 检查点配置与权重须匹配. Preserve remaining workflow."
+    ]
+  },
+  {
+    "id": "syntax-numpy-axis",
+    "title": "NumPy：轴决定归约语义",
+    "prompt": "Use case: scientific-educational. Chinese notebook infographic, opaque ivory lined paper, navy large clear lettering, pastel mint blue pink lavender panels, landscape4:3. Accurate code text rendered in monospace. Only requested content, no logo or invented statistics. Title NumPy：轴决定归约语义. 二维X形状[2,3]，axis=0跨两行按列均值得到[3]；axis=1跨三列按行均值得到[2]。只画格子和形状，不造数字。代码 X.mean(axis=0, keepdims=True) 得到[1,3]。",
+    "file": "1.预备知识.md",
+    "filename": "syntax-numpy-axis.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "syntax-numpy-copy",
+    "title": "NumPy：切片与高级索引",
+    "prompt": "Use case: scientific-educational. Chinese notebook infographic, opaque ivory lined paper, navy large clear lettering, pastel mint blue pink lavender panels, landscape4:3. Accurate code text rendered in monospace. Only requested content, no logo or invented statistics. Title NumPy：切片与高级索引. 两卡 a[1:3] 基本切片通常视图；a[[1, 2]] 高级索引返回副本。第三卡 a.copy() 显式复制。底部 reshape不保证复制，np.shares_memory用于检查。",
+    "file": "1.预备知识.md",
+    "filename": "syntax-numpy-copy.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "syntax-pandas-index",
+    "title": "pandas：标签与位置",
+    "prompt": "Use case: scientific-educational. Chinese notebook infographic, opaque ivory lined paper, navy large clear lettering, pastel mint blue pink lavender panels, landscape4:3. Accurate code text rendered in monospace. Only requested content, no logo or invented statistics. Title pandas：标签与位置. 两栏 df.loc[行标签, 列标签] 与 df.iloc[行位置, 列位置]。标签切片通常含终点，位置切片不含终点。底部 df.loc[mask, 'score'] = 0 是单次赋值；不要使用链式赋值。",
+    "file": "1.预备知识.md",
+    "filename": "syntax-pandas-index.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "syntax-pandas-join",
+    "title": "pandas：聚合、变换与连接",
+    "prompt": "Use case: scientific-educational. Chinese notebook infographic, opaque ivory lined paper, navy large clear lettering, pastel mint blue pink lavender panels, landscape4:3. Accurate code text rendered in monospace. Only requested content, no logo or invented statistics. Title pandas：聚合、变换与连接. 三卡 groupby().agg() 每组汇总；groupby().transform() 返回与原行对应的结果；merge(..., validate='many_to_one') 校验连接关系。图示组→一个数、组→原行、两个表按键连接。",
+    "file": "1.预备知识.md",
+    "filename": "syntax-pandas-join.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Only correct right panel explanatory text: validate='many_to_one' 检查右表连接键唯一；左表可有重复键；连接结果中的键仍可重复. Current claim right key unique in result is wrong. In middle panel display the transform assignment as a valid parenthesized Python expression if wrapped across lines. Preserve tables and outputs."
+    ]
+  },
+  {
+    "id": "syntax-torch-shape",
+    "title": "PyTorch：变形与换轴",
+    "prompt": "Use case: scientific-educational. Chinese notebook infographic, opaque ivory lined paper, navy large clear lettering, pastel mint blue pink lavender panels, landscape4:3. Accurate code text rendered in monospace. Only requested content, no logo or invented statistics. Title PyTorch：变形与换轴. 三张卡精确写 x.reshape(2, 3) 改形状；x.transpose(0, 1) 交换两轴；torch.stack([x, x], dim=0) 新增轴。底部 view需要步幅兼容，reshape可能复制。只画小矩阵示意，不写具体数值。",
+    "file": "1.预备知识.md",
+    "filename": "syntax-torch-shape.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "syntax-torch-storage",
+    "title": "PyTorch：共享、复制与梯度",
+    "prompt": "Use case: scientific-educational. Chinese notebook infographic, opaque ivory lined paper, navy large clear lettering, pastel mint blue pink lavender panels, landscape4:3. Accurate code text rendered in monospace. Only requested content, no logo or invented statistics. Title PyTorch：共享、复制与梯度. 四卡：torch.tensor(a) 复制；torch.from_numpy(a) 共享CPU内存；x.clone() 复制且保留梯度关系；x.detach() 断开梯度且共享存储。底部独立快照 x.detach().clone()。",
+    "file": "1.预备知识.md",
+    "filename": "syntax-torch-storage.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "syntax-torch-train",
+    "title": "PyTorch：一次训练迭代",
+    "prompt": "Use case: scientific-educational. Chinese notebook infographic, opaque ivory lined paper, navy large clear lettering, pastel mint blue pink lavender panels, landscape4:3. Accurate code text rendered in monospace. Only requested content, no logo or invented statistics. Title PyTorch：一次训练迭代. 严格顺序 opt.zero_grad() → pred = model(x) → loss = loss_fn(pred, y) → loss.backward() → opt.step()。五步大字，每步下方简短中文说明。底部 model.eval() 改变层行为；no_grad() 关闭梯度记录。",
+    "file": "1.预备知识.md",
+    "filename": "syntax-torch-train.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
   }
 ]

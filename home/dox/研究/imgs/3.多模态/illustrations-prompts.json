@@ -1,0 +1,419 @@
+[
+  {
+    "id": "blip-capfilt",
+    "title": "CapFilt 数据自举",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: CapFilt 数据自举. Content: 网络图像与原描述→描述生成器产生候选；原描述和候选均经图文过滤器→保留训练对。不能把生成描述视为真值。",
+    "file": "5.BLIP和BLIP2.md",
+    "filename": "blip-capfilt.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct captioner path: image alone feeds 描述生成器; original web text bypasses captioner and goes directly to 图文过滤器. Captioner explanation 根据图像生成候选描述. Filter explanation 判断图像与原始/生成描述是否匹配；过滤不匹配文本. Remove 是否安全 claim. Preserve retained original and generated captions and caveat not truth.",
+      "Only correct image route: change upper-left parenthetical 仅输入描述生成器 to 输入生成器与过滤器. Change the vertical downward arrow that currently originates at description generator to originate from the original network image card and end at 图文过滤器, routing around the original text card. Preserve original text direct arrow to filter, candidate text arrow to filter, all else."
+    ]
+  },
+  {
+    "id": "blip-eval",
+    "title": "推理、对照与适用边界",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 推理、对照与适用边界. Content: 对比直接投影、查询压缩、更多视觉tokens；控制视觉骨干、语言骨干、数据与计算；评估OCR细节/语义/延迟。",
+    "file": "5.BLIP和BLIP2.md",
+    "filename": "blip-eval.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct direct projection token diagram: preserve token count, e.g. 9 visual tokens -> 9 projected tokens, not 9->5. Right more-tokens route should retain e.g.16->16 tokens. Replace direct-projection applicability text with 结构简单；保留 token 数量，延迟受输入长度影响. Replace query-compression 适合大多数通用场景 with 是否适用需按任务验证. Computational control text 同一硬件与预算口径，报告实际成本. Preserve comparison and evaluation dimensions.",
+      "Only change both numeric labels in top-right purple panel from 16 to 20, matching the 5 columns by 4 rows drawn. Preserve all remaining content."
+    ]
+  },
+  {
+    "id": "blip-med",
+    "title": "BLIP 的统一训练视角",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: BLIP 的统一训练视角. Content: 图像编码器与文本模块，三个任务卡ITC对齐、ITM匹配、LM生成；不同注意力配置共享部分参数，概念示意。",
+    "file": "5.BLIP和BLIP2.md",
+    "filename": "blip-med.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "blip2-query",
+    "title": "BLIP-2 与 Q-Former",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: BLIP-2 与 Q-Former. Content: 冻结视觉编码器→视觉特征；可训练查询Q-Former读取特征→查询输出→投影→冻结LLM。锁图标只在视觉和LLM。",
+    "file": "5.BLIP和BLIP2.md",
+    "filename": "blip2-query.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct query token count consistency: draw exactly FOUR pink learned query boxes above Q-Former matching exactly FOUR pink query output boxes. Remove extra unlabeled arrows entering Q-Former from below. Keep visual features input arrow and learned query arrows. Preserve architecture and labels."
+    ]
+  },
+  {
+    "id": "blip2-stages",
+    "title": "两阶段训练与信息瓶颈",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 两阶段训练与信息瓶颈. Content: 阶段1视觉语言表示学习；阶段2连接冻结语言模型生成。固定数量查询压缩视觉，细节可能丢失。",
+    "file": "5.BLIP和BLIP2.md",
+    "filename": "blip2-stages.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "clip-matrix",
+    "title": "批内对比目标",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 批内对比目标. Content: 3x3图文相似度矩阵，对角线正样本，高亮三格，行列各做交叉熵。同义描述可能产生假负样本。",
+    "file": "4.CLIP.md",
+    "filename": "clip-matrix.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Replace numeric 3x3 matrix entries by symbols s11,s12,s13 / s21,s22,s23 / s31,s32,s33. Preserve diagonal highlight. Header 3×3 缩放相似度 logits. Right label 按行 softmax 后计算交叉熵; bottom 按列 softmax 后计算交叉熵. Add 对角线为配对正样本. Preserve other panels."
+    ]
+  },
+  {
+    "id": "clip-retrieval",
+    "title": "检索、迁移与局限",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 检索、迁移与局限. Content: 离线图像向量索引；查询文本向量→近邻检索→候选重排。组合关系与计数是单独评测项。",
+    "file": "4.CLIP.md",
+    "filename": "clip-retrieval.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "clip-siglip",
+    "title": "SigLIP 与现代视觉语言表征",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: SigLIP 与现代视觉语言表征. Content: CLIP批内归一化对比vsSigLIP逐图文对sigmoid损失。强调目标差异，不画一个必然胜过另一个。",
+    "file": "4.CLIP.md",
+    "filename": "clip-siglip.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "clip-towers",
+    "title": "双塔与归一化嵌入",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 双塔与归一化嵌入. Content: 图像编码器与文本编码器两塔→各自L2归一化→点积相似度。两个编码器不交叉注意。",
+    "file": "4.CLIP.md",
+    "filename": "clip-towers.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "clip-zero",
+    "title": "零样本分类与提示词",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 零样本分类与提示词. Content: 类别名称→文本模板→文本向量；图片向量与全部类别向量比较→候选集合内得分。概率依赖候选类。",
+    "file": "4.CLIP.md",
+    "filename": "clip-zero.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "llava-anyres",
+    "title": "高分辨率、视频与系列演化",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 高分辨率、视频与系列演化. Content: 整图缩略图+多个局部块→编码与拼接→语言模型；视频多帧另轴，标token与显存成本。",
+    "file": "6.LLaVA.md",
+    "filename": "llava-anyres.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct memory cost bullet to KV 缓存通常随序列长度近似线性增长；注意力计算成本还取决于实现. Remove generic 显存成本近似与 token 数成正比. Keep remaining diagrams."
+    ]
+  },
+  {
+    "id": "llava-architecture",
+    "title": "架构与视觉投影",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 架构与视觉投影. Content: 图像→视觉编码器→连接器→语言模型；用户文本另输入语言模型；输出回答。原始线性投影与后续MLP作为版本差别注释。",
+    "file": "6.LLaVA.md",
+    "filename": "llava-architecture.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "llava-data",
+    "title": "视觉指令数据与监督",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 视觉指令数据与监督. Content: 图像描述与对象信息→生成多轮问答候选→人工/规则验证→指令数据；合成回答可能错误。",
+    "file": "6.LLaVA.md",
+    "filename": "llava-data.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "llava-eval",
+    "title": "评测与可复现实验",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 评测与可复现实验. Content: 同一模型对原图、删图、错图、关键区域裁剪分别回答；判断是否依赖正确视觉证据，非真实结果示意。",
+    "file": "6.LLaVA.md",
+    "filename": "llava-eval.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Change second panel heading 删图 to 遮挡关键区域, matching the displayed image. Preserve rest."
+    ]
+  },
+  {
+    "id": "llava-training",
+    "title": "分阶段训练与损失掩码",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 分阶段训练与损失掩码. Content: 阶段1对齐连接器；阶段2指令微调；输入图像+问题+回答，问题与图像不计回答损失，回答监督。",
+    "file": "6.LLaVA.md",
+    "filename": "llava-training.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "qwen-api",
+    "title": "Processor、消息与生成",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: Processor、消息与生成. Content: messages含图像和文本→AutoProcessor→input_ids与pixel_values等→模型generate→截去输入token→新回答。",
+    "file": "7.Qwen-VL.md",
+    "filename": "qwen-api.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "qwen-position",
+    "title": "位置、视频与时序对齐",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 位置、视频与时序对齐. Content: 二维图像位置高宽；视频增加时间；文本序列位置独立示意。位置编码设计随版本变化。",
+    "file": "7.Qwen-VL.md",
+    "filename": "qwen-position.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Replace bottom invented historical chain 正弦编码→可学习编码→近年来方法 with three independent check cards 空间网格定义 / 时间戳与采样规则 / 具体版本位置编码. No historical evolution claim. Right text replace 不依赖图像或视频的空间位置 with 文本按序列位置表示；混合序列的编号规则以模型实现为准. Keep top spatial and temporal diagrams."
+    ]
+  },
+  {
+    "id": "qwen-resolution",
+    "title": "动态分辨率与视觉预算",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 动态分辨率与视觉预算. Content: 不同宽高图像→保宽高比处理→不同数量视觉tokens→语言模型；图像token有预算上限，不写固定公式。",
+    "file": "7.Qwen-VL.md",
+    "filename": "qwen-resolution.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Remove misleading association wide=fewer/tall=more tokens: label each token grid only 示例网格（数量依处理后像素与合并规则）. Add clear bottom note 宽高比不决定 token 数的单调大小；相同像素面积可能产生相近数量. Keep aspect-ratio-preserving resize and budget flow."
+    ]
+  },
+  {
+    "id": "qwen-retrieval",
+    "title": "Qwen3-VL 与多模态检索",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: Qwen3-VL 与多模态检索. Content: 生成模型给回答；Embedding模型给向量用于召回；Reranker给相关性分数用于重排，三个不同接口不混用。",
+    "file": "7.Qwen-VL.md",
+    "filename": "qwen-retrieval.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Remove horizontal arrows BETWEEN the three model columns; these are independent interface comparisons not a generation→embedding pipeline. In left output replace leaf microscope answer with 这是一幅山景示意图. Keep embedding and reranking interfaces; label numeric values 示例值，非实测. Add bottom small flow 向量召回 → 重排 → 可选生成 as separate pipeline."
+    ]
+  },
+  {
+    "id": "qwen-roadmap",
+    "title": "系列版本与阅读方法",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 系列版本与阅读方法. Content: Qwen-VL、Qwen2-VL、Qwen2.5-VL、Qwen3-VL四张版本卡；分别图文定位、动态分辨率、视频与空间增强、深层视觉语言融合。不是性能排行。",
+    "file": "7.Qwen-VL.md",
+    "filename": "qwen-roadmap.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct Qwen2-VL explanation to 按输入尺寸、宽高比与预算处理动态分辨率，不是自动理解内容后选择尺寸. Qwen2.5-VL explanation replace 三维空间 with 空间定位 and subtitle 视频、定位与时间对齐. Replace 3D cube icon with bounding-box localization icon. Preserve version cards."
+    ]
+  },
+  {
+    "id": "vision-objectives",
+    "title": "预训练目标与特征性质",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 预训练目标与特征性质. Content: 监督分类、图文对比、掩码重建、自蒸馏四种独立卡；标签分别类别、配对、像素/特征、教师表示。",
+    "file": "2.视觉编码器.md",
+    "filename": "vision-objectives.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "In this educational diagram lower-right teacher model box replace 不更新 with EMA 更新. Student box 更新 change to 梯度更新. Preserve all other content."
+    ]
+  },
+  {
+    "id": "vision-patches",
+    "title": "CNN 与 ViT",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: CNN 与 ViT. Content: CNN局部共享卷积；ViT图像切成patch→线性投影→位置编码→Transformer。两路对照。",
+    "file": "2.视觉编码器.md",
+    "filename": "vision-patches.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "In this educational CNN/ViT diagram, replace sentence 通过权重共享提取平移不变的局部特征 with 共享卷积核提取局部特征，具有平移等变性. Preserve everything else."
+    ]
+  },
+  {
+    "id": "vision-preprocess",
+    "title": "预处理与坐标",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 预处理与坐标. Content: 原图→缩放→裁剪或补边→归一化。同步记录尺度与偏移以还原坐标；不要把裁剪和补边混为一谈。",
+    "file": "2.视觉编码器.md",
+    "filename": "vision-preprocess.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "vision-resolution",
+    "title": "多尺度与高分辨率",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 多尺度与高分辨率. Content: 整体缩略图保全局；多个局部切片保细节；合并token送连接器。缩放提高细节同时增加token预算。",
+    "file": "2.视觉编码器.md",
+    "filename": "vision-resolution.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct bottom educational caption: replace 缩放提高细节 同时增加 token 预算 with 高分辨率输入保留细节；单纯放大不创造细节. Replace bottom arrow caption with 更多原始像素 → 可保留更多细节 → 通常需要更多 token. Preserve top diagrams and style."
+    ]
+  },
+  {
+    "id": "vision-transfer",
+    "title": "特征选择与迁移诊断",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 特征选择与迁移诊断. Content: 冻结线性探测、局部解冻、全量微调三层策略；评估语义、定位、OCR、域外四类能力。",
+    "file": "2.视觉编码器.md",
+    "filename": "vision-transfer.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "visual-budget",
+    "title": "坐标、视频与上下文预算",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 坐标、视频与上下文预算. Content: 图像尺寸、帧数、每帧tokens三项决定视觉预算；时间戳与空间位置两轴。保留帧顺序。",
+    "file": "3.面向视觉的语言模型.md",
+    "filename": "visual-budget.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct token budget formula: 总视觉 tokens ≈ 帧数 × 每帧视觉 tokens；图像尺寸通过每帧 token 数影响预算. Do NOT multiply image size by per-frame tokens again. Replace upper-left plus relationships with 图像尺寸 → 每帧 tokens, then 每帧 tokens × 帧数 → 总视觉 tokens. Add 实际数量还受 patch、合并与压缩规则影响. Keep coordinate panels."
+    ]
+  },
+  {
+    "id": "visual-connector",
+    "title": "视觉与语言的连接器",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 视觉与语言的连接器. Content: 视觉token Nv×Dv→线性或MLP投影→Nv×Dl；查询压缩另路Nv→M，区分维度投影与数量压缩。",
+    "file": "3.面向视觉的语言模型.md",
+    "filename": "visual-connector.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "visual-inference",
+    "title": "推理接口与可验证回答",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 推理接口与可验证回答. Content: 图文messages→processor/chat template→张量→generate→只解码新tokens→依据图像核验。",
+    "file": "3.面向视觉的语言模型.md",
+    "filename": "visual-inference.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "visual-mask",
+    "title": "视觉 token 与注意力掩码",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 视觉 token 与注意力掩码. Content: 图像信息与问题作为前缀，回答逐词生成；回答位置只能读可见前缀与历史回答。避免指定所有模型同一图像掩码。",
+    "file": "3.面向视觉的语言模型.md",
+    "filename": "visual-mask.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "visual-training",
+    "title": "对齐、指令微调与标签",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 对齐、指令微调与标签. Content: 阶段1接口对齐；阶段2图文指令；损失掩码只监督回答的示例。图像占位符与真实视觉特征不同。",
+    "file": "3.面向视觉的语言模型.md",
+    "filename": "visual-training.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct yellow explanatory box to 损失掩码限定监督范围，不保证答案正确；提示词和图像仍作为可读取的条件. Replace 图像（占位符） below drawings with 图像（示意）. Keep <image> in sequence but label it 特殊标记示意，实际视觉特征另行输入. Preserve rest."
+    ]
+  },
+  {
+    "id": "vlm-architectures",
+    "title": "三种基本架构",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 三种基本架构. Content: 双塔各自编码→相似度；融合编码→交互特征；视觉编码器→连接器→语言生成，三行互相独立。",
+    "file": "1.VLM简介.md",
+    "filename": "vlm-architectures.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "vlm-frontier",
+    "title": "现代方向与实验设计",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 现代方向与实验设计. Content: 高分辨率、视频时序、工具交互、检索增强四方向；预算轴视觉token和延迟；无性能排行。",
+    "file": "1.VLM简介.md",
+    "filename": "vlm-frontier.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "vlm-grounding",
+    "title": "数据、幻觉与评估",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 数据、幻觉与评估. Content: 视觉证据→回答→证据核对；语言先验作为可能偏差来源。测试原图、遮挡关键区域、替换无关背景三种对照。",
+    "file": "1.VLM简介.md",
+    "filename": "vlm-grounding.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "vlm-objectives",
+    "title": "对齐与训练信号",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 对齐与训练信号. Content: 配对相似度、匹配分类、条件下一词三个独立目标，分别对应ITC ITM LM。",
+    "file": "1.VLM简介.md",
+    "filename": "vlm-objectives.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "vlm-tasks",
+    "title": "任务与输入输出",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 任务与输入输出. Content: 图文检索、图像问答、定位、文档视频四张任务卡；区分返回分数、文本、坐标、时间段。",
+    "file": "1.VLM简介.md",
+    "filename": "vlm-tasks.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  }
+]

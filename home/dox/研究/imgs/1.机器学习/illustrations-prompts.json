@@ -1,0 +1,356 @@
+[
+  {
+    "id": "eval-confusion",
+    "title": "混淆矩阵与任务代价",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 混淆矩阵与任务代价. Content: 2x2矩阵行是真实正负、列预测正负；格子TP FN / FP TN。只显示Precision=TP/(TP+FP), Recall=TP/(TP+FN)。",
+    "file": "1.模型评估.md",
+    "filename": "eval-confusion.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "eval-nested",
+    "title": "交叉验证与统计不确定性",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 交叉验证与统计不确定性. Content: 外层划分评估；外层训练内进行内层调参；选定配置在外层训练重训、外层测试评估。箭头只表达流程。",
+    "file": "1.模型评估.md",
+    "filename": "eval-nested.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "eval-shift",
+    "title": "从离线指标到部署监测",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 从离线指标到部署监测. Content: 数据分布、标签定义、决策成本三类变化；监测输入→延迟标签→分组指标→再训练验证，保留独立回归测试。",
+    "file": "1.模型评估.md",
+    "filename": "eval-shift.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Only correct the upper-left distribution plot horizontal axis label from 时间 to 特征值. Label dashed curve 旧分布 and solid curve 新分布. Preserve all other content."
+    ]
+  },
+  {
+    "id": "eval-split",
+    "title": "划分与数据泄漏",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 划分与数据泄漏. Content: 训练、验证、测试三条分支；预处理只在训练拟合，再应用验证测试。测试不回流选模型。",
+    "file": "1.模型评估.md",
+    "filename": "eval-split.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "eval-threshold",
+    "title": "阈值、PR 与校准",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 阈值、PR 与校准. Content: 三张独立小卡：阈值决定分类；排序决定AUC；校准比较预测概率与发生频率。无实测曲线，无编造数字。",
+    "file": "1.模型评估.md",
+    "filename": "eval-threshold.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "linear-logistic",
+    "title": "逻辑回归与概率输出",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 逻辑回归与概率输出. Content: 特征x→线性分数z→sigmoid概率p→阈值分类。概率与类别分开，sigmoid单调S形0到1。",
+    "file": "2.线性模型.md",
+    "filename": "linear-logistic.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "linear-multiclass",
+    "title": "多分类、判别与生成",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 多分类、判别与生成. Content: softmax联合归一化一行；one-vs-rest多个二分类一行；LDA通过类条件分布建模一行。互不画依赖。",
+    "file": "2.线性模型.md",
+    "filename": "linear-multiclass.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "linear-ols",
+    "title": "最小二乘与残差",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 最小二乘与残差. Content: 样本点与拟合直线，残差是同一x下竖直距离。模型yhat=w*x+b，目标平均平方误差。",
+    "file": "2.线性模型.md",
+    "filename": "linear-ols.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "linear-penalty",
+    "title": "正则化与特征尺度",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 正则化与特征尺度. Content: 三张卡：Ridge平方L2惩罚、Lasso L1惩罚、ElasticNet两者结合。稀疏不等于因果。不要画错误几何。",
+    "file": "2.线性模型.md",
+    "filename": "linear-penalty.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "linear-pipeline",
+    "title": "可解释性与稳健实践",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 可解释性与稳健实践. Content: 先划分→训练内填补标准化→线性模型→独立评估。系数旁注单位、相关性、参考类别。",
+    "file": "2.线性模型.md",
+    "filename": "linear-pipeline.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct coefficient interpretation panel to explicitly distinguish: 线性回归：其他特征不变时，输入增加一单位，预测均值改变 beta；逻辑回归：beta 表示对数几率变化，exp(beta) 是几率比；标准化后的单位须按变换后尺度解释. Keep other panels. Do not assert causality."
+    ]
+  },
+  {
+    "id": "nn-backprop",
+    "title": "反向传播与参数更新",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 反向传播与参数更新. Content: 前向x→网络→预测→损失；反向计算梯度；优化器更新参数。明确backward不更新权重。",
+    "file": "4.神经网络.md",
+    "filename": "nn-backprop.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "nn-generalize",
+    "title": "正则化与验证曲线",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 正则化与验证曲线. Content: 四卡训练/验证分离、权重衰减、Dropout、早停。图示概念，不画保证改善的曲线。",
+    "file": "4.神经网络.md",
+    "filename": "nn-generalize.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Revise incorrect panels while keeping style and four-panel layout. Upper-left must be titled 训练与验证分离, remove all 四卡/GPU material; simple training data -> model fit, separate validation data -> validation metrics. Upper-right title 权重衰减, show theta <- (1-eta*lambda)*theta - eta*g for decoupled decay with plain text 与损失中的 L2 正则不总等价；需结合优化器区分, remove universal smoother/generalization guarantee. Lower-left dropout say PyTorch 通常在训练时缩放，推理时关闭丢弃. Keep correct early stopping panel."
+    ]
+  },
+  {
+    "id": "nn-loss",
+    "title": "任务、输出与损失",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 任务、输出与损失. Content: 回归输出实数配MSE；单标签输出logits配交叉熵；多标签输出各logit配BCEWithLogits。不要在loss前重复softmax。",
+    "file": "4.神经网络.md",
+    "filename": "nn-loss.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "nn-representation",
+    "title": "感知机与非线性表示",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 感知机与非线性表示. Content: 输入特征→仿射变换→非线性激活→输出。两层线性仍可合并；非线性改变表示，避免XOR复杂点图。",
+    "file": "4.神经网络.md",
+    "filename": "nn-representation.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "nn-tabular",
+    "title": "神经网络与表格基线",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 神经网络与表格基线. Content: 同一数据划分下线性模型、树模型、MLP三路→同一指标和预算。模型容量、数据量、特征结构三种考虑。",
+    "file": "4.神经网络.md",
+    "filename": "nn-tabular.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct upper-right model capacity bullet list: replace fixed ranking linear small/tree medium/MLP large by 容量取决于特征、树深/树数、网络宽度/深度与正则化；不能只凭模型名称排序. Middle-right change 数据充足时神经网络更具优势 to 数据量影响结果，仍需用验证集比较. Preserve other panels."
+    ]
+  },
+  {
+    "id": "other-bayes",
+    "title": "朴素贝叶斯与概率建模",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 朴素贝叶斯与概率建模. Content: 类别y→各特征x1,x2,x3条件独立图；文字条件独立是假设。先验×似然→后验归一化。",
+    "file": "6.其他.md",
+    "filename": "other-bayes.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "other-cluster",
+    "title": "聚类与无监督评估",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 聚类与无监督评估. Content: 三卡Kmeans到中心平方距离、GMM软责任、DBSCAN密度连通与噪声。不编造簇数优劣。",
+    "file": "6.其他.md",
+    "filename": "other-cluster.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct DBSCAN legend and colors only: blue and pink denote two clusters, not core versus border point types. Replace legend with 蓝色：簇 A；粉色：簇 B；灰色：噪声. Keep explanation density connectivity and eps/MinPts. Add small text 核心点的邻域样本数达到 MinPts；边界点本身非核心但可由核心点到达. Preserve Kmeans and GMM panels."
+    ]
+  },
+  {
+    "id": "other-knn",
+    "title": "近邻与距离度量",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 近邻与距离度量. Content: 查询点周围三近邻2蓝1红→多数投票蓝。颜色与图例一致。标准化影响距离。",
+    "file": "6.其他.md",
+    "filename": "other-knn.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "other-map",
+    "title": "异常检测、推荐与现代扩展",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 异常检测、推荐与现代扩展. Content: 异常检测、矩阵分解推荐、表格基础模型三个独立模块；共同底部数据边界、适用假设、独立评估。",
+    "file": "6.其他.md",
+    "filename": "other-map.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "In middle recommendation panel replace 冷启动缓解 with 冷启动需额外侧信息. In right tabular panel replace 在大规模表格数据上预训练 with 在大量真实或合成表格任务上预训练. Replace 适用于小样本与异构数据 with 在适用的数据规模与类型范围内评估. Preserve all other content."
+    ]
+  },
+  {
+    "id": "other-pca",
+    "title": "PCA 与表示压缩",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: PCA 与表示压缩. Content: 中心化点云→正交主轴→低维投影→近似重构。最大方差不等于最佳分类方向。",
+    "file": "6.其他.md",
+    "filename": "other-pca.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct PCA geometry. Panel 1 use just one x1/x2 coordinate pair crossing through centered point cloud mean, remove duplicate axes. Panel 3 project points ORTHOGONALLY onto PC1, dashed lines perpendicular to PC1. Panel 4 reconstructed points must ALL lie exactly on the one-dimensional red affine PC1 line, original off-line points can be pale gray labeled 原始点; reconstructed points blue on line labeled 重建点. Bottom left replace misleading 分类方向 diagram with two vertically long narrow point clouds side by side: vertical arrow 最大方差方向, horizontal arrow 区分类别的方向. Keep formulas.",
+      "Correct PCA illustration: in first panel remove bottom-left outer coordinate axes and their x1 x2 labels, retain only the pair of axes crossing at center of point cloud. In third panel remove all dashed projection connector lines, retain points and PC1 line. In second panel remove stray dashed vertical connector. Preserve formulas, labels, style and all remaining content."
+    ]
+  },
+  {
+    "id": "svm-dual",
+    "title": "对偶、支持向量与预测",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 对偶、支持向量与预测. Content: 训练样本→非零alpha的支持向量→加权核和→符号分类。f(x)=sum alpha_i*y_i*K(x_i,x)+b。",
+    "file": "5.支持向量机.md",
+    "filename": "svm-dual.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Replace every claim 只有少数样本 or 仅少数为非零 with 非零系数对应支持向量；数量取决于数据与参数. Keep the correct weighted kernel sum and all other content.",
+      "Only edit the bottom yellow panel alpha_i legend: replace entire line with “αᵢ：对偶问题的最优解”. Remove parenthetical 仅少数为非零 completely. Preserve all remaining pixels/content."
+    ]
+  },
+  {
+    "id": "svm-hinge",
+    "title": "软间隔与铰链损失",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 软间隔与铰链损失. Content: 横轴m=yf(x)，纵轴loss；m<1时1-m递减直线，m>=1为0。另标C平衡间隔与违约损失。",
+    "file": "5.支持向量机.md",
+    "filename": "svm-hinge.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "svm-kernel",
+    "title": "核技巧与非线性边界",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 核技巧与非线性边界. Content: 两输入x,z→核K(x,z)→相似度；线性核xTz、RBF exp(-gamma||x-z||²)。不画显式无限维网络。",
+    "file": "5.支持向量机.md",
+    "filename": "svm-kernel.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct lower-right panel: caption must read 在隐式特征空间学习线性超平面，映射回原空间可形成非线性边界. Draw a CLOSED dashed circle around all inner blue circles, with all pink crosses outside; this plot is 原空间中的边界. In top-right replace universal similarity statement with 核是特征空间的内积；相似性解释取决于核与尺度. Preserve correct kernel formulas."
+    ]
+  },
+  {
+    "id": "svm-margin",
+    "title": "最大间隔几何",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 最大间隔几何. Content: 二维两类点分隔，中央w·x+b=0，两条平行边界=+1和-1，间隔总宽2/||w||。支持向量位于边界。",
+    "file": "5.支持向量机.md",
+    "filename": "svm-margin.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct the purple arrow for label w·x+b=-1: it must point to LOWER DASHED parallel boundary through blue support vectors, not central solid decision line. Add small subtitle 硬间隔可分情形. Preserve other correct formulas and diagram."
+    ]
+  },
+  {
+    "id": "svm-practice",
+    "title": "SVR、异常检测与可扩展性",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: SVR、异常检测与可扩展性. Content: 三卡：SVR epsilon不敏感管；OneClassSVM支持域估计；近似核特征后线性模型。区分任务不要联成串行。",
+    "file": "5.支持向量机.md",
+    "filename": "svm-practice.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "tree-ensemble",
+    "title": "Bagging、随机森林与 Boosting",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: Bagging、随机森林与 Boosting. Content: 上行多棵树并行→平均/投票；下行模型1→残差或负梯度→模型2→加法集成。随机森林另注样本与特征随机化。",
+    "file": "3.决策树.md",
+    "filename": "tree-ensemble.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "tree-histogram",
+    "title": "直方图提升与表格建模",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 直方图提升与表格建模. Content: 连续特征→分箱→统计梯度与Hessian→选择划分。缺失值单独处理；训练集确定分箱。",
+    "file": "3.决策树.md",
+    "filename": "tree-histogram.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "tree-impurity",
+    "title": "不纯度与分裂收益",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 不纯度与分裂收益. Content: 父节点8个点4红4蓝，分成左右各4点：左3红1蓝、右1红3蓝。写分裂收益=父不纯度-子节点加权不纯度。",
+    "file": "3.决策树.md",
+    "filename": "tree-impurity.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "tree-prune",
+    "title": "复杂度控制与剪枝",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 复杂度控制与剪枝. Content: 训练树深→很多小叶；剪枝树→少量大叶。示意不画性能数字。标最小叶样本数、最大深度、代价复杂度。",
+    "file": "3.决策树.md",
+    "filename": "tree-prune.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": []
+  },
+  {
+    "id": "tree-regions",
+    "title": "递归划分与叶节点",
+    "prompt": "Use case: scientific-educational. Create an original Chinese explanatory infographic, landscape 4:3, fully opaque warm ivory ruled notebook paper, dark navy large legible handwritten Chinese, pastel mint blue lavender pink yellow panels, simple precise arrows. Match project's notebook aesthetic. No logo, watermark, invented empirical statistics or decorative fake code. Keep text sparse and scientifically accurate. Title: 递归划分与叶节点. Content: 极简决策树：x1<0?是→类别A；否→x2<0?是类别B否类别A。配二维区域对应左半A右下B右上A，明确轴方向。",
+    "file": "3.决策树.md",
+    "filename": "tree-regions.png",
+    "tool": "built-in image_gen",
+    "created": "2026-09-22",
+    "status": "reviewed",
+    "edits": [
+      "Correct only the right coordinate diagram: horizontal x1 axis must cross vertical x2 axis at the boundary between upper-right pink A and lower-right blue B, i.e. x2=0, not along bottom of rectangle. Put 0 at this crossing; negative x2 below horizontal axis. Keep left half entirely pink A; upper-right pink A; lower-right blue B. Preserve left decision tree."
+    ]
+  }
+]

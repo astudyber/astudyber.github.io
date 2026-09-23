@@ -22,6 +22,12 @@
 
   function inlineMarkdown(value) {
     let html = escapeHtml(value);
+    const codeSegments = [];
+    html = html.replace(/`([^`]+)`/g, (_, code) => {
+      const token = `@@CODE_SEGMENT_${codeSegments.length}@@`;
+      codeSegments.push(`<code>${code}</code>`);
+      return token;
+    });
     const mathSegments = [];
     html = html.replace(/(\$\$[\s\S]*?\$\$|\$[^$\n]+\$|\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\])/g, (segment) => {
       const token = `@@MATH_SEGMENT_${mathSegments.length}@@`;
@@ -32,14 +38,17 @@
       .replace(/\\_/g, '_')
       .replace(/!\[([^\]]*)\]\(((?:https?:\/\/|\.\.?\/|\/)[^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy" decoding="async">')
       .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>')
-      .replace(/`([^`]+)`/g, '<code>$1</code>')
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       .replace(/__([^_]+)__/g, '<strong>$1</strong>')
       .replace(/\*([^*]+)\*/g, '<em>$1</em>');
     mathSegments.forEach((segment, index) => {
-      html = html.replace(`@@MATH_SEGMENT_${index}@@`, segment);
+      html = html.replace(`@@MATH_SEGMENT_${index}@@`, () => segment);
     });
-    return html.replace(/&lt;font\s+color=(?:'|&quot;|&#39;)?(#[0-9a-f]{3,8})(?:'|&quot;|&#39;)?&gt;([\s\S]*?)&lt;\/font&gt;/gi, '<font color="$1">$2</font>');
+    html = html.replace(/&lt;font\s+color=(?:'|&quot;|&#39;)?(#[0-9a-f]{3,8})(?:'|&quot;|&#39;)?&gt;([\s\S]*?)&lt;\/font&gt;/gi, '<font color="$1">$2</font>');
+    codeSegments.forEach((segment, index) => {
+      html = html.replace(`@@CODE_SEGMENT_${index}@@`, () => segment);
+    });
+    return html;
   }
 
   function splitTableRow(line) {
@@ -103,7 +112,13 @@
     let items = [];
     let quote = [];
 
+    let inHeadingFence = false;
     lines.forEach((line, index) => {
+      if (/^\s*```/.test(line)) {
+        inHeadingFence = !inHeadingFence;
+        return;
+      }
+      if (inHeadingFence) return;
       const heading = line.match(/^\s*(#{1,4})\s+(.+?)\s*#*$/);
       if (heading) {
         const id = headingId(heading[2], usedIds);
@@ -204,6 +219,19 @@
         closeQuote();
         output.push(renderToc());
         continue;
+      }
+
+      // Keep a display equation in one DOM node so MathJax can find both delimiters.
+      if (line.trim() === '$$') {
+        let end = index + 1;
+        while (end < lines.length && lines[end].trim() !== '$$') end += 1;
+        if (end < lines.length) {
+          closeList();
+          closeQuote();
+          output.push(`<div class="markdown-math">${escapeHtml(lines.slice(index, end + 1).join('\n'))}</div>`);
+          index = end;
+          continue;
+        }
       }
 
       if (index + 1 < lines.length && isTableSeparator(lines[index + 1]) && splitTableRow(line).length > 1) {
@@ -316,12 +344,12 @@
       return token;
     });
     let highlighted = protectedHtml.split(/(<[^>]+>)/g).map((part) => part.startsWith('<') ? part : part.replace(pattern, '<font color="#2aa198">$1</font>')).join('');
-    mathSegments.forEach((segment, index) => { highlighted = highlighted.replace(`@@PI_MATH_${index}@@`, segment); });
+    mathSegments.forEach((segment, index) => { highlighted = highlighted.replace(`@@PI_MATH_${index}@@`, () => segment); });
     return highlighted;
   }
 
   function titleFromFile(file) {
-    return file.replace(/\.md$/i, '').replace(/^\d+[-_ ]*/, '').replace(/[-_]+/g, ' ');
+    return file.split(/[\\/]/).pop().replace(/\.md$/i, '').replace(/^\d+[.、\-_ ]*/, '').replace(/[-_]+/g, ' ');
   }
 
   function refreshIcons() {
@@ -393,7 +421,12 @@
   }
 
   function renderNotes(category, selectFirst) {
+    ++noteRequest;
     notes.innerHTML = '';
+    content.innerHTML = '';
+    const browser = document.getElementById('researchBrowser');
+    if (browser) browser.hidden = !category.files.length;
+    if (!category.files.length) return;
     const files = [...category.files].sort((left, right) => {
       const leftFile = typeof left === 'string' ? left : left.file;
       const rightFile = typeof right === 'string' ? right : right.file;
@@ -407,7 +440,7 @@
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'research-note';
-      button.innerHTML = `<span class="research-note__index">${String(index + 1).padStart(2, '0')}</span><span><strong>${escapeHtml(title)}</strong><small>${escapeHtml(file)}</small></span>`;
+      button.innerHTML = `<span class="research-note__index">${String(index + 1).padStart(2, '0')}</span><strong>${escapeHtml(title)}</strong>`;
       button.addEventListener('click', () => selectNote(button, file));
       notes.appendChild(button);
       if (selectFirst && index === 0) selectNote(button, file);
@@ -415,7 +448,7 @@
   }
 
   function renderCategories(categories) {
-    const icons = { embodied: 'brain-circuit', deep_learning: 'network', multimodal: 'scan-face', rl: 'orbit', generative: 'sparkles' };
+    const icons = { machine_learning: 'chart-scatter', embodied: 'brain-circuit', deep_learning: 'network', multimodal: 'scan-face', rl: 'orbit', generative: 'sparkles' };
     const tones = { embodied: 1, deep_learning: 1, multimodal: 2, rl: 3, generative: 4 };
     categoryTabs.innerHTML = '';
     categories.forEach((category, index) => {
@@ -424,8 +457,12 @@
       button.className = `research-category-tab category-tone-${tones[category.id] || 1}`;
       button.innerHTML = `<i data-lucide="${icons[category.id] || 'layers-3'}"></i><span>${escapeHtml(category.title)}</span>`;
       button.setAttribute('role', 'tab');
+      button.setAttribute('aria-selected', String(index === 0));
       button.addEventListener('click', () => {
-        categoryTabs.querySelectorAll('button').forEach((item) => item.classList.toggle('active', item === button));
+        categoryTabs.querySelectorAll('button').forEach((item) => {
+          item.classList.toggle('active', item === button);
+          item.setAttribute('aria-selected', String(item === button));
+        });
         renderNotes(category, true);
         refreshIcons();
       });
