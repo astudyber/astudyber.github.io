@@ -209,7 +209,64 @@
     {
       "id": "rl",
       "title": "强化学习",
-      "files": []
+      "files": [
+        {
+          "file": "6.强化学习/01.重要性采样&重采样.md",
+          "title": "重要性采样&重采样"
+        },
+        {
+          "file": "6.强化学习/02.MDP与Bellman方程.md",
+          "title": "MDP与Bellman方程"
+        },
+        {
+          "file": "6.强化学习/03.Q-Learning.md",
+          "title": "Q-Learning"
+        },
+        {
+          "file": "6.强化学习/04.REINFORCE.md",
+          "title": "REINFORCE"
+        },
+        {
+          "file": "6.强化学习/05.DQN.md",
+          "title": "DQN"
+        },
+        {
+          "file": "6.强化学习/06.TRPO.md",
+          "title": "TRPO"
+        },
+        {
+          "file": "6.强化学习/07.PPO.md",
+          "title": "PPO"
+        },
+        {
+          "file": "6.强化学习/08.SAC.md",
+          "title": "SAC"
+        },
+        {
+          "file": "6.强化学习/09.IQL.md",
+          "title": "IQL"
+        },
+        {
+          "file": "6.强化学习/10.DPO.md",
+          "title": "DPO"
+        },
+        {
+          "file": "6.强化学习/11.GRPO.md",
+          "title": "GRPO"
+        },
+        {
+          "file": "6.强化学习/12.EXPO.md",
+          "title": "EXPO"
+        },
+        {
+          "file": "6.强化学习/13.GSPO.md",
+          "title": "GSPO"
+        },
+        {
+          "file": "6.强化学习/14.QGF.md",
+          "title": "QGF"
+        }
+      ]
     }
   ]
 }

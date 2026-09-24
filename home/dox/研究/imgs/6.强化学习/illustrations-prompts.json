@@ -1,0 +1,824 @@
+{
+  "category": "6.强化学习",
+  "date": "2026-09-23",
+  "style": "暖色横线笔记纸、深蓝中文手写标题、柔和分区教学图",
+  "review": "逐图核对公式、箭头、标签；简化图的适用条件在正文说明。",
+  "images": [
+    {
+      "file": "01.重要性采样&重采样.md",
+      "id": "rl-is-1",
+      "filename": "rl-is-1.png",
+      "title": "重要性采样&重采样",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：重要性采样：改变采样分布。两列离散概率条形图：目标 P(A)=0.8 P(B)=0.2；提议 Q(A)=0.5 Q(B)=0.5。连接到权重卡 A:1.6 B:0.4。末尾：从 Q 取样，用 P/Q 校正。不可画虚构实验曲线。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-bec6135e-2079-4fd6-820d-b70b71f18186.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "61572fc1582f81be6910258187b9018f8ebe7f05c2b6ae3313372318af4611e0"
+    },
+    {
+      "file": "01.重要性采样&重采样.md",
+      "id": "rl-is-2",
+      "filename": "rl-is-2.png",
+      "title": "重要性采样&重采样",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：重采样：按权重复制粒子。流程：四个候选 x1,x2,x3,x4 → 归一化权重 0.5,0.25,0.125,0.125 → 随机抽取索引 → 等权样本。明确标注：一次随机结果示意，可重复、可遗漏；并非精确目标独立样本。图用四种颜色的粒子。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-d206e67b-cb37-4cb8-a3d2-c8ac96af4d42.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "fd6af316ed122fb63558e80bdb5ca3fada22e4d5e3aaddc068dc5bc9fed4beb3"
+    },
+    {
+      "file": "01.重要性采样&重采样.md",
+      "id": "rl-is-3",
+      "filename": "rl-is-3.png",
+      "title": "重要性采样&重采样",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：重要性采样与重采样：边界。三列表格 方法 / 收益 / 代价。普通 IS / 适当条件下无偏 / 权重可能高方差；自归一化 IS / 无需归一化常数 / 有限样本有偏；重采样 / 输出等权粒子 / 额外随机误差与重复。底部 支持集必须覆盖；监控权重退化。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-0e8e277c-1d9d-4cf7-9fb8-51fa558f77d5.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "3c80e6ae39061e7bf15fcdbaf94c24e397f2ed394e3d019e4372aedcaf0de9d0"
+    },
+    {
+      "file": "02.MDP与Bellman方程.md",
+      "id": "rl-mdp-1",
+      "filename": "rl-mdp-1.png",
+      "title": "MDP与Bellman方程",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：MDP：行动改变未来。循环图 智能体收到状态 s → 策略选择动作 a → 环境 → 奖励 r 与下一状态 s′ → 智能体。另有回报条 即时奖励 + 折扣后的未来奖励。不要把环境画成可训练策略。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-654ae7d7-7f5c-49cf-9ae5-456dd2d70822.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "68eee8bf9816a49169dac3e9526b07e19a89216ff891dc925ac904343e0f00bd"
+    },
+    {
+      "file": "02.MDP与Bellman方程.md",
+      "id": "rl-mdp-2",
+      "filename": "rl-mdp-2.png",
+      "title": "MDP与Bellman方程",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：Bellman 备份：一步连接长期。树状图 状态 s → 两个动作 a1 a2 → 每个动作的随机下一状态。策略评估：对动作按策略平均；最优控制：对动作取最大；环境转移始终求期望。无具体概率数字。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-1907779c-4063-4170-b32a-07649d88ab49.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "99dfaeeb64d3baac1a555b6bc646bdb9adea722bcbb380c49cb41d435355c95b"
+    },
+    {
+      "file": "02.MDP与Bellman方程.md",
+      "id": "rl-mdp-3",
+      "filename": "rl-mdp-3.png",
+      "title": "MDP与Bellman方程",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：MDP 建模：能力与假设。三列表格 能做什么 / 前提 / 检查。递归计算长期价值 / 状态满足马尔可夫性 / 是否缺少历史；折扣无限时域 / 有界奖励且折扣小于一 / 终止语义；规划最优行为 / 转移模型可信 / 估计误差。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-7c0db6a2-dfdb-4bbd-8598-6e32cac23c8c.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "4158e53b6ef05be55982454929bf64410cf1e5d253cae0b06d30c9517b90f083"
+    },
+    {
+      "file": "03.Q-Learning.md",
+      "id": "rl-qlearning-1",
+      "filename": "rl-qlearning-1.png",
+      "title": "Q-Learning",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：Q-Learning：让动作价值传播。三个格子路径 s → s′ → 终点奖励。Q 表用动作列表示，选中的一个单元高亮。文字：观察一步转移；用下一状态最大 Q 构造目标；只更新当前单元。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-23658fca-2fc0-46d7-9c44-4f09e2b5b349.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 将表格下方误写的“仅(s,s,a2)被更新”改为“仅 Q(s,a₂) 更新”。",
+          "source_name": "exec-e61738a0-7646-4da8-be51-8729f35f2ae8.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "67333f5ab1a09d80f18fb9af267f881feb9379270befc1229baeafd38a67984e"
+    },
+    {
+      "file": "03.Q-Learning.md",
+      "id": "rl-qlearning-2",
+      "filename": "rl-qlearning-2.png",
+      "title": "Q-Learning",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：Q-Learning：更新流程。经验 (s,a,r,s′) → 目标 r + γ max Q(s′,·) → TD 误差 → 更新 Q(s,a)。真正终止时目标只取 r。行为策略 ε-greedy 负责探索，与最大值备份分开画。不要神经网络。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-82e3aed1-bbcc-49a0-998e-29eb7c89f594.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "48f8efcae9d18f76ec0df926e56c6dfe279516d160940c16081a838ea092354e"
+    },
+    {
+      "file": "03.Q-Learning.md",
+      "id": "rl-qlearning-3",
+      "filename": "rl-qlearning-3.png",
+      "title": "Q-Learning",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：Q-Learning：优缺点。三列 优势 / 限制 / 检查。无需转移模型 / 大状态表不可扩展 / 状态动作覆盖；离策略学习 / 最大值可能过估计 / Double Q 思路；表格情形有收敛理论 / 需要访问与步长条件 / 不外推到任意神经网络。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-f626a0d5-c1d5-48c5-a3ac-0b1a1f5a32b3.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "d18f1435dab5733d6d373447903fbee3a372d2c1c7ffd52be31a5222ea8c4878"
+    },
+    {
+      "file": "04.REINFORCE.md",
+      "id": "rl-reinforce-1",
+      "filename": "rl-reinforce-1.png",
+      "title": "REINFORCE",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：REINFORCE：用回报调整动作概率。策略 → 完整轨迹 → 计算回报 → 回报高于基线则提高所选动作概率，低于基线则降低。强调奖励不是动作标签。不要声称每次更新必然改善。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-b7eea64c-0fd1-4c5f-9d63-0838fda506fb.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 回报公式统一为 G_t=∑_{k=t}^{T−1}γ^{k−t}r_k。下方参数更新改为 θ←θ+α γ^t A_t ∇θ log πθ(a_t|s_t)。左下说明改为“奖励是环境对行为结果的评价，并非事先给出的正确动作标签。”",
+          "source_name": "exec-b826259e-ec6b-49d5-8584-60f4c3b08d07.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "2afe234c91247e5e29cac0411cb939a8f7205ba67615ce653bf4d7fa10afd4c5"
+    },
+    {
+      "file": "04.REINFORCE.md",
+      "id": "rl-reinforce-2",
+      "filename": "rl-reinforce-2.png",
+      "title": "REINFORCE",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：REINFORCE：策略网络与蒙特卡洛回报。状态 → MLP → 离散动作 softmax → 采样动作 → 环境轨迹 → reward-to-go。回报和可选状态基线汇合成优势 → log 概率加权损失 → 策略参数。基线停止梯度进入策略权重。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-4e5b678e-029f-4594-83dc-c4ece4d3a881.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 统一约定：动作a_t之后得到奖励r_t，轨迹(s0,a0,r0,…,sT)。回报公式 G_t=∑_{k=t}^{T−1}γ^{k−t}r_k。所有策略损失公式改成 L=−E_t[γ^t sg[A_t] log πθ(a_t|s_t)]，sg表示停止梯度。底部若重复损失可用文字“最小化含折扣权重的策略损失”。将“没有使用价值函数引导”改为“采用完整回报，不使用 TD 自举”。",
+          "source_name": "exec-454ac0da-79ee-4136-874d-906c8fd7565f.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "2d54a3d9616e82e85b35a4c1ad8b1174e2bcc15a4bfa1d8072727a1f06e21d7a"
+    },
+    {
+      "file": "04.REINFORCE.md",
+      "id": "rl-reinforce-3",
+      "filename": "rl-reinforce-3.png",
+      "title": "REINFORCE",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：REINFORCE：优缺点。三列 优势 / 局限 / 实践。目标直接 / 回报方差高 / 使用动作无关基线；无需可微环境 / 等待轨迹结束 / 长时域代价；支持随机策略 / 样本效率有限 / 检查回报与折扣。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-79f925da-a7d8-4b34-8a76-bf95c3d9cc24.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 将基线“可以显著降低回报方差”改成“合适基线可降低梯度估计方差”。将“每个轨迹只能用一次”相关说明改成“基础算法使用当前策略数据，通常需要较多交互样本。” 将随机策略保证避免过早收敛改为“有助探索更多动作”。",
+          "source_name": "exec-6d594aec-d1b6-4c9c-9d4f-0ac169a78d12.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "aa9d517b564e6fb6808f517dbb8f78476f45fa96c33eac5231511a5e6ad8d747"
+    },
+    {
+      "file": "05.DQN.md",
+      "id": "rl-dqn-1",
+      "filename": "rl-dqn-1.png",
+      "title": "DQN",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：DQN：用网络代替 Q 表。四帧游戏观测堆叠 → 卷积网络 → 每个离散动作一个 Q 值 → ε-greedy 动作。突出网络输出价值，不是概率。另一个经验回放盒存储交互。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-7400d656-3808-4e8e-814a-23a19f99b054.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "8a6c5b6fb4b7b0dc661e0863e1acd260db895f6c1ca6a60ccd599cd543bf564f"
+    },
+    {
+      "file": "05.DQN.md",
+      "id": "rl-dqn-2",
+      "filename": "rl-dqn-2.png",
+      "title": "DQN",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：DQN：2015 Atari 架构。84×84×4 → Conv 32,8×8,stride4 → Conv 64,4×4,stride2 → Conv 64,3×3,stride1 → FC512 → 动作 Q。下方两个分支：在线网络 Qθ 预测当前值；冻结目标网络 Qθ− 计算下一状态最大值；周期复制参数。回放提供同一训练批。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-a07c899e-0728-4b31-a4b9-54bf90a42303.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 所有TD目标以及损失中的目标补上终止因子(1−d)，即 y=r+γ(1−d)max_a′ Q_{θ−}(s′,a′)，L=(Qθ(s,a)−sg[y])²。d=1表示真正终止。底部错误“同时用于更新两个网络”改为“只用梯度更新在线网络；目标网络每隔C步复制参数”。",
+          "source_name": "exec-db349205-c417-4d21-bff9-70eec5266b22.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "0de0cc2e108b2687ee151e4351001d47910145de808ab51d5ab6593c4ff4b7c7"
+    },
+    {
+      "file": "05.DQN.md",
+      "id": "rl-dqn-3",
+      "filename": "rl-dqn-3.png",
+      "title": "DQN",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：DQN：优缺点。三列 优势 / 局限 / 检查。像素到离散决策 / 连续动作取最大困难 / 动作空间；回放减少相关性 / 仍可能过估计 / Double DQN；目标网络缓和漂移 / 不保证收敛 / 终止掩码与奖励尺度。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-623f930d-3ce6-4d6c-9253-7f14bf6850a1.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "2e3fbf12064cdaf41db340c73a768aa1d8a0fbda27db2237e95904ced338edfe"
+    },
+    {
+      "file": "06.TRPO.md",
+      "id": "rl-trpo-1",
+      "filename": "rl-trpo-1.png",
+      "title": "TRPO",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：TRPO：在可信范围内改进策略。旧策略概率圆 → 受 KL 约束的小步新策略。旁边两个目标卡：提高优势加权代理目标；限制旧到新策略平均 KL。只作概念图，不画性能曲线。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-251546a0-e879-4ed7-a542-26670d79508a.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "32cd47225f17840657d0f1d38ee95a766514627b3c5eb355359f2bb91d4adda1"
+    },
+    {
+      "file": "06.TRPO.md",
+      "id": "rl-trpo-2",
+      "filename": "rl-trpo-2.png",
+      "title": "TRPO",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：TRPO：更新计算链。旧策略采样 → 优势估计 → 策略梯度 g 与 Fisher 向量积 → 共轭梯度求方向 → KL 半径缩放 → 回溯线搜索 → 新策略。基线网络独立回归价值。无需显式存储完整 Fisher 矩阵。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-e5135467-1085-45c5-a9a9-15ab6afa9503.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "d4fb692386ab4a8d6eac137bc018dd54397b8ffcfd9b76948e61d5dba03e7454"
+    },
+    {
+      "file": "06.TRPO.md",
+      "id": "rl-trpo-3",
+      "filename": "rl-trpo-3.png",
+      "title": "TRPO",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：TRPO：优缺点。三列 优势 / 代价 / 边界。显式控制 KL / 二阶近似与线搜索复杂 / 实际平均 KL 不等于最坏状态约束；自然梯度方向 / 多次矩阵向量积 / 阻尼与数值误差；稳定更新动机 / 采样成本 / 不是无条件单调改进保证。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-f5b5f7ac-24b3-4b48-aee2-e0fe49c7c6c0.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "f6c19bbd82f9da54130d45605aaa350aaf2a83ebc1dd1369e4fb75d5f15a36de"
+    },
+    {
+      "file": "07.PPO.md",
+      "id": "rl-ppo-1",
+      "filename": "rl-ppo-1.png",
+      "title": "PPO",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：PPO：限制继续放大的更新收益。两行规则：优势为正，概率比超过上界后收益封顶；优势为负，概率比低于下界后收益封顶。不要画成概率比被硬截断；底部：裁剪代理目标，不是强制 KL 约束。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-2bf85f53-e2d0-45a2-9c95-a3c2bf1158f6.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 右侧 A_t<0 的函数图必须整体位于横轴下方：r≤1−ε时水平为(1−ε)A_t<0，r>1−ε时沿 r A_t 向右持续线性下降，绝不能在右端再变成水平。将右侧“更新收益不再减少”改成“继续降低概率不再提高代理目标”。标题“只惩罚到下界”改成“降低概率的收益在下界封顶”。保留左图正确正优势形状。",
+          "source_name": "exec-97d4aaff-51ba-4df3-88f5-5a3a8bcc9bbb.png"
+        },
+        {
+          "prompt": "Edit ONLY the right pink panel's A_t<0 graph. It currently wrongly has a jump discontinuity at r=1−ε. The horizontal left segment and decreasing right segment MUST join at exactly ONE point with equal height (1−ε)A_t below zero. Draw horizontal segment from r=0 to r=1−ε; from its right endpoint directly continue a downward-sloping straight line to the right, with no jump, no vertical blue segment, and no second plateau. Remove redundant lower duplicated ticks; label the horizontal axis r_t with ticks 0,1−ε,1. Preserve all text, left positive-advantage plot, formula and overall style. This is the continuous function A_t*max(r,1−ε) for A_t<0.",
+          "source_name": "exec-9e1c789e-839f-4be3-907a-3019a23632cc.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "dd76addc29c15311639c2fbee5637c5f16263d31f07d7d3b2cc21c6b493cb966"
+    },
+    {
+      "file": "07.PPO.md",
+      "id": "rl-ppo-2",
+      "filename": "rl-ppo-2.png",
+      "title": "PPO",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：PPO：采样与优化循环。冻结旧策略 → 采样轨迹 → 价值网络与 GAE → 保存旧 log 概率和优势 → 多轮小批量裁剪更新 → 刷新旧策略。Actor 输出动作分布，Critic 输出 V(s)。旧策略与参考策略不是同义词。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-db09b641-2a64-42e6-a256-9e6324ecfe9a.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "976cf7c71c980e3fd38eda1967ab4d44c94c42a03ed6ad1082a8559b9fe5b0ed"
+    },
+    {
+      "file": "07.PPO.md",
+      "id": "rl-ppo-3",
+      "filename": "rl-ppo-3.png",
+      "title": "PPO",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：PPO：优缺点。三列 优势 / 局限 / 检查。实现较直接 / KL 仍可能过大 / 监控 KL；可重复使用同一批轨迹 / 不能无限复用 / 更新轮数；兼容多种策略 / 优势估计敏感 / 终止与截断掩码。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-7dbf9893-d0aa-42c9-bf18-912eeeeb4c80.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "0c5b97a474132ff47149dc0270b3e65bdc6c80a2d10a5b33d798368414cebe7c"
+    },
+    {
+      "file": "08.SAC.md",
+      "id": "rl-sac-1",
+      "filename": "rl-sac-1.png",
+      "title": "SAC",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：SAC：同时追求回报与策略熵。随机策略分支：高回报行为；保留行动多样性。两个目标汇入 最大熵强化学习。温度 α 调节熵相对权重，不是学习率。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-bd7077dc-2865-45a0-b47b-f0f44c2befe2.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "66a0c6ec5249df3a9932bd3ba93216dd0bfb3534a8674287f57b17212bd0ee85"
+    },
+    {
+      "file": "08.SAC.md",
+      "id": "rl-sac-2",
+      "filename": "rl-sac-2.png",
+      "title": "SAC",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：SAC：常用无独立 V 网络版本。回放 → 两个 Q 网络；状态 → 高斯策略 μ,σ → 重参数化 → tanh 动作。目标 Q 双网络最小值减去 α logπ 形成软备份。标注：2018 后续实用形式；原始版本含独立 V 网络。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-07f2d3ae-e651-499f-8a70-bb21d9c4c38e.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: TD目标补终止掩码 y=r+γ(1−d)[min_j Q_{θ̄_j}(s′,a′)−α logπ(a′|s′)]；标注d为真正终止。底部关于“效果更好”的无条件判断删除，保留结构更简洁。将策略为高斯分布改成“tanh 变换的高斯策略”。",
+          "source_name": "exec-51989f92-26b2-4bbd-be74-858021e9396a.png"
+        },
+        {
+          "prompt": "Edit ONLY the upper-right pink TD target formula to remove mismatched brackets. Write on three spacious lines: y = r + γ(1−d) [ ; min_j Q_{θ̄_j}(s′,a′) ; − α log π(a′|s′) ]. Exactly one opening square bracket before min and one closing square bracket AFTER the entropy term, none after the Q term. Everything else unchanged.",
+          "source_name": "exec-2748da98-14be-42b9-a495-2a1114449d4e.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "70c6862930b6c23fdc6f667716a41474d9eda21cf70c694b47fa3e7887830012"
+    },
+    {
+      "file": "08.SAC.md",
+      "id": "rl-sac-3",
+      "filename": "rl-sac-3.png",
+      "title": "SAC",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：SAC：优缺点。三列 优势 / 局限 / 检查。回放提高样本利用 / Q 外推误差 / 双 Q 与目标网络；熵促进探索 / 奖励尺度影响温度 / 温度与目标熵；连续动作友好 / tanh 概率需修正 / 动作边界。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-b0ed64b6-a608-47b4-bcef-5807a1a61e5e.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "e6a1499a74b70a6d690cbbf659552bb78ca6d76a5c0803be2a470dcfb87d15d4"
+    },
+    {
+      "file": "09.IQL.md",
+      "id": "rl-iql-1",
+      "filename": "rl-iql-1.png",
+      "title": "IQL",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：IQL：在数据内寻找较好动作。固定离线数据多个动作 → 其 Q 值 → 偏向较高值的 expectile V → 下一轮 Q 备份。单独箭头 优势加权行为克隆 → 策略。强调价值训练不查询新策略动作。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-6c8c9b00-e41d-4b67-942e-a1285601aff9.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 删除第四栏错误且无意义的 Qθ(s,a)←N(Qθ(s,a),y) 一行，改为“对平方 TD 误差做梯度下降”。目标为 y=r+γ(1−d)Vφ(s′)，d为真正终止。第一栏“包含每个状态下的多个已出现动作”改成“包含采集到的状态—动作转移”，不要求同一连续状态出现多个动作。",
+          "source_name": "exec-9375bbfd-6de2-4b9d-992f-887b964fd934.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "658f08e5f1cfe478e5825861d733e5030296c8321c2a36d76b7c804a85f6a455"
+    },
+    {
+      "file": "09.IQL.md",
+      "id": "rl-iql-2",
+      "filename": "rl-iql-2.png",
+      "title": "IQL",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：IQL：三个损失，三个组件。离线 (s,a,r,s′) 分别送入 Q(s,a)、V(s)、π(a|s)。V 拟合目标 Q 的上 expectile；Q 拟合 r+γV(s′)；策略拟合数据动作，权重由 exp(βA) 给出。目标标签停止梯度。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-d4443130-a2d4-49d2-830f-2a52053585e1.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "4e0619beccc7bc2f5d9d81398fe2c3f09bd11b087309a14bada451c171f4568b"
+    },
+    {
+      "file": "09.IQL.md",
+      "id": "rl-iql-3",
+      "filename": "rl-iql-3.png",
+      "title": "IQL",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：IQL：优缺点。三列 优势 / 局限 / 检查。避免备份 OOD 动作 / 无法创造数据未覆盖行为 / 数据覆盖；不需在线交互 / expectile 与权重敏感 / τ 与权重上限；价值与策略提取分离 / 高价值估计可能有误 / 独立评估。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-2057f3b1-3efe-4cc2-b4cc-ddf7bbd5f6fa.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 中间第一格“无法创造数据未覆盖的行为”改为“数据覆盖限制可靠改进”；正文改为“价值学习受数据支持限制；策略可能输出未见动作，但其价值与安全性没有保证。”",
+          "source_name": "exec-bb339765-1a84-4045-b224-75cb87c9e1da.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "a264e7cc1a44fea78a80c47dadf25d19ba23a0b49d525a7f166ec42b3f9b483d"
+    },
+    {
+      "file": "10.DPO.md",
+      "id": "rl-dpo-1",
+      "filename": "rl-dpo-1.png",
+      "title": "DPO",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：DPO：从偏好对直接优化策略。提示词 x → 胜者 yw 与败者 yl → 当前策略和冻结参考策略计算 log 概率 → 相对偏好间隔 → logistic 损失。没有独立奖励模型训练节点。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-ec64a267-70f6-4907-b670-d77ac120e209.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "612a702020a7ac1f4d1347efb06d24df95c7a88154ab1b9356f3ea8974bab7c7"
+    },
+    {
+      "file": "10.DPO.md",
+      "id": "rl-dpo-2",
+      "filename": "rl-dpo-2.png",
+      "title": "DPO",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：DPO：双序列打分流程。chosen 和 rejected 都经同一个可训练语言模型；同时经冻结参考语言模型。每条响应只累加响应 token log 概率，排除提示和 padding。四个分数 → 参考校正间隔 → log-sigmoid 损失 → 只更新当前模型。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-94ef7c2e-bebf-4837-843f-391f66e0e5c5.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 损失公式必须补β：L_DPO=−log σ(βΔ)。在公式下方添加“β>0：参考策略约束相关的超参数”。其他保持不变。",
+          "source_name": "exec-c9722b14-9615-4674-9c89-7a3c9a3f6ab0.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "308ffebbaab27a6cbfb96eadf47e3e2621ebcf6014f06a9a81b3ec186fd1c906"
+    },
+    {
+      "file": "10.DPO.md",
+      "id": "rl-dpo-3",
+      "filename": "rl-dpo-3.png",
+      "title": "DPO",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：DPO：优缺点。三列 优势 / 局限 / 检查。无需训练时在线 rollout / 受偏好数据覆盖限制 / 偏好噪声；无需独立奖励网络 / Bradley-Terry 假设 / 标注一致性；损失简洁 / 长度与参考模型影响 / response mask 和 β。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-56d1b076-a6cc-4e03-9e32-9eaeeae0d5c3.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "352ead8f7b80b346f6cfc60dd6a0a69a7b44b10f0107f30b292a515cb0c3d9fe"
+    },
+    {
+      "file": "11.GRPO.md",
+      "id": "rl-grpo-1",
+      "filename": "rl-grpo-1.png",
+      "title": "GRPO",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：GRPO：同题多答产生相对优势。一个问题 → 四条回答 → 奖励 1,1,0,0 → 组均值0.5，标准差0.5 → 优势 +1,+1,−1,−1。明确总体标准差示例。无需价值网络；仍需可靠奖励。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-86b28138-7e57-44ab-99b0-2befbb4a336a.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "7fde89a6ef80df6795cd68f889b7af45f3d65a130c45911c380d08a6740982cc"
+    },
+    {
+      "file": "11.GRPO.md",
+      "id": "rl-grpo-2",
+      "filename": "rl-grpo-2.png",
+      "title": "GRPO",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：GRPO：组优势与逐 token 更新。旧策略生成一组回答 → 验证器评分 → 组内标准化优势。当前策略与旧策略 token 概率比 → PPO 式裁剪。冻结参考策略 → KL 正则。三条分支汇入策略目标。不要将旧策略和参考策略合并。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-1aee2531-cf98-49b3-93ae-1f5924368034.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 底部错误的仅clip乘优势目标改成 J=E[ (1/G)∑_i (1/T_i)∑_t {min(ρ_it A_i, clip(ρ_it,1−ε,1+ε)A_i)−β k_it} ]。为节省空间可将底部写成“逐 token 最大化 min(ρA, clip(ρ)A) − βk；每条回答先平均，再对组平均”。右下参考策略公式改成 u_it=π_ref(y_it|x,y_i,<t)/πθ(y_it|x,y_i,<t)，k_it=u_it−log u_it−1。补注“原始 GRPO 的 KL 近似项；旧策略与参考策略不同”。全图概率比统一ρ_it，奖励保留r_i。不能把单纯裁剪比率当成PPO的min目标。",
+          "source_name": "exec-e14d1a16-5fff-41d8-a552-85b142ed2f22.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "409c9672a5e65af0da8bc8dc8b43a036c65cb5352a6dadffc37b76cb2d5480bb"
+    },
+    {
+      "file": "11.GRPO.md",
+      "id": "rl-grpo-3",
+      "filename": "rl-grpo-3.png",
+      "title": "GRPO",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：GRPO：优缺点。三列 优势 / 局限 / 检查。省去 critic / 同题多答成本 / 组大小；相对奖励基线 / 全对全错无组内信号 / 零方差处理；易结合可验证奖励 / 长度与标准化偏差 / 验证器和归一化。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-99bcc3a1-5926-4c8e-8d93-143c8e1be727.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "c767adebd565daa3c0116cc0789d0c14f82a7dd153ade1e5ae0985bb0ab9059a"
+    },
+    {
+      "file": "12.EXPO.md",
+      "id": "rl-expo-1",
+      "filename": "rl-expo-1.png",
+      "title": "EXPO",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：EXPO：先生成，再局部编辑。大型基础扩散策略 → 候选动作 a → 小型高斯编辑策略 → 编辑动作 a+Δa。原动作与编辑动作共同进入 Q 评价 → 选最高值。说明基础策略用模仿训练；编辑策略用价值与熵训练。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-6f847871-1b9c-4bc0-a72d-e937c9ba987d.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "60cb7749628c1daed8e4a10d6024f2f6a669c14a9a75b71f37b7b57df7a54823"
+    },
+    {
+      "file": "12.EXPO.md",
+      "id": "rl-expo-2",
+      "filename": "rl-expo-2.png",
+      "title": "EXPO",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：EXPO：基础策略、编辑器与在线回放。离线数据加在线回放 → 基础策略模仿损失；小型高斯编辑器读取 (s,a) 输出残差；N 对基础和编辑动作 → Q 选择 → 环境与 TD 下一动作备份。明确选择在交互和 TD 中都使用。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-ed43b9c3-cada-45f1-9435-03cba502b028.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 右中Q选择必须比较原动作和编辑动作的联合集合，而非仅编辑动作：C(s)=∪_{i=1}^N{a_i,ã_i}，a*=argmax_{a∈C(s)}Q(s,a)。文字改“对2N个基础与编辑候选评分”。TD面板 y=r+γ(1−d)Q_target(s′,a*(s′))，下一动作在下一状态相同联合候选集合选择，删除原来错误把argmax索引当动作的式子。基础策略模仿损失面板删除负logπ公式改成“扩散噪声预测模仿损失；拟合缓冲区中的动作”，避免暗示DDPM可直接计算动作似然。保留其余布局。",
+          "source_name": "exec-9a9df9e1-172a-4859-be01-3b3646db0b2d.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "e990776e33ae3fffbe43cc8adf6cd426917ee110fd14470ec5920c5cdd7d4acb"
+    },
+    {
+      "file": "12.EXPO.md",
+      "id": "rl-expo-3",
+      "filename": "rl-expo-3.png",
+      "title": "EXPO",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：EXPO：优缺点。三列 优势 / 局限 / 检查。避免对长生成链做 Q 反传 / 多候选采样成本 / 候选数量；局部编辑允许改进 / 依赖基础数据和 Q / 残差尺度；可在线探索 / Q 误差可能被放大 / 真实回报。底部：此处 EXPO 为 Expressive Policy Optimization。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-6e9698bb-c5b7-43ea-8c14-24ce7aa354d8.png",
+      "revisions": [],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "b942a63ec9e8029b878c2318f04109b4567c40fe86bfae6d45e3851974a3d79d"
+    },
+    {
+      "file": "13.GSPO.md",
+      "id": "rl-gspo-1",
+      "filename": "rl-gspo-1.png",
+      "title": "GSPO",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：GSPO：以整条回答作为裁剪单位。一条回答多个 token 的新旧 log 概率差 → 对有效长度取平均 → exp → 一个序列比率 → 与一个组优势组合。强调几何平均，不是 token 比率算术平均。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-8ff83334-298c-4bc8-bec4-5f2887efc3f1.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 第4栏错误的仅clip乘A损失改为 L=−E[min(r(y)A(y),clip(r(y),1−ε,1+ε)A(y))]。第3栏文字改“长度归一化的序列比率”，不能称原始整条回答概率比。符号clip说明改“裁剪代理项；不强制真实比率落在区间内”。",
+          "source_name": "exec-c52f139b-1936-40fb-952c-1ade74f83598.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "3ad1076a0257d4f663ddf7fde1a9de30a52d3c16da775dac50f5fe90362434d5"
+    },
+    {
+      "file": "13.GSPO.md",
+      "id": "rl-gspo-2",
+      "filename": "rl-gspo-2.png",
+      "title": "GSPO",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：GSPO：序列级训练流程。旧策略生成 G 条回答 → 奖励与组优势。当前和旧模型 → 每条回答长度归一化似然比 → 序列裁剪目标 → 当前策略梯度。共享序列权重分配到该回答所有 token。长短回答各有自身有效长度。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-90de6c63-8df8-4eef-9582-e1049c785099.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 全图概率比统一s_i，奖励使用r_i避免冲突。组优势按原始GSPO标准化 A_i=(r_i−mean(r))/std(r)。序列比率公式logπ必须条件于x和y_i,<t。底部共享梯度权重改为“未裁剪时：s_i A_i / |y_i|”，不能漏s_i。右侧短回答改为四个token“今 天 不 错”，长度4，标签t=1,2,3,4，所有短回答分母改4。上方clip目标min保持。",
+          "source_name": "exec-879fe71f-0925-4f5c-b9bd-531e255ea157.png"
+        },
+        {
+          "prompt": "Only replace the two BOTTOM long/short answer illustration panels. They currently miscount Chinese tokens. Use abstract numbered token boxes instead of Chinese sentences: long sequence EXACTLY EIGHT boxes labeled z₁,z₂,z₃,z₄,z₅,z₆,z₇,z₈, with length T_long=8; short sequence EXACTLY FOUR boxes labeled z₁,z₂,z₃,z₄, with length T_short=4. Show just one row of boxes per panel, no duplicate row. Under long write 每个 token 的未裁剪梯度权重：s_long A_long / 8; under short: 每个 token 的未裁剪梯度权重：s_short A_short / 4. Add tiny note 教学符号，不代表真实 tokenizer 切分. Preserve all other panels and correct formulas.",
+          "source_name": "exec-089b5ab3-c75e-4c5f-b2eb-44396be8aede.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "a0a40195282421e6415fbd593d8b640c1ad6ec3dbcca4493c66dc167a2091b41"
+    },
+    {
+      "file": "13.GSPO.md",
+      "id": "rl-gspo-3",
+      "filename": "rl-gspo-3.png",
+      "title": "GSPO",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：GSPO：优缺点。三列 优势 / 局限 / 检查。裁剪与序列奖励对齐 / 仍有组奖励问题 / 零方差；抑制比率尺度爆炸 / 归一化改变目标 / 非无偏原始 IS；可改善大型模型训练稳定性 / 不保证所有任务更优 / 长度掩码与裁剪率。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-cd9c19af-5d00-4661-b722-3cd9f3927087.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 右上零方差说明错误，改为“组内奖励全部相同时，相对优势为零；需处理标准差为零的情况。”不是裁剪权重变零。归一化明确写“长度归一化（取序列比率的长度次方根）”，不要混淆自归一化IS。",
+          "source_name": "exec-fac85bef-3c42-40f0-a5d8-0ff5fc2d8a14.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "819fd00389663f9f5b3b8396c2bf3d673d3f43d9d79db5864714659d78c2c2fc"
+    },
+    {
+      "file": "14.QGF.md",
+      "id": "rl-qgf-1",
+      "filename": "rl-qgf-1.png",
+      "title": "QGF",
+      "role": "核心思想",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：QGF：在推理时引导动作生成。冻结流策略从噪声到动作；每个中间步先外推一个干净动作估计 → 在估计动作上取 Q 梯度 → 回到当前步修正速度。强调不在原始噪声动作上直接查询 Q 梯度。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-892b601d-49ac-4581-81f7-cce288e25950.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 严格使用论文流时间从0到1：初始a_0~N(0,I)，生成链a_0→a_t→a_1，最终a_1执行。干净动作估计改为 â_1=a_t+(1−t)vθ(s,a_t,t)。Q梯度g_t=∇_a Qφ(s,a)|_{a=â_1}。更新必须 a_{t+h}=a_t+h[vθ(s,a_t,t)+ηg_t]，h>0，绝不能沿t减小。替换所有a_T到a_0的反向时间标签，去掉fθ未定义估计式。",
+          "source_name": "exec-58c2adee-d774-49c9-bb45-4fe3f40e325a.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "4a1740ea34dc4b8f761ba2e6493417b88a01575f7cf1b596b85dc4ad1aea3467"
+    },
+    {
+      "file": "14.QGF.md",
+      "id": "rl-qgf-2",
+      "filename": "rl-qgf-2.png",
+      "title": "QGF",
+      "role": "结构与流程",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：QGF：训练与推理解耦。训练区：离线动作 → 流匹配行为克隆；离线转移 → IQL 价值学习。推理区：冻结速度网络 → 一步终点外推 â1=a_t+(1−t)v → Q 对 â1 的梯度 g → 当前状态 a_t 更新。梯度不穿过速度网络，Jacobian 近似单位阵。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-430dee69-6dff-4cef-a205-38b2aa0ab3cb.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 第4步更新改为 a_{t+h}=a_t+h[vθ(s,a_t,t)+ηg]，旁注h为积分步长。原a_t←a_t+ηg漏了基础速度与步长，必须替换。推理固定Q和速度网络参数；Q仍对动作求梯度。",
+          "source_name": "exec-bd2f2722-f234-414f-9aac-3688ef81f0bf.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "07ac8b5bb243406a2bfff753f2886530b31ce3a0f23ee66bca9c2b5c32ac8d98"
+    },
+    {
+      "file": "14.QGF.md",
+      "id": "rl-qgf-3",
+      "filename": "rl-qgf-3.png",
+      "title": "QGF",
+      "role": "优缺点",
+      "prompt": "Use case: scientific-educational infographic. Original landscape 4:3 teaching diagram, warm ivory ruled notebook paper, large legible navy Chinese handwritten typography, pastel mint blue pink lavender yellow panels. Clean sparse arrows, generous margins. Accuracy over decoration. No invented performance charts, no watermark. 标题：QGF：优缺点。三列 优势 / 局限 / 检查。无需奖励驱动的 actor 训练 / 仍依赖预训练 critic / Q 泛化；不反传完整去噪链 / 一步外推与 Jacobian 近似 / 引导强度；推理时调节行为 / 每步有梯度计算 / 延迟和动作边界。底部：2026 预印本，经验结果不是收敛保证。",
+      "tool": "built-in image_gen",
+      "source_name": "exec-34b185f3-60f5-4cba-a064-d32402cc228d.png",
+      "revisions": [
+        {
+          "prompt": "Edit target: attached teaching diagram. Preserve notebook background, pastel panels, navy Chinese handwriting, layout and all correct content. Scientific accuracy is mandatory. Apply these targeted corrections; leave generous room for readable math: 全图统一flow而非DDPM噪声参数化：左中链a_0→a_t→a_1；中间近似公式改成 â_1=a_t+(1−t)vθ(s,a_t,t)，∂â_1/∂a_t≈I；右中删除ε−λ∇Q公式，改成 v_guided=vθ+ηg，g在â_1上计算。下中梯度改成 ∇_a Q(s,a)|_{a=â_1}。左上正文改为“无需用奖励再训练 actor；critic 仍由含奖励的离线数据学习”，不能说无需任何奖励信号或RL训练。",
+          "source_name": "exec-0fa6b1b8-1539-44bf-b854-ac7a6605ff3b.png"
+        }
+      ],
+      "reviewed": "2026-09-23",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "a1fd5907fe38ceffdf5452182a9974e522796b7c6474f12fd3274d662c735f11"
+    }
+  ]
+}
